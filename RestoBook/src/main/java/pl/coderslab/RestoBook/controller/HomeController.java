@@ -8,11 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import pl.coderslab.RestoBook.domain.Restaurant;
 import pl.coderslab.RestoBook.service.RestaurantService;
 
-import jakarta.validation.Valid;
+
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
 public class HomeController {
 
     private final RestaurantService restaurantService;
@@ -22,11 +21,11 @@ public class HomeController {
         this.restaurantService = restaurantService;
     }
 
-    @GetMapping(value = {"", "/home"})
+    @GetMapping(value = {"/", "/home"})
     public String showNewestAndTopRatedRestaurants(Model model) {
         model.addAttribute("newestRestaurants", restaurantService.findTop6NewestRestaurants());
         model.addAttribute("highestRatedRestaurants", restaurantService.findTop5HighestRatedRestaurants());
-        return "views/home";
+        return "home";
     }
 
 }

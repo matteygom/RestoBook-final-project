@@ -9,8 +9,8 @@ import org.springframework.web.multipart.MultipartFile;
 import pl.coderslab.RestoBook.domain.Restaurant;
 import pl.coderslab.RestoBook.service.RestaurantService;
 
-import jakarta.validation.Valid;
 
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
