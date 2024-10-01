@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!doctype html>
 <html lang="en">
 
@@ -191,294 +193,195 @@
     <!-- start Main Wrapper -->
     <div class="main-wrapper">
 
-        <!-- start breadcrumb -->
+        <!-- start hero-header -->
         <div class="breadcrumb-wrapper">
 
             <div class="container">
 
-                <ol class="breadcrumb-list booking-step">
-                    <li><a href="#">Start</a></li>
-                    <li><span>Dashboard właściciela restauracji</span></li>
+                <ol class="breadcrumb-list">
+                    <li><a href="index-02.html">Start</a></li>
+                    <li><span>Logowanie</span></li>
                 </ol>
 
             </div>
 
         </div>
-        <!-- end breadcrumb -->
+        <!-- end hero-header -->
 
-        <div class="admin-container-wrapper">
+        <div class="error-page-wrapper">
 
             <div class="container">
 
-                <div class="GridLex-gap-15-wrappper">
+                <div class="row">
 
-                    <div class="GridLex-grid-noGutter-equalHeight">
 
-                        <div class="GridLex-col-3_sm-4_xs-12">
+                    <!-- login container -->
 
-                            <div class="admin-sidebar">
-
-                                <div class="admin-user-item for-employer">
-
-                                    <div class="image">
-                                        <img src="images/brands/06.png" alt="image" class="img-circle" />
+                    <div class="login-container">
+                        <!-- Combined Form Content -->
+                        <div class="login-container-content">
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="active link-one"><a href="#login-block" data-toggle="tab"><i
+                                        class="fa fa-sign-in"></i>Loguj</a></li>
+                                <li class="link-two"><a href="#register-block" data-toggle="tab"><i
+                                        class="fa fa-pencil"></i>Rejestruj</a></li>
+                                <li class="link-three"><a href="#contact-block" data-toggle="tab"><i
+                                        class="fa fa-envelope"></i>Kontakt</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active fade in" id="login-block">
+                                    <!-- Login Block Form -->
+                                    <div class="login-block-form">
+                                        <!-- Heading -->
+                                        <h4>Zaloguj sie do swojego konta</h4>
+                                        <!-- Border -->
+                                        <div class="bor bg-orange"></div>
+                                        <!-- Form -->
+                                        <form class="form" role="form">
+                                            <!-- Form Group -->
+                                            <div class="form-group">
+                                                <!-- Label -->
+                                                <label class="control-label">Użytkownik</label>
+                                                <!-- Input -->
+                                                <input type="text" class="form-control"
+                                                       placeholder="Wpisz nazwe użytkownika">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Hasło</label>
+                                                <input type="password" class="form-control" placeholder="Wpisz hasło">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Pamiętaj mnie
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <!-- Button -->
+                                                <button type="submit" class="btn btn-primary">Zaloguj się</button>&nbsp;
+                                                <button type="submit" class="btn btn-primary btn-inverse">Resetuj
+                                                </button>
+                                            </div>
+                                            <div class="form-group">
+                                                <a href="account-forgot-password-page.html" class="black">Zapomniałeś
+                                                    hasła ?</a>
+                                            </div>
+                                        </form>
                                     </div>
-
-                                    <h4>Arabian Grill</h4>
-
                                 </div>
-
-                                <div class="admin-user-action text-center">
-
-                                    <a href="#" class="btn btn-primary btn-sm">Edytuj</a>
-                                    <a href="#" class="btn btn-primary btn-sm btn-inverse">Deaktywuj</a>
-
-                                </div>
-
-                                <ul class="admin-user-menu clearfix">
-                                    <li class="active">
-                                        <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-user"></i> Profil</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-key"></i> Zmień hasło</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-bookmark"></i> Rezerwacje</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-sign-out"></i> Wyloguj</a>
-                                    </li>
-                                </ul>
-
-                            </div>
-
-                        </div>
-
-                        <div class="GridLex-col-9_sm-8_xs-12">
-
-                            <div class="admin-content-wrapper">
-
-                                <div class="admin-section-title">
-
-                                    <h2>Profil Restauracji</h2>
-                                    <p>Edytuj kluczowe informacje dotyczące twojej restauracji.</p>
-
-                                </div>
-
-                                <form class="post-form-wrapper">
-
-                                    <div class="row gap-20">
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group bootstrap-fileinput-style-01">
-                                                <label for="form-register-photo-2">Zdjęcie</label>
-                                                <input type="file" name="form-register-photo-2" id="form-register-photo-2">
-                                                <span class="font12 font-italic">** zdjęcie nie może być większe niż 250kb</span>
-                                            </div>
-
-
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-12 col-md-8">
-
+                                <div class="tab-pane fade" id="register-block">
+                                    <div class="register-block-form">
+                                        <!-- Heading -->
+                                        <h4>Stwórz konto</h4>
+                                        <!-- Border -->
+                                        <div class="bor bg-orange"></div>
+                                        <!-- Form -->
+                                        <form:form  class="form" role="form" method="post" action="/loginRegister" modelAttribute="user">
+                                            <!-- Form Group -->
                                             <div class="form-group">
-                                                <label>Nazwa Restauracji:</label>
-                                                <input type="text" class="form-control" value="">
+                                                <!-- Radio -->
+                                                <div class="radio-inline">
+                                                    <form:radiobutton path="role" value="FOODIE" label="Foodie"/>
+                                                </div>
                                             </div>
-
-                                        </div>
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-6 col-md-4">
-
                                             <div class="form-group">
-                                                <label>Rok powstania:</label>
-                                                <select class="selectpicker form-control" data-live-search="false">
-                                                    <option value="0" selected>1980</option>
-                                                    <option value="0">1981</option>
-                                                    <option value="0">1982</option>
-                                                    <option value="0">1983</option>
-                                                    <option value="0">1984</option>
-                                                    <option value="1">1985</option>
-                                                    <option value="2" >1986</option>
-                                                    <option value="3">1987</option>
+                                                <!-- Radio -->
+                                                <div class="radio-inline">
+                                                    <form:radiobutton path="role" value="RESTAURANT" label="Właściciel restauracji"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <!-- Label -->
+                                                <form:label path="userName" class="control-label">Nazwa użytkownika</form:label>
+                                                <form:input path="userName" class="form-control" placeholder="Wpisz nazwę użytkownika"/>
+                                                <!-- Input -->
+                                            </div>
+                                            <div class="form-group">
+                                                <form:label path="email" class="control-label">Email</form:label>
+                                                <form:input path="email" class="form-control" placeholder="Wpisz email"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <form:label path="password" class="control-label">Hasło</form:label>
+                                                <form:password path="password" class="form-control" placeholder="Wpisz hasło"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Potwierdź hasło</label>
+                                                <input type="password" class="form-control" placeholder="Powtórz hasło">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Twój kraj</label>
+                                                <select class="form-control" id="country">
+                                                    <option>Wybierz swój kraj</option>
+                                                    <option>Polska</option>
+                                                    <option>USA</option>
+                                                    <option>London</option>
+                                                    <option>Francja</option>
                                                 </select>
                                             </div>
-
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-4">
-
                                             <div class="form-group">
-                                                <label>Kuchnia:</label>
-                                                <select class="selectpicker form-control" data-live-search="false">
-                                                    <option value="0" selected>Amerykańska</option>
-                                                    <option value="1">Indyjska</option>
-                                                    <option value="2" >Włoska</option>
-                                                    <option value="3">Grecka</option>
-                                                    <option value="4">Polska</option>
-                                                </select>
+                                                <!-- Checkbox -->
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Przez rejestracje, przeczytałem i
+                                                        akceptuje <a href="#">warunki</a>
+                                                    </label>
+                                                </div>
                                             </div>
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="form-group">
-
-                                            <div class="col-sm-6 col-md-4">
-                                                <label>Ilość miejsc:</label>
-                                                <select class="selectpicker show-tick form-control mb-15" data-live-search="false">
-                                                    <option value="0" selected>1-10</option>
-                                                    <option value="1">11-50</option>
-                                                    <option value="1">51-100</option>
-                                                    <option value="2">100+</option>
-                                                    <option value="3">200+</option>
-                                                    <option value="4">300+ </option>
-                                                </select>
-                                            </div>
-
-                                            <div class="col-sm-6 col-md-4">
-                                                <label>Średnia cen:</label>
-                                                <input type="text" class="form-control" value="" placeholder="np. 25">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-6 col-md-4">
-
                                             <div class="form-group">
-                                                <label>Strona internetowa:</label>
-                                                <input type="text" class="form-control" value="" placeholder="format x@x.com">
+                                                <!-- Buton -->
+                                                <button type="submit" class="btn btn-primary">Zatwierdź</button>&nbsp;
+                                                <button type="submit" class="btn btn-primary btn-inverse">Resetuj
+                                                </button>
                                             </div>
-
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group">
-                                                <label>Miasto:</label>
-                                                <input type="text" class="form-control" value="">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group">
-                                                <label>Nr. ulicy:</label>
-                                                <input type="text" class="form-control" value="" placeholder="np. 43/2/3">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group">
-                                                <label>Ulica:</label>
-                                                <input type="text" class="form-control" value="">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group">
-                                                <label>Kod Pocztowy:</label>
-                                                <input type="text" class="form-control" value="">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group">
-                                                <label>Państwo:</label>
-                                                <select class="selectpicker show-tick form-control" data-live-search="false">
-                                                    <option value="0" selected>Polska</option>
-                                                    <option value="1">Francja</option>
-                                                    <option value="2" >Japonia</option>
-                                                    <option value="3">Niemcy</option>
-                                                    <option value="4">USA </option>
-                                                    <option value="5">Włochy</option>
-                                                </select>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group">
-                                                <label>Numer Telefonu:</label>
-                                                <input type="text" class="form-control" value="">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-12 col-md-12">
-
-                                            <div class="form-group bootstrap3-wysihtml5-wrapper">
-                                                <label>Krótki opis:</label>
-                                                <textarea class="bootstrap3-wysihtml5 form-control" placeholder="Wpisz tekst..." style="height: 200px;"></textarea>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-12 col-md-12">
-
-                                            <div class="form-group bootstrap3-wysihtml5-wrapper">
-                                                <label>Szczegółowy opis:</label>
-                                                <textarea class="bootstrap3-wysihtml5 form-control" placeholder="Wpisz tekst..." style="height: 200px;"></textarea>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-12 col-md-12">
-
-                                            <div class="form-group bootstrap3-wysihtml5-wrapper">
-                                                <label>Usługi:</label>
-                                                <textarea class="bootstrap3-wysihtml5 form-control" placeholder="Wpisz tekst..." style="height: 200px;"></textarea>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-12 mt-10">
-                                            <a href="#" class="btn btn-primary">Zapisz</a>
-                                            <a href="#" class="btn btn-warning">Anuluj</a>
-                                        </div>
-
+                                        </form:form>
                                     </div>
-
-                                </form>
-
+                                </div>
+                                <div class="tab-pane fade" id="contact-block">
+                                    <!-- Contact Block Form -->
+                                    <div class="contact-block-form">
+                                        <h4>Formularz kontaktowy</h4>
+                                        <!-- Border -->
+                                        <div class="bor bg-orange"></div>
+                                        <!-- Form -->
+                                        <form class="form" role="form">
+                                            <!-- Form Group -->
+                                            <div class="form-group">
+                                                <label class="control-label">Użytkownik</label>
+                                                <input type="text" class="form-control"
+                                                       placeholder="Wpisz nazwe użytkownika">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Email</label>
+                                                <input type="text" class="form-control" placeholder="Wpisz email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Temat</label>
+                                                <input type="text" class="form-control" placeholder="Wpisz temat">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="comments" class="control-label">Wiadomość</label>
+                                                <textarea class="form-control" id="comments" rows="5"
+                                                          placeholder="Wpisz wiadomość"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <!-- Buton -->
+                                                <button type="submit" class="btn btn-primary">Zatwierdź</button>&nbsp;
+                                                <button type="submit" class="btn btn-primary btn-inverse">Resetuj
+                                                </button>
+                                            </div>
+                                            <c:if test="${not empty error}">
+                                                <div class="alert alert-danger">
+                                                        ${error}
+                                                </div>
+                                            </c:if>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-
                         </div>
-
                     </div>
+
 
                 </div>
 
@@ -664,7 +567,6 @@
 <script type="text/javascript" src="js/jquery.introLoader.min.js"></script>
 <script type="text/javascript" src="js/jquery.responsivegrid.js"></script>
 <script type="text/javascript" src="js/customs.js"></script>
-
 
 
 </body>

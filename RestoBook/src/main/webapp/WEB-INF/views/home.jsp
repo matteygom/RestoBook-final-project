@@ -1,8 +1,10 @@
 
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <!doctype html>
 <html lang="en">
 
@@ -191,7 +193,7 @@
     <div class="main-wrapper">
 
         <!-- start hero-header -->
-        <div class="hero" style="background-image:url('images/hero-header/index-banner.png');">
+        <div class="hero" style="background-image:url('/images/hero-header/index-banner.png');">
             <div class="container">
 
                 <h1>Podążaj za zmysłami</h1>
@@ -295,145 +297,145 @@
 
                         <div class="section-title">
 
-                            <h2 class="text-left text-center-sm">Wyróżnione restauracje</h2>
+                            <h2 class="text-left text-center-sm">Wyróżnione restauracje<br> (Najwyższy Rating) </h2>
 
                         </div>
 
                         <div class="restaurant-common-wrapper">
-
+                        <c:forEach var="restaurant" items="${highestRatedRestaurants}" varStatus="status">
                             <a href="#" class="restaurant-common-wrapper-item highlight clearfix">
                                 <div class="GridLex-grid-middle">
                                     <div class="GridLex-col-6_xs-12">
                                         <div class="restaurant-type">
                                             <div class="image">
-                                                <img src="images/brands/01.jpg" alt="image" />
+                                                <img src="data:image/jpeg;base64,${highestRatedRestaurantsLogos[status.index]}" alt="${restaurant.restoName} Logo" />
                                             </div>
                                             <div class="content">
-                                                <h4>Wow Burger</h4>
-                                                <p>Indian</p>
+                                                <h4>${restaurant.restoName}</h4>
+                                                <p>${restaurant.cuisine}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="GridLex-col-4_xs-8_xss-12 mt-10-xss">
                                         <div class="job-location">
-                                            <i class="fa fa-map-marker text-primary"></i> Menlo park, CA
+                                            <i class="fa fa-map-marker text-primary"></i> ${restaurant.street}
                                         </div>
                                     </div>
                                     <div class="GridLex-col-2_xs-4_xss-12">
                                         <div class="res-btn label label-danger">
                                             Rezerwacja
                                         </div>
-                                        <span class="font12 block spacing1 font400 text-center">Średnia cena: £15</span>
+                                        <span class="font12 block spacing1 font400 text-center">Średnia cena: ${restaurant.avgPrice}</span>
                                     </div>
                                 </div>
                             </a>
+                        </c:forEach>
+<%--                            <a href="#" class="restaurant-common-wrapper-item clearfix">--%>
+<%--                                <div class="GridLex-grid-middle">--%>
+<%--                                    <div class="GridLex-col-6_xs-12">--%>
+<%--                                        <div class="restaurant-type">--%>
+<%--                                            <div class="image">--%>
+<%--                                                <img src="images/brands/02.jpg" alt="image" />--%>
+<%--                                            </div>--%>
+<%--                                            <div class="content">--%>
+<%--                                                <h4>Food Republic</h4>--%>
+<%--                                                <p>Indian</p>--%>
+<%--                                            </div>--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="GridLex-col-4_xs-8_xss-12 mt-10-xss">--%>
+<%--                                        <div class="job-location">--%>
+<%--                                            <i class="fa fa-map-marker text-primary"></i> Menlo park, CA--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="GridLex-col-2_xs-4_xss-12">--%>
+<%--                                        <div class="res-btn label label-danger">--%>
+<%--                                            Rezerwacja--%>
+<%--                                        </div>--%>
+<%--                                        <span class="font12 block spacing1 font400 text-center">Średnia cena: £15</span>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </a>--%>
 
-                            <a href="#" class="restaurant-common-wrapper-item clearfix">
-                                <div class="GridLex-grid-middle">
-                                    <div class="GridLex-col-6_xs-12">
-                                        <div class="restaurant-type">
-                                            <div class="image">
-                                                <img src="images/brands/02.jpg" alt="image" />
-                                            </div>
-                                            <div class="content">
-                                                <h4>Food Republic</h4>
-                                                <p>Indian</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="GridLex-col-4_xs-8_xss-12 mt-10-xss">
-                                        <div class="job-location">
-                                            <i class="fa fa-map-marker text-primary"></i> Menlo park, CA
-                                        </div>
-                                    </div>
-                                    <div class="GridLex-col-2_xs-4_xss-12">
-                                        <div class="res-btn label label-danger">
-                                            Rezerwacja
-                                        </div>
-                                        <span class="font12 block spacing1 font400 text-center">Średnia cena: £15</span>
-                                    </div>
-                                </div>
-                            </a>
+<%--                            <a href="#" class="restaurant-common-wrapper-item clearfix">--%>
+<%--                                <div class="GridLex-grid-middle">--%>
+<%--                                    <div class="GridLex-col-6_xs-12">--%>
+<%--                                        <div class="restaurant-type">--%>
+<%--                                            <div class="image">--%>
+<%--                                                <img src="images/brands/02.jpg" alt="image" />--%>
+<%--                                            </div>--%>
+<%--                                            <div class="content">--%>
+<%--                                                <h4>Attin Cafe &amp; Lounge</h4>--%>
+<%--                                                <p>Indian</p>--%>
+<%--                                            </div>--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="GridLex-col-4_xs-8_xss-12 mt-10-xss">--%>
+<%--                                        <div class="job-location">--%>
+<%--                                            <i class="fa fa-map-marker text-primary"></i> Menlo park, CA--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="GridLex-col-2_xs-4_xss-12">--%>
+<%--                                        <div class="res-btn label label-danger">--%>
+<%--                                            Rezerwacja--%>
+<%--                                        </div>--%>
+<%--                                        <span class="font12 block spacing1 font400 text-center">Średnia cena: £15</span>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </a>--%>
 
-                            <a href="#" class="restaurant-common-wrapper-item clearfix">
-                                <div class="GridLex-grid-middle">
-                                    <div class="GridLex-col-6_xs-12">
-                                        <div class="restaurant-type">
-                                            <div class="image">
-                                                <img src="images/brands/02.jpg" alt="image" />
-                                            </div>
-                                            <div class="content">
-                                                <h4>Attin Cafe &amp; Lounge</h4>
-                                                <p>Indian</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="GridLex-col-4_xs-8_xss-12 mt-10-xss">
-                                        <div class="job-location">
-                                            <i class="fa fa-map-marker text-primary"></i> Menlo park, CA
-                                        </div>
-                                    </div>
-                                    <div class="GridLex-col-2_xs-4_xss-12">
-                                        <div class="res-btn label label-danger">
-                                            Rezerwacja
-                                        </div>
-                                        <span class="font12 block spacing1 font400 text-center">Średnia cena: £15</span>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a href="#" class="restaurant-common-wrapper-item clearfix">
-                                <div class="GridLex-grid-middle">
-                                    <div class="GridLex-col-6_xs-12">
-                                        <div class="restaurant-type">
-                                            <div class="image">
-                                                <img src="images/brands/02.jpg" alt="image" />
-                                            </div>
-                                            <div class="content">
-                                                <h4>Khayalee Polao</h4>
-                                                <p>Bangladeshi</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="GridLex-col-4_xs-8_xss-12 mt-10-xss">
-                                        <div class="job-location">
-                                            <i class="fa fa-map-marker text-primary"></i> Menlo park, CA
-                                        </div>
-                                    </div>
-                                    <div class="GridLex-col-2_xs-4_xss-12">
-                                        <div class="res-btn label label-danger">
-                                            Rezerwacja
-                                        </div>
-                                        <span class="font12 block spacing1 font400 text-center">Średnia cena: £15</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="restaurant-common-wrapper-item clearfix">
-                                <div class="GridLex-grid-middle">
-                                    <div class="GridLex-col-6_xs-12">
-                                        <div class="restaurant-type">
-                                            <div class="image">
-                                                <img src="images/brands/02.jpg" alt="image" />
-                                            </div>
-                                            <div class="content">
-                                                <h4>Italian Pizza Hut</h4>
-                                                <p>Indian</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="GridLex-col-4_xs-8_xss-12 mt-10-xss">
-                                        <div class="job-location">
-                                            <i class="fa fa-map-marker text-primary"></i> Menlo park, CA
-                                        </div>
-                                    </div>
-                                    <div class="GridLex-col-2_xs-4_xss-12">
-                                        <div class="res-btn label label-danger">
-                                            Rezerwacja
-                                        </div>
-                                        <span class="font12 block spacing1 font400 text-center">Średnia cena: £15</span>
-                                    </div>
-                                </div>
-                            </a>
+<%--                            <a href="#" class="restaurant-common-wrapper-item clearfix">--%>
+<%--                                <div class="GridLex-grid-middle">--%>
+<%--                                    <div class="GridLex-col-6_xs-12">--%>
+<%--                                        <div class="restaurant-type">--%>
+<%--                                            <div class="image">--%>
+<%--                                                <img src="images/brands/02.jpg" alt="image" />--%>
+<%--                                            </div>--%>
+<%--                                            <div class="content">--%>
+<%--                                                <h4>Khayalee Polao</h4>--%>
+<%--                                                <p>Bangladeshi</p>--%>
+<%--                                            </div>--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="GridLex-col-4_xs-8_xss-12 mt-10-xss">--%>
+<%--                                        <div class="job-location">--%>
+<%--                                            <i class="fa fa-map-marker text-primary"></i> Menlo park, CA--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="GridLex-col-2_xs-4_xss-12">--%>
+<%--                                        <div class="res-btn label label-danger">--%>
+<%--                                            Rezerwacja--%>
+<%--                                        </div>--%>
+<%--                                        <span class="font12 block spacing1 font400 text-center">Średnia cena: £15</span>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </a>--%>
+<%--                            <a href="#" class="restaurant-common-wrapper-item clearfix">--%>
+<%--                                <div class="GridLex-grid-middle">--%>
+<%--                                    <div class="GridLex-col-6_xs-12">--%>
+<%--                                        <div class="restaurant-type">--%>
+<%--                                            <div class="image">--%>
+<%--                                                <img src="images/brands/02.jpg" alt="image" />--%>
+<%--                                            </div>--%>
+<%--                                            <div class="content">--%>
+<%--                                                <h4>Italian Pizza Hut</h4>--%>
+<%--                                                <p>Indian</p>--%>
+<%--                                            </div>--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="GridLex-col-4_xs-8_xss-12 mt-10-xss">--%>
+<%--                                        <div class="job-location">--%>
+<%--                                            <i class="fa fa-map-marker text-primary"></i> Menlo park, CA--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="GridLex-col-2_xs-4_xss-12">--%>
+<%--                                        <div class="res-btn label label-danger">--%>
+<%--                                            Rezerwacja--%>
+<%--                                        </div>--%>
+<%--                                        <span class="font12 block spacing1 font400 text-center">Średnia cena: £15</span>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </a>--%>
 
                         </div>
 
@@ -532,7 +534,7 @@
         </div>
 
         <!-- start banner section -->
-        <div class="bt-block-home-parallax pt-80 pb-80" style="background-image: url(/Users/matteygom/RestoBook-final-project/RestoBook/src/main/resources/templates/restoBook/images/RestoBookmap.png);">
+        <div class="bt-block-home-parallax pt-80 pb-80" style="background-image: url(/images/RestoBookmap.png);">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -563,30 +565,33 @@
             </div>
 
             <div class="row gap-40">
+                <c:forEach var="restaurant" items="${newestRestaurants}" varStatus="status">
+                    <div class="col-xs-4 col-sm-2 mb-20">
+                        <a href="#">
+                            <img src="data:image/jpeg;base64,${newestRestaurantsLogos[status.index]}" alt="${restaurant.restoName} Logo" />
+                        </a>
+                    </div>
+                </c:forEach>
 
-                <div class="col-xs-4 col-sm-2 mb-20">
-                    <a href="#"><img src="images/brands/10.png" alt="image" /></a>
-                </div>
+<%--                <div class="col-xs-4 col-sm-2 mb-20">--%>
+<%--                    <a href="#"><img src="images/brands/02.png" alt="image" /></a>--%>
+<%--                </div>--%>
 
-                <div class="col-xs-4 col-sm-2 mb-20">
-                    <a href="#"><img src="images/brands/02.png" alt="image" /></a>
-                </div>
+<%--                <div class="col-xs-4 col-sm-2 mb-20">--%>
+<%--                    <a href="#"><img src="images/brands/04.png" alt="image" /></a>--%>
+<%--                </div>--%>
 
-                <div class="col-xs-4 col-sm-2 mb-20">
-                    <a href="#"><img src="images/brands/04.png" alt="image" /></a>
-                </div>
+<%--                <div class="col-xs-4 col-sm-2 mb-20">--%>
+<%--                    <a href="#"><img src="images/brands/18.png" alt="image" /></a>--%>
+<%--                </div>--%>
 
-                <div class="col-xs-4 col-sm-2 mb-20">
-                    <a href="#"><img src="images/brands/18.png" alt="image" /></a>
-                </div>
+<%--                <div class="col-xs-4 col-sm-2 mb-20">--%>
+<%--                    <a href="#"><img src="images/brands/16.png" alt="image" /></a>--%>
+<%--                </div>--%>
 
-                <div class="col-xs-4 col-sm-2 mb-20">
-                    <a href="#"><img src="images/brands/16.png" alt="image" /></a>
-                </div>
-
-                <div class="col-xs-4 col-sm-2 mb-20">
-                    <a href="#"><img src="images/brands/14.png" alt="image" /></a>
-                </div>
+<%--                <div class="col-xs-4 col-sm-2 mb-20">--%>
+<%--                    <a href="#"><img src="images/brands/14.png" alt="image" /></a>--%>
+<%--                </div>--%>
 
             </div>
 

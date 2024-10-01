@@ -3,14 +3,17 @@ package pl.coderslab.RestoBook.domain;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Data
 @Entity
 @Table(name = "users")
+@ToString(exclude = "restaurant")
 public class User {
 
     @Id
@@ -41,6 +44,10 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
+
+    @NotEmpty
+    @Column
+    private boolean active;
 
 
     public enum Role {

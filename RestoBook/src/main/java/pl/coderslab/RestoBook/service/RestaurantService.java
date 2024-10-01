@@ -44,10 +44,6 @@ public class RestaurantService {
         return restaurantRepository.findByZipCode(zipCode);
     }
 
-    public List<Restaurant> findByActive(boolean active) {
-        return restaurantRepository.findByActive(active);
-    }
-
     public List<Restaurant> findTop6NewestRestaurants() {
         return restaurantRepository.findTop6ByOrderByCreatedAtDesc();
     }

@@ -52,9 +52,6 @@ public class Foodie {
     @Column(nullable = true, length = 255)
     private String additionalInfo;
 
-    @NotEmpty
-    @Column
-    private boolean active;
 
     @OneToOne
     @MapsId

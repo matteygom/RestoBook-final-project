@@ -1,9 +1,11 @@
 package pl.coderslab.RestoBook.domain;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -11,6 +13,7 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "restaurants")
+@ToString(exclude = "user")
 public class Restaurant {
 
     @Id
@@ -77,10 +80,6 @@ public class Restaurant {
     @Lob
     private byte[] logo;
 
-    @NotEmpty
-    @Column
-    private boolean active;
-
     @OneToOne
     @MapsId
     @JoinColumn(name = "id")
@@ -97,6 +96,11 @@ public class Restaurant {
             inverseJoinColumns = @JoinColumn(name = "reservation_id")
     )
     private List<Reservation> reservations;
+
+
+    public String getLogoBase64() {
+        return Base64.getEncoder().encodeToString(logo);
+    }
 
 
 }
