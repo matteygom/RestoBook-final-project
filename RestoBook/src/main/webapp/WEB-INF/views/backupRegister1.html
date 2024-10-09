@@ -1,0 +1,152 @@
+<div class="login-container">
+    <!-- Combined Form Content -->
+    <div class="login-container-content">
+        <ul class="nav nav-tabs nav-justified">
+            <li class="active link-one">
+                <a href="#login-block" data-toggle="tab"><i class="fa fa-sign-in"></i>Loguj</a>
+            </li>
+            <li class="link-two">
+                <a href="#register-block" data-toggle="tab"><i class="fa fa-pencil"></i>Rejestruj</a>
+            </li>
+            <li class="link-three">
+                <a href="#contact-block" data-toggle="tab"><i class="fa fa-envelope"></i>Kontakt</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <!-- Logowanie -->
+            <div class="tab-pane active fade in" id="login-block">
+                <div class="login-block-form">
+                    <h4>Zaloguj się do swojego konta</h4>
+                    <div class="bor bg-orange"></div>
+                    <form class="form" role="form" method="post" action="/login">
+                        <!-- Użytkownik -->
+                        <div class="form-group">
+                            <label class="control-label">Użytkownik</label>
+                            <input type="text" name="username" class="form-control" placeholder="Wpisz nazwę użytkownika">
+                        </div>
+                        <!-- Hasło -->
+                        <div class="form-group">
+                            <label class="control-label">Hasło</label>
+                            <input type="password" name="password" class="form-control" placeholder="Wpisz hasło">
+                        </div>
+                        <!-- Zapamiętaj mnie -->
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="remember-me"> Pamiętaj mnie
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Przyciski -->
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Zaloguj się</button>&nbsp;
+                            <button type="reset" class="btn btn-primary btn-inverse">Resetuj</button>
+                        </div>
+                        <div class="form-group">
+                            <a href="account-forgot-password-page.html" class="black">Zapomniałeś hasła?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Rejestracja -->
+            <div class="tab-pane fade" id="register-block">
+                <div class="register-block-form">
+                    <h4>Stwórz konto</h4>
+                    <div class="bor bg-orange"></div>
+                    <form:form method="post" modelAttribute="user" action="/loginRegister">
+                        <!-- Rola -->
+                        <div class="form-group">
+                            <div class="radio-inline">
+                                <form:radiobutton path="role" value="FOODIE" id="client"/>
+                                <label for="client">Foodie</label>
+                            </div>
+                            <div class="radio-inline">
+                                <form:radiobutton path="role" value="RESTAURANT" id="resto"/>
+                                <label for="resto">Właściciel restauracji</label>
+                            </div>
+                        </div>
+                        <!-- Nazwa użytkownika -->
+                        <div class="form-group">
+                            <label class="control-label">Nazwa użytkownika</label>
+                            <form:input path="username" class="form-control" placeholder="Wpisz nazwę użytkownika"/>
+                        </div>
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label class="control-label">Email</label>
+                            <form:input path="email" class="form-control" placeholder="Wpisz email"/>
+                        </div>
+                        <!-- Hasło -->
+                        <div class="form-group">
+                            <label class="control-label">Hasło</label>
+                            <form:password path="password" class="form-control" placeholder="Wpisz hasło"/>
+                        </div>
+                        <!-- Potwierdź hasło -->
+                        <div class="form-group">
+                            <label class="control-label">Potwierdź hasło</label>
+                            <input type="password" name="confirmPassword" class="form-control" placeholder="Powtórz hasło">
+                        </div>
+                        <!-- Kraj -->
+                        <div class="form-group">
+                            <label class="control-label">Twój kraj</label>
+                            <select class="form-control" id="country">
+                                <option value="">Wybierz swój kraj</option>
+                                <option value="PL">Polska</option>
+                                <option value="USA">USA</option>
+                                <option value="UK">Londyn</option>
+                                <option value="FR">Francja</option>
+                            </select>
+                        </div>
+                        <!-- Warunki -->
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Przez rejestrację, przeczytałem i akceptuję <a href="#">warunki</a>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Przyciski -->
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Zatwierdź</button>&nbsp;
+                            <button type="reset" class="btn btn-primary btn-inverse">Resetuj</button>
+                        </div>
+                        <!-- Wyświetlanie błędów -->
+                        <c:if test="${not empty error}">
+                            <div class="alert alert-danger">
+                                ${error}
+                            </div>
+                        </c:if>
+                    </form:form>
+                </div>
+            </div>
+            <!-- Kontakt -->
+            <div class="tab-pane fade" id="contact-block">
+                <div class="contact-block-form">
+                    <h4>Formularz kontaktowy</h4>
+                    <div class="bor bg-orange"></div>
+                    <form class="form" role="form">
+                        <div class="form-group">
+                            <label class="control-label">Użytkownik</label>
+                            <input type="text" class="form-control" placeholder="Wpisz nazwę użytkownika">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Email</label>
+                            <input type="text" class="form-control" placeholder="Wpisz email">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Temat</label>
+                            <input type="text" class="form-control" placeholder="Wpisz temat">
+                        </div>
+                        <div class="form-group">
+                            <label for="comments" class="control-label">Wiadomość</label>
+                            <textarea class="form-control" id="comments" rows="5" placeholder="Wpisz wiadomość"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Zatwierdź</button>&nbsp;
+                            <button type="reset" class="btn btn-primary btn-inverse">Resetuj</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,7 +8,6 @@ import javax.validation.constraints.NotEmpty;
 import java.util.Base64;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Entity

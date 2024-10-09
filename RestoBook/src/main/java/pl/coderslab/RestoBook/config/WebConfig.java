@@ -1,5 +1,8 @@
 package pl.coderslab.RestoBook.config;
 
+import org.apache.logging.log4j.LogManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -42,7 +45,7 @@ public class WebConfig implements WebMvcConfigurer {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests(authorize -> authorize
-                        .antMatchers("/", "/home","loginRegister", "/css/**", "/js/**", "/images/**", "/icons/**", "/bootstrap/**").permitAll()
+                        .antMatchers("/", "/home","/loginRegister", "/css/**", "/js/**", "/images/**", "/icons/**", "/bootstrap/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(formLogin -> formLogin
@@ -66,4 +69,8 @@ public class WebConfig implements WebMvcConfigurer {
                 .antMatchers("/css/**", "/js/**", "/images/**", "/icons/**", "/bootstrap/**");
     }
 
+    @Bean
+    public Logger logger() {
+        return LoggerFactory.getLogger(getClass());
+    }
 }

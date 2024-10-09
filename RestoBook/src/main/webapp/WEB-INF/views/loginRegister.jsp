@@ -283,7 +283,9 @@
                                                 <!-- Radio -->
                                                 <div class="radio-inline">
                                                     <form:radiobutton path="role" value="FOODIE" label="Foodie"/>
+                                                    <input type="hidden" name="role" value="FOODIE">
                                                 </div>
+                                                <form:errors path="role"/>
                                             </div>
                                             <div class="form-group">
                                                 <!-- Radio -->

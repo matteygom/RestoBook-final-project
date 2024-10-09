@@ -59,7 +59,7 @@ public class UserService {
     public void saveFoodie(User user, Foodie foodie) {
         user.setPassword(encodePassword(user.getPassword()));
         user.setActive(true);
-        user = userRepository.save(user);
+       userRepository.save(user);
 
         foodie.setUser(user);
         foodieRepository.save(foodie);
@@ -68,7 +68,7 @@ public class UserService {
     public void saveRestaurant(User user, Restaurant restaurant) {
         user.setPassword(encodePassword(user.getPassword()));
         user.setActive(true);
-        user = userRepository.save(user);
+       userRepository.save(user);
 
         restaurant.setUser(user);
         restaurantRepository.save(restaurant);

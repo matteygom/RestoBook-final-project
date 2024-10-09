@@ -45,7 +45,7 @@ public class User {
     @Column(nullable = false)
     private Role role;
 
-    @NotEmpty
+
     @Column
     private boolean active;
 
