@@ -1,6 +1,7 @@
 package pl.coderslab.RestoBook.domain;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -10,23 +11,23 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "foodies")
+@ToString(exclude = "user")
 public class Foodie {
 
     @Id
     private Long id;
 
-    @NotEmpty
+//    @NotEmpty
     @Column(length = 15)
     private String firstName;
 
-    @NotEmpty
+//    @NotEmpty
     @Column(length = 20)
     private String lastName;
 
-    @NotEmpty
-    @Temporal(TemporalType.DATE)
+//    @NotEmpty
     @Column(nullable = true)
-    private Date birthDate;
+    private String birthDate;
 
     @Column(nullable = true, length = 20)
     private String education;

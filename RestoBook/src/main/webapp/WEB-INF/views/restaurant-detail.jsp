@@ -23,32 +23,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Fav and Touch Icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="images/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../../images/ico/favicon.png">
 
     <!-- CSS Plugins -->
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/component.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css" media="screen">
+    <link href="../../css/animate.css" rel="stylesheet">
+    <link href="../../css/main.css" rel="stylesheet">
+    <link href="../../css/component.css" rel="stylesheet">
 
     <!-- CSS Font Icons -->
-    <link rel="stylesheet" href="icons/linearicons/style.css">
-    <link rel="stylesheet" href="icons/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="icons/simple-line-icons/css/simple-line-icons.css">
-    <link rel="stylesheet" href="icons/ionicons/css/ionicons.css">
-    <link rel="stylesheet" href="icons/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
-    <link rel="stylesheet" href="icons/rivolicons/style.css">
-    <link rel="stylesheet" href="icons/flaticon-line-icon-set/flaticon-line-icon-set.css">
-    <link rel="stylesheet" href="icons/flaticon-streamline-outline/flaticon-streamline-outline.css">
-    <link rel="stylesheet" href="icons/flaticon-thick-icons/flaticon-thick.css">
-    <link rel="stylesheet" href="icons/flaticon-ventures/flaticon-ventures.css">
+    <link rel="stylesheet" href="../../icons/linearicons/style.css">
+    <link rel="stylesheet" href="../../icons/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../icons/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="../../icons/ionicons/css/ionicons.css">
+    <link rel="stylesheet" href="../../icons/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="../../icons/rivolicons/style.css">
+    <link rel="stylesheet" href="../../icons/flaticon-line-icon-set/flaticon-line-icon-set.css">
+    <link rel="stylesheet" href="../../icons/flaticon-streamline-outline/flaticon-streamline-outline.css">
+    <link rel="stylesheet" href="../../icons/flaticon-thick-icons/flaticon-thick.css">
+    <link rel="stylesheet" href="../../icons/flaticon-ventures/flaticon-ventures.css">
 
     <!-- CSS Custom -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -73,7 +73,7 @@
 
                 <div class="logo-wrapper">
                     <div class="logo">
-                        <a href="index-02.html"><img src="images/RestoBookPng.png" alt="Logo"/></a>
+                        <a href="index-02.html"><img src="../../images/RestoBookPng.png" alt="Logo"/></a>
                     </div>
                 </div>
 
@@ -219,19 +219,19 @@
                             <ul class="meta-list clearfix">
                                 <li>
                                     <h4 class="heading">Lokalizacja:</h4>
-                                    Warszawa, Polska
+                                    ${restaurant.get().country}, ${restaurant.get().city}
                                 </li>
                                 <li>
                                     <h4 class="heading">Kuchnia:</h4>
-                                    Koreańska
+                                    ${restaurant.get().cuisine}
                                 </li>
                                 <li>
                                     <h4 class="heading">Ocena:</h4>
-                                    5
+                                    ${restaurant.get().rating}
                                 </li>
                                 <li>
                                     <h4 class="heading">Średnia cen:</h4>
-                                    &dollar;15
+                                    ${restaurant.get().avgPrice}
                                 </li>
 
                             </ul>
@@ -240,7 +240,7 @@
 
                                 <h3>Podsumowanie</h3>
                                 <div class="image">
-                                    <img src="images/brands/06.png" alt="image" />
+                                    <img src="data:image/jpeg;base64,${restaurant.get().logoBase64}" alt="image" style="width: 300px; height: 150px;"/>
                                 </div>
 
                                 <p><span class="font600">Kogel Mogel</span>
@@ -258,10 +258,10 @@
 
                             <div class="restaurant-detail-header bb mb-30">
 
-                                <h2 class="heading mb-15">Kogel Mogel</h2>
+                                <h2 class="heading mb-15">${restaurant.get().restoName}</h2>
 
                                 <div class="meta-div clearfix mb-25">
-                                    <span>kuchnia <a href="#">Polska</a> </span>
+                                    <span>kuchnia <a href="#">${restaurant.get().cuisine}</a> </span>
                                     <span class="res-btn label label-success">Oceń</span>
                                     <span class="res-btn label label-info">Polub</span>
                                 </div>
@@ -272,13 +272,7 @@
 
                                 <h3>Opis</h3>
 
-                                <p class="font600 font16">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Weddings followed the all marianne nor whatever settling. Perhaps six prudent several her had offence. Did had way law dinner square tastes. Recommend concealed yet her procuring see consulted depending. Adieus hunted end plenty are his she afraid. Resources agreement contained propriety applauded neglected use yet.</p>
-
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi est, pulvinar eu gravida eget, imperdiet id nunc. Sed a lorem turpis. Ut vestibulum leo vel orci tincidunt condimentum. Donec tincidunt, nibh eu laoreet dapibus, dolor ligula convallis augue, quis convallis nibh tellus quis nibh. </p>
-
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi est, pulvinar eu gravida eget, imperdiet id nunc. Sed a lorem turpis. Ut vestibulum leo vel orci tincidunt condimentum. Donec tincidunt, nibh eu laoreet dapibus, dolor ligula convallis augue, quis convallis nibh tellus quis nibh. </p>
-
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi est, pulvinar eu gravida eget, imperdiet id nunc. Sed a lorem turpis. Ut vestibulum leo vel orci tincidunt condimentum. Donec tincidunt, nibh eu laoreet dapibus, dolor ligula convallis augue, quis convallis nibh tellus quis nibh. </p>
+                                <p class="font600 font16">${restaurant.get().description}</p>
 
                                 <h3>Usługi</h3>
 
@@ -295,7 +289,7 @@
 
                             <div class="join-our-team-wrapper">
 
-                                <a href="reservation.html"
+                                <a href="/reservation/${restaurant.get().id}"
                                    class="btn btn-primary btn-hidden btn-lg collapsed" data-target="#book-table">REZERWUJ
                                 </a>
                                 <!--										<a href="reservation.html">-->
@@ -608,31 +602,31 @@
 
 
 <!-- JS -->
-<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/bootstrap-modalmanager.js"></script>
-<script type="text/javascript" src="js/bootstrap-modal.js"></script>
-<script type="text/javascript" src="js/smoothscroll.js"></script>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
-<script type="text/javascript" src="js/wow.min.js"></script>
-<script type="text/javascript" src="js/jquery.slicknav.min.js"></script>
-<script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
-<script type="text/javascript" src="js/bootstrap-tokenfield.js"></script>
-<script type="text/javascript" src="js/typeahead.bundle.min.js"></script>
-<script type="text/javascript" src="js/bootstrap-select.min.js"></script>
-<script type="text/javascript" src="js/jquery-filestyle.min.js"></script>
-<script type="text/javascript" src="js/bootstrap-select.js"></script>
-<script type="text/javascript" src="js/ion.rangeSlider.min.js"></script>
-<script type="text/javascript" src="js/handlebars.min.js"></script>
-<script type="text/javascript" src="js/jquery.countimator.js"></script>
-<script type="text/javascript" src="js/jquery.countimator.wheel.js"></script>
-<script type="text/javascript" src="js/slick.min.js"></script>
-<script type="text/javascript" src="js/easy-ticker.js"></script>
-<script type="text/javascript" src="js/jquery.introLoader.min.js"></script>
-<script type="text/javascript" src="js/jquery.responsivegrid.js"></script>
-<script type="text/javascript" src="js/customs.js"></script>
+<script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/bootstrap-modalmanager.js"></script>
+<script type="text/javascript" src="../../js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="../../js/smoothscroll.js"></script>
+<script type="text/javascript" src="../../js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../../js/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="../../js/wow.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.slicknav.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="../../js/bootstrap-tokenfield.js"></script>
+<script type="text/javascript" src="../../js/typeahead.bundle.min.js"></script>
+<script type="text/javascript" src="../../js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="../../js/jquery-filestyle.min.js"></script>
+<script type="text/javascript" src="../../js/bootstrap-select.js"></script>
+<script type="text/javascript" src="../../js/ion.rangeSlider.min.js"></script>
+<script type="text/javascript" src="../../js/handlebars.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.countimator.js"></script>
+<script type="text/javascript" src="../../js/jquery.countimator.wheel.js"></script>
+<script type="text/javascript" src="../../js/slick.min.js"></script>
+<script type="text/javascript" src="../../js/easy-ticker.js"></script>
+<script type="text/javascript" src="../../js/jquery.introLoader.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.responsivegrid.js"></script>
+<script type="text/javascript" src="../../js/customs.js"></script>
 
 
 </body>

@@ -1,6 +1,7 @@
 package pl.coderslab.RestoBook.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import pl.coderslab.RestoBook.domain.Restaurant;
 
 import java.util.Optional;
@@ -13,5 +14,17 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     List<Restaurant> findByCuisine(String cuisine);
     List<Restaurant> findByZipCode(String zipCode);
     List<Restaurant> findTop6ByOrderByCreatedAtDesc();
+    List<Restaurant> findTop10ByOrderByCreatedAtDesc();
     List<Restaurant> findTop5ByOrderByRatingDesc();
+
+
+    @Query("SELECT COUNT(r) FROM Restaurant r")
+    long countAllRestaurants();
+
+    @Query("SELECT COUNT(DISTINCT r.cuisine) FROM Restaurant r")
+    long countDistinctCuisines();
+
+    @Query("SELECT COUNT(DISTINCT r.country) FROM Restaurant r")
+    long countDistinctCountries();
+
 }

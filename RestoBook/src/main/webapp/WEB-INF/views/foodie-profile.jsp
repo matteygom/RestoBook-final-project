@@ -1,8 +1,8 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <!doctype html>
 <html lang="en">
 
@@ -15,10 +15,8 @@
 
     <!-- Title Of Site -->
     <title>RestoBook - Rezerwacje Online</title>
-    <meta name="description"
-          content="RestoBook is a booking platform which brings restaurants and food lovers together. Booking tables online is easier than any other platforms.">
-    <meta name="keywords"
-          content="food, booking online, restaurant, reservation, book a table, foodies, cafe, recipes, menu, dishes, chefs and cooking experts ">
+    <meta name="description" content="RestoBook is a booking platform which brings restaurants and food lovers together. Booking tables online is easier than any other platforms.">
+    <meta name="keywords" content="food, booking online, restaurant, reservation, book a table, foodies, cafe, recipes, menu, dishes, chefs and cooking experts ">
     <meta name="author" content="iglyphic">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -73,7 +71,7 @@
 
                 <div class="logo-wrapper">
                     <div class="logo">
-                        <a href="index-02.html"><img src="../../images/RestoBookPng.png" alt="Logo"/></a>
+                        <a href="index-02.html"><img src="../../images/RestoBookPng.png" alt="Logo" /></a>
                     </div>
                 </div>
 
@@ -144,8 +142,7 @@
                                 <li>
                                     <a href="#">Restauracja</a>
                                     <ul>
-                                        <li><a href="restaurant-owner-dashboard.html">Dashboard Właściciela
-                                            restauracji</a></li>
+                                        <li><a href="restaurant-owner-dashboard.html">Dashboard Właściciela restauracji</a></li>
                                         <li><a href="restaurant-detail.html">Restauracja Szczegóły</a></li>
                                     </ul>
                                 </li>
@@ -198,7 +195,7 @@
 
                 <ol class="breadcrumb-list booking-step">
                     <li><a href="#">Start</a></li>
-                    <li><span>Dashboard właściciela restauracji</span></li>
+                    <li><span>Profil</span></li>
                 </ol>
 
             </div>
@@ -218,35 +215,36 @@
 
                             <div class="admin-sidebar">
 
-                                <div class="admin-user-item for-employer">
+                                <div class="admin-user-item">
 
                                     <div class="image">
-                                        <img src="data:image/jpeg;base64,${restaurant.logoBase64}" alt="Logo" />
+                                        <img src="../../images/man/01.jpg" alt="image" class="img-circle" />
                                     </div>
 
-                                    <h4>${restaurant.restoName}</h4>
+                                    <h4>${foodie.firstName} ${foodie.lastName}</h4>
+                                    <p class="user-role">Foodie</p>
 
                                 </div>
 
                                 <div class="admin-user-action text-center">
 
-                                    <a href="/owner/dashboard/restaurantEdit/${userId}" class="btn btn-primary">Edytuj</a>
+                                    <a href="/foodie/profile/edit/${foodieId}" class="btn btn-primary btn-sm">Edytuj</a>
                                     <a href="#" class="btn btn-primary btn-sm btn-inverse">Deaktywuj</a>
 
                                 </div>
 
                                 <ul class="admin-user-menu clearfix">
-                                    <li class="active">
-                                        <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
-                                    </li>
                                     <li>
+                                        <a href="#"><i class="fa fa-tachometer"></i> Twoje rezerwacje</a>
+                                    </li>
+                                    <li class="active">
                                         <a href="#"><i class="fa fa-user"></i> Profil</a>
                                     </li>
                                     <li>
                                         <a href="#"><i class="fa fa-key"></i> Zmień hasło</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-bookmark"></i> Rezerwacje</a>
+                                        <a href="#"><i class="fa fa-bookmark"></i> Ulubione Restauracje</a>
                                     </li>
                                     <li>
                                         <a href="#"><i class="fa fa-sign-out"></i> Wyloguj</a>
@@ -263,8 +261,8 @@
 
                                 <div class="admin-section-title">
 
-                                    <h2>Dashboard Restauracji</h2>
-                                    <p>Edytuj kluczowe informacje dotyczące twojej restauracji.</p>
+                                    <h2>Profil</h2>
+                                    <p>Bieżące informacje dotyczące twojej osoby.</p>
 
                                 </div>
 
@@ -274,49 +272,22 @@
 
                                         <div class="col-sm-6 col-md-4">
 
-                                            <div class="image">
-                                                <label>Zdjęcie</label>
-                                                <br>
-                                                <img src="data:image/jpeg;base64,${restaurant.logoBase64}" alt="Logo" />
-<%--                                                <input type="file" name="form-register-photo-2" id="form-register-photo-2">--%>
-<%--                                                <span class="font12 font-italic">** zdjęcie nie może być większe niż 250kb</span>--%>
+                                            <div class="form-group bootstrap-fileinput-style-01">
+                                                <label><b>Zdjęcie</b></label>
+                                                <img type="file"  id="form-register-photo">
                                             </div>
 
 
 
                                         </div>
 
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-12 col-md-8">
-
-                                            <div class="form-group">
-                                                <label>Nazwa Restauracji:</label>
-                                                <br>
-                                                ${restaurant.restoName}
-
-<%--                                                <input type="text" class="form-control" value="">--%>
-                                            </div>
-
-                                        </div>
                                         <div class="clear"></div>
 
                                         <div class="col-sm-6 col-md-4">
 
                                             <div class="form-group">
-                                                <label>Rok powstania:</label>
-                                                <br>
-                                                ${restaurant.yearOfLaunch}
-<%--                                                <select class="selectpicker form-control" data-live-search="false">--%>
-<%--                                                    <option value="0" selected>1980</option>--%>
-<%--                                                    <option value="0">1981</option>--%>
-<%--                                                    <option value="0">1982</option>--%>
-<%--                                                    <option value="0">1983</option>--%>
-<%--                                                    <option value="0">1984</option>--%>
-<%--                                                    <option value="1">1985</option>--%>
-<%--                                                    <option value="2" >1986</option>--%>
-<%--                                                    <option value="3">1987</option>--%>
-<%--                                                </select>--%>
+                                                <label><b>Imię</b></label>
+                                                ${foodie.firstName}
                                             </div>
 
                                         </div>
@@ -324,43 +295,8 @@
                                         <div class="col-sm-6 col-md-4">
 
                                             <div class="form-group">
-                                                <label>Kuchnia:</label>
-                                                <br>
-                                                ${restaurant.cuisine}
-<%--                                                <select class="selectpicker form-control" data-live-search="false">--%>
-<%--                                                    <option value="0" selected>Amerykańska</option>--%>
-<%--                                                    <option value="1">Indyjska</option>--%>
-<%--                                                    <option value="2" >Włoska</option>--%>
-<%--                                                    <option value="3">Grecka</option>--%>
-<%--                                                    <option value="4">Polska</option>--%>
-<%--                                                </select>--%>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="form-group">
-
-                                            <div class="col-sm-6 col-md-4">
-                                                <label>Ilość miejsc:</label>
-                                                <br>
-                                                ${restaurant.capacity}
-<%--                                                <select class="selectpicker show-tick form-control mb-15" data-live-search="false">--%>
-<%--                                                    <option value="0" selected>1-10</option>--%>
-<%--                                                    <option value="1">11-50</option>--%>
-<%--                                                    <option value="1">51-100</option>--%>
-<%--                                                    <option value="2">100+</option>--%>
-<%--                                                    <option value="3">200+</option>--%>
-<%--                                                    <option value="4">300+ </option>--%>
-<%--                                                </select>--%>
-                                            </div>
-
-                                            <div class="col-sm-6 col-md-4">
-                                                <label>Średnia cen:</label>
-                                                <br>
-                                                ${restaurant.avgPrice}
-<%--                                                <input type="text" class="form-control" value="" placeholder="np. 25">--%>
+                                                <label><b>Nazwisko</b></label>
+                                                ${foodie.lastName}
                                             </div>
 
                                         </div>
@@ -370,10 +306,10 @@
                                         <div class="col-sm-6 col-md-4">
 
                                             <div class="form-group">
-                                                <label>Strona internetowa:</label>
-                                                <br>
-                                                ${restaurant.webSite}
-<%--                                                <input type="text" class="form-control" value="" placeholder="format x@x.com">--%>
+                                                <label><b>Data urodzenia</b></label>
+                                                <div class="row gap-5">
+                                                    ${foodie.birthDate}
+                                                </div>
                                             </div>
 
                                         </div>
@@ -381,10 +317,8 @@
                                         <div class="col-sm-6 col-md-4">
 
                                             <div class="form-group">
-                                                <label>Miasto:</label>
-                                                <br>
-                                                ${restaurant.city}
-<%--                                                <input type="text" class="form-control" value="">--%>
+                                                <label><b>Email</b></label>
+
                                             </div>
 
                                         </div>
@@ -394,21 +328,8 @@
                                         <div class="col-sm-6 col-md-4">
 
                                             <div class="form-group">
-                                                <label>Nr. ulicy:</label>
-                                                <br>
-                                                ${restaurant.streetNumber}
-<%--                                                <input type="text" class="form-control" value="" placeholder="np. 43/2/3">--%>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group">
-                                                <label>Ulica:</label>
-                                                <br>
-                                                ${restaurant.street}
-<%--                                                <input type="text" class="form-control" value="">--%>
+                                                <label><b>Wykształcenie</b></label>
+                                                ${foodie.education}
                                             </div>
 
                                         </div>
@@ -418,10 +339,8 @@
                                         <div class="col-sm-6 col-md-4">
 
                                             <div class="form-group">
-                                                <label>Kod Pocztowy:</label>
-                                                <br>
-                                                ${restaurant.zipCode}
-<%--                                                <input type="text" class="form-control" value="">--%>
+                                                <label><b>Nr. ulicy</b></label>
+                                                ${foodie.streetNumber}
                                             </div>
 
                                         </div>
@@ -429,17 +348,28 @@
                                         <div class="col-sm-6 col-md-4">
 
                                             <div class="form-group">
-                                                <label>Państwo:</label>
-                                                <br>
-                                                ${restaurant.country}
-<%--                                                <select class="selectpicker show-tick form-control" data-live-search="false">--%>
-<%--                                                    <option value="0" selected>Polska</option>--%>
-<%--                                                    <option value="1">Francja</option>--%>
-<%--                                                    <option value="2" >Japonia</option>--%>
-<%--                                                    <option value="3">Niemcy</option>--%>
-<%--                                                    <option value="4">USA </option>--%>
-<%--                                                    <option value="5">Włochy</option>--%>
-<%--                                                </select>--%>
+                                                <label><b>Miasto</b></label>
+                                                ${foodie.city}
+                                            </div>
+
+                                        </div>
+
+                                        <div class="clear"></div>
+
+                                        <!--												<div class="col-sm-6 col-md-4">-->
+                                        <!--												-->
+                                        <!--													<div class="form-group">-->
+                                        <!--														<label>Province/State</label>-->
+                                        <!--														<input type="text" class="form-control" value="Paris">-->
+                                        <!--													</div>-->
+                                        <!--													-->
+                                        <!--												</div>-->
+
+                                        <div class="col-sm-6 col-md-4">
+
+                                            <div class="form-group">
+                                                <label><b>Ulica</b></label>
+                                                ${foodie.street}
                                             </div>
 
                                         </div>
@@ -449,54 +379,48 @@
                                         <div class="col-sm-6 col-md-4">
 
                                             <div class="form-group">
-                                                <label>Numer Telefonu:</label>
-                                                <br>
-                                                ${restaurant.phoneNumber}
-<%--                                                <input type="text" class="form-control" value="">--%>
+                                                <label><b>Kod Pocztowy</b></label>
+                                                ${foodie.zipCode}
                                             </div>
 
                                         </div>
 
-<%--                                        <div class="clear"></div>--%>
+                                        <div class="col-sm-6 col-md-4">
 
-<%--                                        <div class="col-sm-12 col-md-12">--%>
+                                            <div class="form-group">
+                                                <label><b>Państwo</b></label>
+                                                ${foodie.country}
+                                            </div>
 
-<%--                                            <div class="form-group bootstrap3-wysihtml5-wrapper">--%>
-<%--                                                <label>Krótki opis:</label>--%>
-<%--                                                <textarea class="bootstrap3-wysihtml5 form-control" placeholder="Wpisz tekst..." style="height: 200px;"></textarea>--%>
-<%--                                            </div>--%>
+                                        </div>
 
-<%--                                        </div>--%>
+                                        <div class="clear"></div>
+
+                                        <div class="col-sm-6 col-md-4">
+
+                                            <div class="form-group">
+                                                <label><b>Numer telefonu</b></label>
+                                                ${foodie.phoneNumber}
+                                            </div>
+
+                                        </div>
 
                                         <div class="clear"></div>
 
                                         <div class="col-sm-12 col-md-12">
 
                                             <div class="form-group bootstrap3-wysihtml5-wrapper">
-                                                <label>Szczegółowy opis:</label>
-                                                <br>
-                                                ${restaurant.description}
-<%--                                                <textarea class="bootstrap3-wysihtml5 form-control" placeholder="Wpisz tekst..." style="height: 200px;"></textarea>--%>
+                                                <label><b>O mnie</b></label>
+                                                ${foodie.additionalInfo}
                                             </div>
 
                                         </div>
 
-<%--                                        <div class="clear"></div>--%>
-
-<%--                                        <div class="col-sm-12 col-md-12">--%>
-
-<%--                                            <div class="form-group bootstrap3-wysihtml5-wrapper">--%>
-<%--                                                <label>Usługi:</label>--%>
-<%--                                                <textarea class="bootstrap3-wysihtml5 form-control" placeholder="Wpisz tekst..." style="height: 200px;"></textarea>--%>
-<%--                                            </div>--%>
-
-<%--                                        </div>--%>
-
                                         <div class="clear"></div>
 
                                         <div class="col-sm-12 mt-10">
-                                            <a href="/owner/dashboard/restaurantEdit/${userId}" class="btn btn-primary">Edytuj</a>
-<%--                                            <a href="#" class="btn btn-warning">Anuluj</a>--%>
+                                            <a href="/foodie/profile/edit/${foodieId}" class="btn btn-primary">Edytuj</a>
+                                            <!--													<a href="#" class="btn btn-primary btn-inverse">Cancel</a>-->
                                         </div>
 
                                     </div>
@@ -633,14 +557,10 @@
 
                         <div class="col-sm-4 col-md-4">
                             <ul class="bottom-footer-menu for-social">
-                                <li><a href="#"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top"
-                                                   title="twitter"></i></a></li>
-                                <li><a href="#"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top"
-                                                   title="facebook"></i></a></li>
-                                <li><a href="#"><i class="ri ri-google-plus" data-toggle="tooltip"
-                                                   data-placement="top" title="google plus"></i></a></li>
-                                <li><a href="#"><i class="ri ri-youtube-play" data-toggle="tooltip"
-                                                   data-placement="top" title="youtube"></i></a></li>
+                                <li><a href="#"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
+                                <li><a href="#"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
+                                <li><a href="#"><i class="ri ri-google-plus" data-toggle="tooltip" data-placement="top" title="google plus"></i></a></li>
+                                <li><a href="#"><i class="ri ri-youtube-play" data-toggle="tooltip" data-placement="top" title="youtube"></i></a></li>
                             </ul>
                         </div>
 
@@ -697,6 +617,7 @@
 
 
 </body>
+
 
 
 </html>

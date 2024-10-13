@@ -1,10 +1,13 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+
 <!doctype html>
 <html lang="en">
+
 
 
 <head>
@@ -15,10 +18,8 @@
 
     <!-- Title Of Site -->
     <title>RestoBook - Rezerwacje Online</title>
-    <meta name="description"
-          content="RestoBook is a booking platform which brings restaurants and food lovers together. Booking tables online is easier than any other platforms.">
-    <meta name="keywords"
-          content="food, booking online, restaurant, reservation, book a table, foodies, cafe, recipes, menu, dishes, chefs and cooking experts ">
+    <meta name="description" content="RestoBook is a booking platform which brings restaurants and food lovers together. Booking tables online is easier than any other platforms.">
+    <meta name="keywords" content="food, booking online, restaurant, reservation, book a table, foodies, cafe, recipes, menu, dishes, chefs and cooking experts ">
     <meta name="author" content="iglyphic">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -61,11 +62,13 @@
 
 <body class="not-transparent-header">
 
+
 <!-- start Container Wrapper -->
 <div class="container-wrapper">
 
     <!-- start Header -->
     <header id="header">
+        <!-- start Navbar (Header) -->
         <!-- start Navbar (Header) -->
         <nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function">
 
@@ -73,7 +76,7 @@
 
                 <div class="logo-wrapper">
                     <div class="logo">
-                        <a href="index-02.html"><img src="../../images/RestoBookPng.png" alt="Logo"/></a>
+                        <a href="index-02.html"><img src="../../images/RestoBookPng.png" alt="Logo" /></a>
                     </div>
                 </div>
 
@@ -144,8 +147,7 @@
                                 <li>
                                     <a href="#">Restauracja</a>
                                     <ul>
-                                        <li><a href="restaurant-owner-dashboard.html">Dashboard Właściciela
-                                            restauracji</a></li>
+                                        <li><a href="restaurant-owner-dashboard.html">Dashboard Właściciela restauracji</a></li>
                                         <li><a href="restaurant-detail.html">Restauracja Szczegóły</a></li>
                                     </ul>
                                 </li>
@@ -189,329 +191,154 @@
     <!-- end Header -->
 
     <!-- start Main Wrapper -->
-    <div class="main-wrapper">
+    <div class="main-wrapper scrollspy-container">
 
-        <!-- start breadcrumb -->
+        <!-- start hero-header -->
         <div class="breadcrumb-wrapper">
 
             <div class="container">
 
                 <ol class="breadcrumb-list booking-step">
-                    <li><a href="#">Start</a></li>
-                    <li><span>Dashboard właściciela restauracji</span></li>
+                    <li><a href="index.html">Start</a></li>
+                    <li><span>Rezerwacja</span></li>
                 </ol>
 
             </div>
 
         </div>
-        <!-- end breadcrumb -->
+        <!-- end hero-header -->
 
-        <div class="admin-container-wrapper">
+        <div class="section sm">
 
+            <!-- Reservation page -->
             <div class="container">
+                <div class="row">
+                    <!-- Main row -->
 
-                <div class="GridLex-gap-15-wrappper">
-
-                    <div class="GridLex-grid-noGutter-equalHeight">
-
-                        <div class="GridLex-col-3_sm-4_xs-12">
-
-                            <div class="admin-sidebar">
-
-                                <div class="admin-user-item for-employer">
-
-                                    <div class="image">
-                                        <img src="data:image/jpeg;base64,${restaurant.logoBase64}" alt="Logo" />
+                    <div class="col-md-9">
+                        <div class="reservation-left-side">
+                            <div class="form-horizontal">
+                                <!-- Form Horizontal -->
+                                <form:form method="post" modelAttribute="reservation" class="form-horizontal">
+                                    <div class="form-group">
+                                        <!-- Full Name -->
+                                        <label class="col-sm-3 control-label">Pełne imię i nazwisko&nbsp;*</label>
+                                        <div class="col-sm-9">
+                                            <form:input path="title" placeholder="Tytuł" class="form-control custom-title" />
+                                            <form:input path="fullName" placeholder="Pełne imię i nazwisko" class="form-control custom-name" id="name" />
+                                            <form:errors path="fullName" cssClass="text-danger" />
+                                        </div>
                                     </div>
+                                    <!-- Full Name end -->
 
-                                    <h4>${restaurant.restoName}</h4>
+                                    <div class="form-group">
+                                        <!-- Email Address -->
+                                        <label class="col-sm-3 control-label">Adres Email&nbsp;*</label>
+                                        <div class="col-sm-9">
+                                            <form:input path="email" placeholder="Adres Email" class="form-control" id="email" />
+                                            <form:errors path="email" cssClass="text-danger" />
+                                        </div>
+                                    </div>
+                                    <!-- Email Address end -->
 
-                                </div>
+                                    <div class="form-group">
+                                        <!-- Telephone/Mobile Number -->
+                                        <label class="col-sm-3 control-label">Numer Tel/Kom&nbsp;*</label>
+                                        <div class="col-sm-9">
+                                            <form:input path="phoneNumber" placeholder="Numer Tel/Kom" class="form-control" id="phoneNumber" />
+                                            <form:errors path="phoneNumber" cssClass="text-danger" />
+                                        </div>
+                                    </div>
+                                    <!-- Telephone/Mobile Number end -->
 
-                                <div class="admin-user-action text-center">
+                                    <div class="form-group">
+                                        <!-- Date and Time -->
+                                        <label class="col-sm-3 control-label">Data & Godzina&nbsp;*</label>
+                                        <div class="col-sm-9">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="input-group">
+                                                        <label class="sr-only" for="date">Data</label>
+                                                        <form:input path="date" type="date" class="form-control" id="date" placeholder="Data" />
+                                                        <form:errors path="date" cssClass="text-danger" />
+                                                            <span class="input-group-addon flat">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <form:input path="time" type="time" class="form-control" id="time" placeholder="Czas" />
+                                                    <form:errors path="time" cssClass="text-danger" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Date and Time end -->
 
-                                    <a href="/owner/dashboard/restaurantEdit/${userId}" class="btn btn-primary">Edytuj</a>
-                                    <a href="#" class="btn btn-primary btn-sm btn-inverse">Deaktywuj</a>
+                                    <div class="form-group">
+                                        <!-- No. of Guest -->
+                                        <label class="col-sm-3 control-label">Liczba Gości&nbsp;*</label>
+                                        <div class="col-sm-9">
+                                            <form:input path="guestsCount" type="number" placeholder="Liczba Gości" id="guestsCount" class="form-control" min="0" />
+                                            <form:errors path="guestsCount" cssClass="text-danger" />
+                                        </div>
+                                    </div>
+                                    <!-- No. of Guest end -->
 
-                                </div>
+                                    <div class="form-group">
+                                        <!-- Special Guest -->
+                                        <label class="col-sm-3 control-label">Życzenia specjalne</label>
+                                        <div class="col-sm-9">
+                                            <form:textarea path="specialRequest" placeholder="Życzenia specjalne" rows="3" id="specialRequest" class="form-control" style="resize: none;" />
+                                            <form:errors path="specialRequest" cssClass="text-danger" />
+                                        </div>
+                                    </div>
+                                    <!-- Special Guest end -->
 
-                                <ul class="admin-user-menu clearfix">
-                                    <li class="active">
-                                        <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-user"></i> Profil</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-key"></i> Zmień hasło</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-bookmark"></i> Rezerwacje</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-sign-out"></i> Wyloguj</a>
-                                    </li>
-                                </ul>
+                                    <div class="form-group">
+                                        <!-- Captcha -->
+                                        <label class="col-sm-3 control-label hidden-xs">CAPTCHA</label>
+                                        <div class="col-sm-9">
+                                            <p><spring:escapeBody>${captcha}</spring:escapeBody></p> <!-- Display the generated CAPTCHA -->
+                                        </div>
+                                    </div>
+                                    <!-- Captcha end -->
+
+                                    <div class="form-group">
+                                        <!-- Enter captcha info -->
+                                        <label class="col-sm-3 control-label"></label>
+                                        <div class="col-sm-9">
+                                            <input type="text" placeholder="Wpisz wartość z rysunku" name="userCaptcha" class="form-control" id="userCaptcha" autocomplete="off" />
+                                        </div>
+                                    </div>
+                                    <!-- Enter captcha info end -->
+
+                                    <div class="form-group">
+                                        <!-- Book a table -->
+                                        <div class="col-sm-12">
+                                            <button type="submit" class="btn btn-primary pull-right">Rezerwuj Stolik</button>
+                                        </div>
+                                    </div>
+                                    <!-- Book a table end -->
+                                </form:form>
 
                             </div>
-
-                        </div>
-
-                        <div class="GridLex-col-9_sm-8_xs-12">
-
-                            <div class="admin-content-wrapper">
-
-                                <div class="admin-section-title">
-
-                                    <h2>Dashboard Restauracji</h2>
-                                    <p>Edytuj kluczowe informacje dotyczące twojej restauracji.</p>
-
-                                </div>
-
-                                <form class="post-form-wrapper">
-
-                                    <div class="row gap-20">
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="image">
-                                                <label>Zdjęcie</label>
-                                                <br>
-                                                <img src="data:image/jpeg;base64,${restaurant.logoBase64}" alt="Logo" />
-<%--                                                <input type="file" name="form-register-photo-2" id="form-register-photo-2">--%>
-<%--                                                <span class="font12 font-italic">** zdjęcie nie może być większe niż 250kb</span>--%>
-                                            </div>
-
-
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-12 col-md-8">
-
-                                            <div class="form-group">
-                                                <label>Nazwa Restauracji:</label>
-                                                <br>
-                                                ${restaurant.restoName}
-
-<%--                                                <input type="text" class="form-control" value="">--%>
-                                            </div>
-
-                                        </div>
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group">
-                                                <label>Rok powstania:</label>
-                                                <br>
-                                                ${restaurant.yearOfLaunch}
-<%--                                                <select class="selectpicker form-control" data-live-search="false">--%>
-<%--                                                    <option value="0" selected>1980</option>--%>
-<%--                                                    <option value="0">1981</option>--%>
-<%--                                                    <option value="0">1982</option>--%>
-<%--                                                    <option value="0">1983</option>--%>
-<%--                                                    <option value="0">1984</option>--%>
-<%--                                                    <option value="1">1985</option>--%>
-<%--                                                    <option value="2" >1986</option>--%>
-<%--                                                    <option value="3">1987</option>--%>
-<%--                                                </select>--%>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group">
-                                                <label>Kuchnia:</label>
-                                                <br>
-                                                ${restaurant.cuisine}
-<%--                                                <select class="selectpicker form-control" data-live-search="false">--%>
-<%--                                                    <option value="0" selected>Amerykańska</option>--%>
-<%--                                                    <option value="1">Indyjska</option>--%>
-<%--                                                    <option value="2" >Włoska</option>--%>
-<%--                                                    <option value="3">Grecka</option>--%>
-<%--                                                    <option value="4">Polska</option>--%>
-<%--                                                </select>--%>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="form-group">
-
-                                            <div class="col-sm-6 col-md-4">
-                                                <label>Ilość miejsc:</label>
-                                                <br>
-                                                ${restaurant.capacity}
-<%--                                                <select class="selectpicker show-tick form-control mb-15" data-live-search="false">--%>
-<%--                                                    <option value="0" selected>1-10</option>--%>
-<%--                                                    <option value="1">11-50</option>--%>
-<%--                                                    <option value="1">51-100</option>--%>
-<%--                                                    <option value="2">100+</option>--%>
-<%--                                                    <option value="3">200+</option>--%>
-<%--                                                    <option value="4">300+ </option>--%>
-<%--                                                </select>--%>
-                                            </div>
-
-                                            <div class="col-sm-6 col-md-4">
-                                                <label>Średnia cen:</label>
-                                                <br>
-                                                ${restaurant.avgPrice}
-<%--                                                <input type="text" class="form-control" value="" placeholder="np. 25">--%>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group">
-                                                <label>Strona internetowa:</label>
-                                                <br>
-                                                ${restaurant.webSite}
-<%--                                                <input type="text" class="form-control" value="" placeholder="format x@x.com">--%>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group">
-                                                <label>Miasto:</label>
-                                                <br>
-                                                ${restaurant.city}
-<%--                                                <input type="text" class="form-control" value="">--%>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group">
-                                                <label>Nr. ulicy:</label>
-                                                <br>
-                                                ${restaurant.streetNumber}
-<%--                                                <input type="text" class="form-control" value="" placeholder="np. 43/2/3">--%>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group">
-                                                <label>Ulica:</label>
-                                                <br>
-                                                ${restaurant.street}
-<%--                                                <input type="text" class="form-control" value="">--%>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group">
-                                                <label>Kod Pocztowy:</label>
-                                                <br>
-                                                ${restaurant.zipCode}
-<%--                                                <input type="text" class="form-control" value="">--%>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group">
-                                                <label>Państwo:</label>
-                                                <br>
-                                                ${restaurant.country}
-<%--                                                <select class="selectpicker show-tick form-control" data-live-search="false">--%>
-<%--                                                    <option value="0" selected>Polska</option>--%>
-<%--                                                    <option value="1">Francja</option>--%>
-<%--                                                    <option value="2" >Japonia</option>--%>
-<%--                                                    <option value="3">Niemcy</option>--%>
-<%--                                                    <option value="4">USA </option>--%>
-<%--                                                    <option value="5">Włochy</option>--%>
-<%--                                                </select>--%>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-6 col-md-4">
-
-                                            <div class="form-group">
-                                                <label>Numer Telefonu:</label>
-                                                <br>
-                                                ${restaurant.phoneNumber}
-<%--                                                <input type="text" class="form-control" value="">--%>
-                                            </div>
-
-                                        </div>
-
-<%--                                        <div class="clear"></div>--%>
-
-<%--                                        <div class="col-sm-12 col-md-12">--%>
-
-<%--                                            <div class="form-group bootstrap3-wysihtml5-wrapper">--%>
-<%--                                                <label>Krótki opis:</label>--%>
-<%--                                                <textarea class="bootstrap3-wysihtml5 form-control" placeholder="Wpisz tekst..." style="height: 200px;"></textarea>--%>
-<%--                                            </div>--%>
-
-<%--                                        </div>--%>
-
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-12 col-md-12">
-
-                                            <div class="form-group bootstrap3-wysihtml5-wrapper">
-                                                <label>Szczegółowy opis:</label>
-                                                <br>
-                                                ${restaurant.description}
-<%--                                                <textarea class="bootstrap3-wysihtml5 form-control" placeholder="Wpisz tekst..." style="height: 200px;"></textarea>--%>
-                                            </div>
-
-                                        </div>
-
-<%--                                        <div class="clear"></div>--%>
-
-<%--                                        <div class="col-sm-12 col-md-12">--%>
-
-<%--                                            <div class="form-group bootstrap3-wysihtml5-wrapper">--%>
-<%--                                                <label>Usługi:</label>--%>
-<%--                                                <textarea class="bootstrap3-wysihtml5 form-control" placeholder="Wpisz tekst..." style="height: 200px;"></textarea>--%>
-<%--                                            </div>--%>
-
-<%--                                        </div>--%>
-
-                                        <div class="clear"></div>
-
-                                        <div class="col-sm-12 mt-10">
-                                            <a href="/owner/dashboard/restaurantEdit/${userId}" class="btn btn-primary">Edytuj</a>
-<%--                                            <a href="#" class="btn btn-warning">Anuluj</a>--%>
-                                        </div>
-
-                                    </div>
-
-                                </form>
-
-                            </div>
-
+                            <!-- Form Horizontal end -->
                         </div>
 
                     </div>
 
-                </div>
+                    <div class="col-md-3 reservation-right-side visible-lg">
 
+                        <img src="data:image/jpeg;base64,${restaurant.get().logoBase64}" alt="image" style="width: 300px; height: 200px;"/>
+
+                    </div>
+
+                </div>
+                <!-- Main row end -->
             </div>
+
+            <!-- END Reservation -->
 
         </div>
 
@@ -633,14 +460,10 @@
 
                         <div class="col-sm-4 col-md-4">
                             <ul class="bottom-footer-menu for-social">
-                                <li><a href="#"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top"
-                                                   title="twitter"></i></a></li>
-                                <li><a href="#"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top"
-                                                   title="facebook"></i></a></li>
-                                <li><a href="#"><i class="ri ri-google-plus" data-toggle="tooltip"
-                                                   data-placement="top" title="google plus"></i></a></li>
-                                <li><a href="#"><i class="ri ri-youtube-play" data-toggle="tooltip"
-                                                   data-placement="top" title="youtube"></i></a></li>
+                                <li><a href="#"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
+                                <li><a href="#"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
+                                <li><a href="#"><i class="ri ri-google-plus" data-toggle="tooltip" data-placement="top" title="google plus"></i></a></li>
+                                <li><a href="#"><i class="ri ri-youtube-play" data-toggle="tooltip" data-placement="top" title="youtube"></i></a></li>
                             </ul>
                         </div>
 
@@ -695,8 +518,9 @@
 <script type="text/javascript" src="../../js/customs.js"></script>
 
 
-
 </body>
+
+
 
 
 </html>

@@ -75,7 +75,7 @@
 
                 <div class="logo-wrapper">
                     <div class="logo">
-                        <a href="index-02.html"><img src="images/RestoBookPng.png" alt="Logo" /></a>
+                        <a href="/home"><img src="images/RestoBookPng.png" alt="Logo" /></a>
                     </div>
                 </div>
 
@@ -84,7 +84,7 @@
                     <ul class="nav navbar-nav" id="responsive-menu">
 
                         <li>
-                            <a href="index-02.html">Start</a>
+                            <a href="/home">Start</a>
                             <!--								<ul>-->
                             <!--									<li><a href="index.html">Home - Default</a></li>-->
                             <!--									<li><a href="index-02.html">Home - 02</a></li>-->
@@ -92,7 +92,7 @@
                         </li>
 
                         <li>
-                            <a href="restaurant-list-03.html">Restauracje</a>
+                            <a href="/restaurants">Restauracje</a>
                             <!--								<ul>-->
                             <!--									<li><a href="restaurant.html">Restaurant - Default</a></li>-->
                             <!--									<li><a href="restaurant-grid.html">Restaurant - Grid</a></li>-->
@@ -127,7 +127,7 @@
                                 <li>
                                     <a href="user.html">Użytkownik</a>
                                     <ul>
-                                        <li><a href="user-empty.html">Dashboard - Pusty</a></li>
+                                        <li><a href="user-empty.html">Dashboard</a></li>
                                         <li><a href="user-profile.html">Profil</a></li>
                                         <li><a href="user-profile-update.html">Profil Edycja</a></li>
                                         <li><a href="user-favourite-restaurant.html">Ulubione Restauracje</a></li>
@@ -175,8 +175,8 @@
 
                 <div class="nav-mini-wrapper">
                     <ul class="nav-mini sign-in">
-                        <li><a href="login.html">login</a></li>
-                        <li><a href="login.html">rejestracja</a></li>
+                        <li><a href="/loginRegister">login</a></li>
+                        <li><a href="/loginRegister">rejestracja</a></li>
                     </ul>
                 </div>
 
@@ -308,7 +308,9 @@
                                     <div class="GridLex-col-6_xs-12">
                                         <div class="restaurant-type">
                                             <div class="image">
-                                                <img src="data:image/jpeg;base64,${highestRatedRestaurantsLogos[status.index]}" alt="${restaurant.restoName} Logo" />
+                                                <img src="data:image/jpeg;base64,${highestRatedRestaurantsLogos[status.index]}" alt="${restaurant.restoName} Logo"
+                                                     onclick="window.location.href='restaurantDetail/${restaurant.id}'">Kliknij
+                                                <br>LOGO
                                             </div>
                                             <div class="content">
                                                 <h4>${restaurant.restoName}</h4>
@@ -322,7 +324,7 @@
                                         </div>
                                     </div>
                                     <div class="GridLex-col-2_xs-4_xss-12">
-                                        <div class="res-btn label label-danger">
+                                        <div class="res-btn label label-danger" onclick="window.location.href='reservation/${restaurant.id}'">
                                             Rezerwacja
                                         </div>
                                         <span class="font12 block spacing1 font400 text-center">Średnia cena: ${restaurant.avgPrice}</span>
@@ -567,8 +569,8 @@
             <div class="row gap-40">
                 <c:forEach var="restaurant" items="${newestRestaurants}" varStatus="status">
                     <div class="col-xs-4 col-sm-2 mb-20">
-                        <a href="#">
-                            <img src="data:image/jpeg;base64,${newestRestaurantsLogos[status.index]}" alt="${restaurant.restoName} Logo" />
+                        <a href="/restaurantDetail/${restaurant.id}">
+                            <img src="data:image/jpeg;base64,${newestRestaurantsLogos[status.index]}" alt="${restaurant.restoName} Logo" style="width: 300px; height: 150px;"/>
                         </a>
                     </div>
                 </c:forEach>

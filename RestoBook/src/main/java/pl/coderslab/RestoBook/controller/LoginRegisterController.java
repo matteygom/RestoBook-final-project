@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.coderslab.RestoBook.domain.Foodie;
 import pl.coderslab.RestoBook.domain.Restaurant;
 import pl.coderslab.RestoBook.domain.User;
+import pl.coderslab.RestoBook.service.EmailService;
 import pl.coderslab.RestoBook.service.UserService;
 import org.slf4j.Logger;
 import javax.validation.Valid;
@@ -17,6 +18,7 @@ import javax.validation.Valid;
 public class LoginRegisterController {
 
     private final UserService userService;
+    private final EmailService emailService;
     private final Logger logger;
 
     @GetMapping("/loginRegister")
@@ -37,6 +39,9 @@ public class LoginRegisterController {
         logger.error("Formularz zawiera błędy: {}", bindingResult.getAllErrors());
         System.out.println(user.toString());
         System.out.println(role);
+
+        logger.info("Zarejestrowano użytkownika: {}", user);
+        logger.info("Wybrana rola: {}", role);
 
         if (bindingResult.hasErrors()) {
             System.out.println(bindingResult.getAllErrors());
@@ -60,7 +65,29 @@ public class LoginRegisterController {
             return "loginRegister";
         }
 
-        return "redirect:/home";
+        return "redirect:/owner/dashboard/" + user.getId();
     }
 
+    @PostMapping("/sendContactMessage")
+    public String sendContactMessageRegister(
+            @RequestParam String username,
+            @RequestParam String email,
+            @RequestParam String subject,
+            @RequestParam String message,
+            Model model) {
+
+        try {
+            emailService.sendSimpleMessage("mgomolka@smartware.pl", subject,
+                    "Wiadomość od: " + username + "\n" +
+                            "Email: " + email + "\n\n" +
+                            message);
+
+            model.addAttribute("success", "Wiadomość została wysłana.");
+        } catch (Exception e) {
+            model.addAttribute("error", "Wystąpił błąd przy wysyłaniu wiadomości.");
+            e.printStackTrace();
+        }
+
+        return "redirect:/loginRegister";
+    }
 }

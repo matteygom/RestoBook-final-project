@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
 import java.util.Base64;
 import java.util.Date;
@@ -27,23 +28,23 @@ public class Restaurant {
         createdAt = new Date();
     }
 
-    @NotEmpty
+//    @NotEmpty
     @Column(length = 35)
     private String restoName;
 
-    @NotEmpty
-    @Temporal(TemporalType.DATE)
-    private Date dateOfLaunch;
+//    @NotEmpty
+    @Column
+    private String yearOfLaunch;
 
-    @NotEmpty
+//    @NotEmpty
     @Column(length = 20)
     private String cuisine;
 
-    @NotEmpty
+//    @NotEmpty
     @Column
     private Long capacity;
 
-    @NotEmpty
+//    @NotEmpty
     @Column
     private Double avgPrice;
 
@@ -59,11 +60,11 @@ public class Restaurant {
     @Column(nullable = true, length = 10)
     private String streetNumber;
 
-    @NotEmpty
+//    @NotEmpty
     @Column(length = 15)
     private String city;
 
-    @NotEmpty
+//    @NotEmpty
     @Column(length = 20)
     private String country;
 
@@ -73,7 +74,9 @@ public class Restaurant {
     @Column(nullable = true, length = 255)
     private String description;
 
-    @NotEmpty
+//    @NotEmpty
+    @Column()
+    @Max(5)
     private Double rating;
 
     @Lob
@@ -98,7 +101,7 @@ public class Restaurant {
 
 
     public String getLogoBase64() {
-        return Base64.getEncoder().encodeToString(logo);
+        return logo != null ? Base64.getEncoder().encodeToString(logo) : "";
     }
 
 

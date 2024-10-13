@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!doctype html>
 <html lang="en">
 
@@ -23,32 +25,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Fav and Touch Icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../../images/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../../images/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../../images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../../../images/ico/favicon.png">
 
     <!-- CSS Plugins -->
-    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css" media="screen">
-    <link href="../../css/animate.css" rel="stylesheet">
-    <link href="../../css/main.css" rel="stylesheet">
-    <link href="../../css/component.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../../bootstrap/css/bootstrap.min.css" media="screen">
+    <link href="../../../css/animate.css" rel="stylesheet">
+    <link href="../../../css/main.css" rel="stylesheet">
+    <link href=../../../"css/component.css" rel="stylesheet">
 
     <!-- CSS Font Icons -->
-    <link rel="stylesheet" href="../../icons/linearicons/style.css">
-    <link rel="stylesheet" href="../../icons/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../icons/simple-line-icons/css/simple-line-icons.css">
-    <link rel="stylesheet" href="../../icons/ionicons/css/ionicons.css">
-    <link rel="stylesheet" href="../../icons/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
-    <link rel="stylesheet" href="../../icons/rivolicons/style.css">
-    <link rel="stylesheet" href="../../icons/flaticon-line-icon-set/flaticon-line-icon-set.css">
-    <link rel="stylesheet" href="../../icons/flaticon-streamline-outline/flaticon-streamline-outline.css">
-    <link rel="stylesheet" href="../../icons/flaticon-thick-icons/flaticon-thick.css">
-    <link rel="stylesheet" href="../../icons/flaticon-ventures/flaticon-ventures.css">
+    <link rel="stylesheet" href="../../../icons/linearicons/style.css">
+    <link rel="stylesheet" href="../../../icons/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../icons/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="../../../icons/ionicons/css/ionicons.css">
+    <link rel="stylesheet" href="../../../icons/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="../../../icons/rivolicons/style.css">
+    <link rel="stylesheet" href="../../../icons/flaticon-line-icon-set/flaticon-line-icon-set.css">
+    <link rel="stylesheet" href="../../../icons/flaticon-streamline-outline/flaticon-streamline-outline.css">
+    <link rel="stylesheet" href="../../../icons/flaticon-thick-icons/flaticon-thick.css">
+    <link rel="stylesheet" href="../../../icons/flaticon-ventures/flaticon-ventures.css">
 
     <!-- CSS Custom -->
-    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../../css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -73,7 +75,7 @@
 
                 <div class="logo-wrapper">
                     <div class="logo">
-                        <a href="index-02.html"><img src="../../images/RestoBookPng.png" alt="Logo"/></a>
+                        <a href="index-02.html"><img src="../../../images/RestoBookPng.png" alt="Logo"/></a>
                     </div>
                 </div>
 
@@ -221,7 +223,7 @@
                                 <div class="admin-user-item for-employer">
 
                                     <div class="image">
-                                        <img src="data:image/jpeg;base64,${restaurant.logoBase64}" alt="Logo" />
+                                        <img src="images/brands/06.png" alt="image" class="img-circle" />
                                     </div>
 
                                     <h4>${restaurant.restoName}</h4>
@@ -230,7 +232,7 @@
 
                                 <div class="admin-user-action text-center">
 
-                                    <a href="/owner/dashboard/restaurantEdit/${userId}" class="btn btn-primary">Edytuj</a>
+                                    <a href="#" class="btn btn-primary btn-sm">Edytuj</a>
                                     <a href="#" class="btn btn-primary btn-sm btn-inverse">Deaktywuj</a>
 
                                 </div>
@@ -268,240 +270,157 @@
 
                                 </div>
 
-                                <form class="post-form-wrapper">
+
+                                <form:form class="post-form-wrapper" role="form" method="POST" action="/owner/dashboard/restaurantEdit/${userId}" modelAttribute="restaurant" enctype="multipart/form-data">
 
                                     <div class="row gap-20">
 
                                         <div class="col-sm-6 col-md-4">
-
-                                            <div class="image">
-                                                <label>Zdjęcie</label>
-                                                <br>
-                                                <img src="data:image/jpeg;base64,${restaurant.logoBase64}" alt="Logo" />
-<%--                                                <input type="file" name="form-register-photo-2" id="form-register-photo-2">--%>
-<%--                                                <span class="font12 font-italic">** zdjęcie nie może być większe niż 250kb</span>--%>
+                                            <div class="form-group bootstrap-fileinput-style-01">
+                                                <label for="logo">Zdjęcie</label>
+                                                <form:input type="file" path="logo" id="form-register-photo-2" />
+                                                <span class="font12 font-italic">** zdjęcie nie może być większe niż 250kb</span>
                                             </div>
-
-
-
                                         </div>
 
                                         <div class="clear"></div>
 
                                         <div class="col-sm-12 col-md-8">
-
                                             <div class="form-group">
                                                 <label>Nazwa Restauracji:</label>
-                                                <br>
-                                                ${restaurant.restoName}
-
-<%--                                                <input type="text" class="form-control" value="">--%>
+                                                <form:input type="text" path="restoName" class="form-control" />
                                             </div>
-
                                         </div>
+
                                         <div class="clear"></div>
 
                                         <div class="col-sm-6 col-md-4">
-
                                             <div class="form-group">
                                                 <label>Rok powstania:</label>
-                                                <br>
-                                                ${restaurant.yearOfLaunch}
-<%--                                                <select class="selectpicker form-control" data-live-search="false">--%>
-<%--                                                    <option value="0" selected>1980</option>--%>
-<%--                                                    <option value="0">1981</option>--%>
-<%--                                                    <option value="0">1982</option>--%>
-<%--                                                    <option value="0">1983</option>--%>
-<%--                                                    <option value="0">1984</option>--%>
-<%--                                                    <option value="1">1985</option>--%>
-<%--                                                    <option value="2" >1986</option>--%>
-<%--                                                    <option value="3">1987</option>--%>
-<%--                                                </select>--%>
+                                                <form:select path="yearOfLaunch" class="selectpicker form-control">
+                                                    <!-- options need to be dynamically generated based on available years -->
+                                                    <!-- Dummy options -->
+                                                    <form:option value="1980" label="1980" />
+                                                    <!-- Add more options here -->
+                                                </form:select>
                                             </div>
-
                                         </div>
 
                                         <div class="col-sm-6 col-md-4">
-
                                             <div class="form-group">
                                                 <label>Kuchnia:</label>
-                                                <br>
-                                                ${restaurant.cuisine}
-<%--                                                <select class="selectpicker form-control" data-live-search="false">--%>
-<%--                                                    <option value="0" selected>Amerykańska</option>--%>
-<%--                                                    <option value="1">Indyjska</option>--%>
-<%--                                                    <option value="2" >Włoska</option>--%>
-<%--                                                    <option value="3">Grecka</option>--%>
-<%--                                                    <option value="4">Polska</option>--%>
-<%--                                                </select>--%>
+                                                <form:select path="cuisine" class="selectpicker form-control">
+                                                    <form:option value="Amerykańska" label="Amerykańska" />
+                                                    <form:option value="Indyjska" label="Indyjska" />
+                                                    <form:option value="Włoska" label="Włoska" />
+                                                    <form:option value="Grecka" label="Grecka" />
+                                                    <form:option value="Polska" label="Polska" />
+                                                </form:select>
                                             </div>
-
                                         </div>
 
                                         <div class="clear"></div>
 
                                         <div class="form-group">
-
                                             <div class="col-sm-6 col-md-4">
                                                 <label>Ilość miejsc:</label>
-                                                <br>
-                                                ${restaurant.capacity}
-<%--                                                <select class="selectpicker show-tick form-control mb-15" data-live-search="false">--%>
-<%--                                                    <option value="0" selected>1-10</option>--%>
-<%--                                                    <option value="1">11-50</option>--%>
-<%--                                                    <option value="1">51-100</option>--%>
-<%--                                                    <option value="2">100+</option>--%>
-<%--                                                    <option value="3">200+</option>--%>
-<%--                                                    <option value="4">300+ </option>--%>
-<%--                                                </select>--%>
+                                                <form:select path="capacity" class="selectpicker show-tick form-control mb-15">
+                                                    <form:option value="1-10" label="1-10" />
+                                                    <form:option value="11-50" label="11-50" />
+                                                    <form:option value="51-100" label="51-100" />
+                                                    <form:option value="100+" label="100+" />
+                                                    <form:option value="200+" label="200+" />
+                                                    <form:option value="300+" label="300+" />
+                                                </form:select>
                                             </div>
-
                                             <div class="col-sm-6 col-md-4">
                                                 <label>Średnia cen:</label>
-                                                <br>
-                                                ${restaurant.avgPrice}
-<%--                                                <input type="text" class="form-control" value="" placeholder="np. 25">--%>
+                                                <form:input path="avgPrice" class="form-control" placeholder="np. 25" />
                                             </div>
-
                                         </div>
 
                                         <div class="clear"></div>
 
                                         <div class="col-sm-6 col-md-4">
-
                                             <div class="form-group">
                                                 <label>Strona internetowa:</label>
-                                                <br>
-                                                ${restaurant.webSite}
-<%--                                                <input type="text" class="form-control" value="" placeholder="format x@x.com">--%>
+                                                <form:input path="webSite" class="form-control" placeholder="np. http://example.com" />
                                             </div>
-
                                         </div>
 
                                         <div class="col-sm-6 col-md-4">
-
                                             <div class="form-group">
                                                 <label>Miasto:</label>
-                                                <br>
-                                                ${restaurant.city}
-<%--                                                <input type="text" class="form-control" value="">--%>
+                                                <form:input path="city" class="form-control" />
                                             </div>
-
                                         </div>
 
                                         <div class="clear"></div>
 
                                         <div class="col-sm-6 col-md-4">
-
                                             <div class="form-group">
                                                 <label>Nr. ulicy:</label>
-                                                <br>
-                                                ${restaurant.streetNumber}
-<%--                                                <input type="text" class="form-control" value="" placeholder="np. 43/2/3">--%>
+                                                <form:input path="streetNumber" class="form-control" placeholder="np. 43/2/3" />
                                             </div>
-
                                         </div>
 
                                         <div class="col-sm-6 col-md-4">
-
                                             <div class="form-group">
                                                 <label>Ulica:</label>
-                                                <br>
-                                                ${restaurant.street}
-<%--                                                <input type="text" class="form-control" value="">--%>
+                                                <form:input path="street" class="form-control" />
                                             </div>
-
                                         </div>
 
                                         <div class="clear"></div>
 
                                         <div class="col-sm-6 col-md-4">
-
                                             <div class="form-group">
                                                 <label>Kod Pocztowy:</label>
-                                                <br>
-                                                ${restaurant.zipCode}
-<%--                                                <input type="text" class="form-control" value="">--%>
+                                                <form:input path="zipCode" class="form-control" />
                                             </div>
-
                                         </div>
 
                                         <div class="col-sm-6 col-md-4">
-
                                             <div class="form-group">
                                                 <label>Państwo:</label>
-                                                <br>
-                                                ${restaurant.country}
-<%--                                                <select class="selectpicker show-tick form-control" data-live-search="false">--%>
-<%--                                                    <option value="0" selected>Polska</option>--%>
-<%--                                                    <option value="1">Francja</option>--%>
-<%--                                                    <option value="2" >Japonia</option>--%>
-<%--                                                    <option value="3">Niemcy</option>--%>
-<%--                                                    <option value="4">USA </option>--%>
-<%--                                                    <option value="5">Włochy</option>--%>
-<%--                                                </select>--%>
+                                                <form:select path="country" class="selectpicker show-tick form-control">
+                                                    <form:option value="Polska" label="Polska" />
+                                                    <form:option value="Francja" label="Francja" />
+                                                    <form:option value="Japonia" label="Japonia" />
+                                                    <form:option value="Niemcy" label="Niemcy" />
+                                                    <form:option value="USA" label="USA" />
+                                                    <form:option value="Włochy" label="Włochy" />
+                                                </form:select>
                                             </div>
-
                                         </div>
 
                                         <div class="clear"></div>
 
                                         <div class="col-sm-6 col-md-4">
-
                                             <div class="form-group">
                                                 <label>Numer Telefonu:</label>
-                                                <br>
-                                                ${restaurant.phoneNumber}
-<%--                                                <input type="text" class="form-control" value="">--%>
+                                                <form:input path="phoneNumber" class="form-control" />
                                             </div>
-
                                         </div>
-
-<%--                                        <div class="clear"></div>--%>
-
-<%--                                        <div class="col-sm-12 col-md-12">--%>
-
-<%--                                            <div class="form-group bootstrap3-wysihtml5-wrapper">--%>
-<%--                                                <label>Krótki opis:</label>--%>
-<%--                                                <textarea class="bootstrap3-wysihtml5 form-control" placeholder="Wpisz tekst..." style="height: 200px;"></textarea>--%>
-<%--                                            </div>--%>
-
-<%--                                        </div>--%>
 
                                         <div class="clear"></div>
 
                                         <div class="col-sm-12 col-md-12">
-
                                             <div class="form-group bootstrap3-wysihtml5-wrapper">
-                                                <label>Szczegółowy opis:</label>
-                                                <br>
-                                                ${restaurant.description}
-<%--                                                <textarea class="bootstrap3-wysihtml5 form-control" placeholder="Wpisz tekst..." style="height: 200px;"></textarea>--%>
+                                                <label>Krótki opis:</label>
+                                                <form:textarea path="description" class="bootstrap3-wysihtml5 form-control" placeholder="Wpisz tekst..." style="height: 200px;" />
                                             </div>
-
                                         </div>
-
-<%--                                        <div class="clear"></div>--%>
-
-<%--                                        <div class="col-sm-12 col-md-12">--%>
-
-<%--                                            <div class="form-group bootstrap3-wysihtml5-wrapper">--%>
-<%--                                                <label>Usługi:</label>--%>
-<%--                                                <textarea class="bootstrap3-wysihtml5 form-control" placeholder="Wpisz tekst..." style="height: 200px;"></textarea>--%>
-<%--                                            </div>--%>
-
-<%--                                        </div>--%>
 
                                         <div class="clear"></div>
 
                                         <div class="col-sm-12 mt-10">
-                                            <a href="/owner/dashboard/restaurantEdit/${userId}" class="btn btn-primary">Edytuj</a>
-<%--                                            <a href="#" class="btn btn-warning">Anuluj</a>--%>
+                                            <button type="submit" class="btn btn-primary">Zapisz</button>
+                                            <a href="#" class="btn btn-warning">Anuluj</a>
                                         </div>
-
                                     </div>
 
-                                </form>
+                                </form:form>
 
                             </div>
 
@@ -668,31 +587,31 @@
 
 
 <!-- JS -->
-<script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="../../js/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../js/bootstrap-modalmanager.js"></script>
-<script type="text/javascript" src="../../js/bootstrap-modal.js"></script>
-<script type="text/javascript" src="../../js/smoothscroll.js"></script>
-<script type="text/javascript" src="../../js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="../../js/jquery.waypoints.min.js"></script>
-<script type="text/javascript" src="../../js/wow.min.js"></script>
-<script type="text/javascript" src="../../js/jquery.slicknav.min.js"></script>
-<script type="text/javascript" src="../../js/jquery.placeholder.min.js"></script>
-<script type="text/javascript" src="../../js/bootstrap-tokenfield.js"></script>
-<script type="text/javascript" src="../../js/typeahead.bundle.min.js"></script>
-<script type="text/javascript" src="../../js/bootstrap-select.min.js"></script>
-<script type="text/javascript" src="../../js/jquery-filestyle.min.js"></script>
-<script type="text/javascript" src="../../js/bootstrap-select.js"></script>
-<script type="text/javascript" src="../../js/ion.rangeSlider.min.js"></script>
-<script type="text/javascript" src="../../js/handlebars.min.js"></script>
-<script type="text/javascript" src="../../js/jquery.countimator.js"></script>
-<script type="text/javascript" src="../../js/jquery.countimator.wheel.js"></script>
-<script type="text/javascript" src="../../js/slick.min.js"></script>
-<script type="text/javascript" src="../../js/easy-ticker.js"></script>
-<script type="text/javascript" src="../../js/jquery.introLoader.min.js"></script>
-<script type="text/javascript" src="../../js/jquery.responsivegrid.js"></script>
-<script type="text/javascript" src="../../js/customs.js"></script>
+<script type="text/javascript" src="../../../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../../js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="../../../bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../js/bootstrap-modalmanager.js"></script>
+<script type="text/javascript" src="../../../js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="../../../js/smoothscroll.js"></script>
+<script type="text/javascript" src="../../../js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../../../js/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="../../../js/wow.min.js"></script>
+<script type="text/javascript" src="../../../js/jquery.slicknav.min.js"></script>
+<script type="text/javascript" src="../../../js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="../../../js/bootstrap-tokenfield.js"></script>
+<script type="text/javascript" src="../../../js/typeahead.bundle.min.js"></script>
+<script type="text/javascript" src="../../../js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="../../../js/jquery-filestyle.min.js"></script>
+<script type="text/javascript" src="../../../js/bootstrap-select.js"></script>
+<script type="text/javascript" src="../../../js/ion.rangeSlider.min.js"></script>
+<script type="text/javascript" src="../../../js/handlebars.min.js"></script>
+<script type="text/javascript" src="../../../js/jquery.countimator.js"></script>
+<script type="text/javascript" src="../../../js/jquery.countimator.wheel.js"></script>
+<script type="text/javascript" src="../../../js/slick.min.js"></script>
+<script type="text/javascript" src="../../../js/easy-ticker.js"></script>
+<script type="text/javascript" src="../../../js/jquery.introLoader.min.js"></script>
+<script type="text/javascript" src="../../../js/jquery.responsivegrid.js"></script>
+<script type="text/javascript" src="../../../js/customs.js"></script>
 
 
 

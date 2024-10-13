@@ -39,34 +39,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/static/icons/");
         registry.addResourceHandler("/bootstrap/**")
                 .addResourceLocations("classpath:/static/bootstrap/");
-    }
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests(authorize -> authorize
-                        .antMatchers("/", "/home","/loginRegister", "/css/**", "/js/**", "/images/**", "/icons/**", "/bootstrap/**").permitAll()
-                        .anyRequest().authenticated()
-                )
-                .formLogin(formLogin -> formLogin
-                        .loginPage("/loginRegister")
-                        .permitAll()
-                )
-                .logout(logout -> logout
-                        .permitAll()
-                );
-        return http.build();
-    }
-
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
-        return web -> web.ignoring()
-                .antMatchers("/css/**", "/js/**", "/images/**", "/icons/**", "/bootstrap/**");
     }
 
     @Bean

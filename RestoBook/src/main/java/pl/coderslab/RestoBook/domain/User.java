@@ -3,6 +3,7 @@ package pl.coderslab.RestoBook.domain;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ import javax.validation.constraints.Size;
 @Data
 @Entity
 @Table(name = "users")
-@ToString(exclude = "restaurant")
+@ToString(exclude = {"restaurant", "foodie"})
 public class User {
 
     @Id
@@ -48,7 +49,6 @@ public class User {
 
     @Column
     private boolean active;
-
 
     public enum Role {
         FOODIE,

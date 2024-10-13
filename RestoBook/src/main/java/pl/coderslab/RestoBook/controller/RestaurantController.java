@@ -13,10 +13,13 @@ import pl.coderslab.RestoBook.service.RestaurantService;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/restaurants")
+@RequestMapping
 public class RestaurantController {
+
 
     private final RestaurantService restaurantService;
 
@@ -25,74 +28,27 @@ public class RestaurantController {
         this.restaurantService = restaurantService;
     }
 
-    @GetMapping
+    @GetMapping("/restaurants")
     public String showAllRestaurants(Model model) {
-        List<Restaurant> restaurants = restaurantService.findAll();
-        model.addAttribute("restaurants", restaurants);
-        return "views/home";
+        List<Restaurant> restaurantsNoLogo = restaurantService.findAll();
+        List<Restaurant> newestRestaurantsExtended = restaurantService.findTop10NewestRestaurants();
+
+        List<String> allRestaurantsLogos = restaurantsNoLogo.stream()
+                .map(Restaurant::getLogoBase64)
+                .toList();
+
+        model.addAttribute("restaurantsNoLogo", restaurantsNoLogo);
+        model.addAttribute("restaurants", allRestaurantsLogos);
+        model.addAttribute("restaurantsTopNewest", newestRestaurantsExtended);
+        return "restaurant-list";
     }
 
-    @GetMapping("/add")
-    public String showAddForm(Model model) {
-        model.addAttribute("restaurant", new Restaurant());
-        return "views/addRestaurant";
-    }
-
-//    @PostMapping("/add")
-//    public String addRestaurant(@Valid @ModelAttribute Restaurant restaurant, BindingResult result) {
-//        if (result.hasErrors()) {
-//            return "views/addRestaurant";
-//        }
-//        restaurantService.save(restaurant);
-//        return "redirect:/restaurants";
-//    }
-
-    @PostMapping("/add")
-    public String addRestaurant(@Valid @ModelAttribute Restaurant restaurant,
-                                @RequestParam(value = "logo", required = false) MultipartFile logo,
-                                BindingResult result) {
-        if (result.hasErrors()) {
-            return "views/addRestaurant";
-        }
-        try {
-            if (logo != null && !logo.isEmpty()) {
-                byte[] bytes = logo.getBytes();
-                if (bytes.length <= 250 * 1024) {
-                    restaurant.setLogo(bytes);
-                } else {
-                    result.rejectValue("logo", "error.restaurant", "File size exceeds the maximum allowed size (250 KB)");
-                    return "views/addRestaurant";
-                }
-            }
-            restaurantService.save(restaurant);
-        } catch (IOException e) {
-            result.rejectValue("logo", "error.restaurant", "Error uploading file");
-            return "views/addRestaurant";
-        }
-        return "redirect:/restaurants";
-    }
-
-    @GetMapping("/edit/{id}")
-    public String showEditForm(@PathVariable Long id, Model model) {
-        Restaurant restaurant = restaurantService.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid restaurant Id:" + id));
+    @GetMapping("/restaurantDetail/{restaurantId}")
+    public String getRestaurantDetail(@PathVariable Long restaurantId, Model model) {
+        Optional<Restaurant> restaurant = restaurantService.findById(restaurantId);
         model.addAttribute("restaurant", restaurant);
-        return "views/editRestaurant";
+        return "/restaurant-detail";
     }
 
-    @PostMapping("/edit/{id}")
-    public String editRestaurant(@PathVariable Long id, @Valid @ModelAttribute Restaurant restaurant, BindingResult result) {
-        if (result.hasErrors()) {
-            return "views/editRestaurant";
-        }
-        restaurant.setId(id);
-        restaurantService.save(restaurant);
-        return "redirect:/restaurants";
-    }
 
-    @GetMapping("/delete/{id}")
-    public String deleteRestaurant(@PathVariable Long id) {
-        Restaurant restaurant = restaurantService.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid restaurant Id:" + id));
-        restaurantService.delete(restaurant);
-        return "redirect:/restaurants";
-    }
 }

@@ -48,8 +48,24 @@ public class RestaurantService {
         return restaurantRepository.findTop6ByOrderByCreatedAtDesc();
     }
 
+    public List<Restaurant> findTop10NewestRestaurants() {
+        return restaurantRepository.findTop10ByOrderByCreatedAtDesc();
+    }
+
     public List<Restaurant> findTop5HighestRatedRestaurants() {
         return restaurantRepository.findTop5ByOrderByRatingDesc();
+    }
+
+    public long countAllRestaurants() {
+        return restaurantRepository.countAllRestaurants();
+    }
+
+    public long countDistinctCuisines(){
+        return restaurantRepository.countDistinctCuisines();
+    }
+
+    public long countDistinctCountries(){
+        return restaurantRepository.countDistinctCountries();
     }
 
     public Restaurant save(Restaurant restaurant) {

@@ -43,6 +43,10 @@ public class UserService {
                 .findFirst();
     }
 
+    public long countAllUsers() {
+        return userRepository.count();
+    }
+
     public User save(User user) {
         return userRepository.save(user);
     }

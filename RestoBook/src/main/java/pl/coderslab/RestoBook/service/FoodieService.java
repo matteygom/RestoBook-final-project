@@ -18,6 +18,10 @@ public class FoodieService {
         this.foodieRepository = foodieRepository;
     }
 
+    public long countAllFoodies() {
+        return foodieRepository.countAllFoodies();
+    }
+
     public List<Foodie> findAll() {
         return foodieRepository.findAll();
     }

@@ -1,12 +1,13 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+
 <!doctype html>
 <html lang="en">
+
 
 
 <head>
@@ -17,10 +18,8 @@
 
     <!-- Title Of Site -->
     <title>RestoBook - Rezerwacje Online</title>
-    <meta name="description"
-          content="RestoBook is a booking platform which brings restaurants and food lovers together. Booking tables online is easier than any other platforms.">
-    <meta name="keywords"
-          content="food, booking online, restaurant, reservation, book a table, foodies, cafe, recipes, menu, dishes, chefs and cooking experts ">
+    <meta name="description" content="RestoBook is a booking platform which brings restaurants and food lovers together. Booking tables online is easier than any other platforms.">
+    <meta name="keywords" content="food, booking online, restaurant, reservation, book a table, foodies, cafe, recipes, menu, dishes, chefs and cooking experts ">
     <meta name="author" content="iglyphic">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -63,11 +62,13 @@
 
 <body class="not-transparent-header">
 
+
 <!-- start Container Wrapper -->
 <div class="container-wrapper">
 
     <!-- start Header -->
     <header id="header">
+        <!-- start Navbar (Header) -->
         <!-- start Navbar (Header) -->
         <nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function">
 
@@ -75,7 +76,7 @@
 
                 <div class="logo-wrapper">
                     <div class="logo">
-                        <a href="index-02.html"><img src="images/RestoBookPng.png" alt="Logo"/></a>
+                        <a href="index-02.html"><img src="images/RestoBookPng.png" alt="Logo" /></a>
                     </div>
                 </div>
 
@@ -146,8 +147,7 @@
                                 <li>
                                     <a href="#">Restauracja</a>
                                     <ul>
-                                        <li><a href="restaurant-owner-dashboard.html">Dashboard Właściciela
-                                            restauracji</a></li>
+                                        <li><a href="restaurant-owner-dashboard.html">Dashboard Właściciela restauracji</a></li>
                                         <li><a href="restaurant-detail.html">Restauracja Szczegóły</a></li>
                                     </ul>
                                 </li>
@@ -191,16 +191,16 @@
     <!-- end Header -->
 
     <!-- start Main Wrapper -->
-    <div class="main-wrapper">
+    <div class="main-wrapper scrollspy-container">
 
         <!-- start hero-header -->
         <div class="breadcrumb-wrapper">
 
             <div class="container">
 
-                <ol class="breadcrumb-list">
-                    <li><a href="index-02.html">Start</a></li>
-                    <li><span>Logowanie</span></li>
+                <ol class="breadcrumb-list booking-step">
+                    <li><a href="index.html">Start</a></li>
+                    <li><span>Rezerwacja</span></li>
                 </ol>
 
             </div>
@@ -208,188 +208,190 @@
         </div>
         <!-- end hero-header -->
 
-        <div class="error-page-wrapper">
+        <div class="section sm">
 
+            <!-- Reservation page -->
             <div class="container">
-
                 <div class="row">
+                    <!-- Main row -->
+
+                    <div class="col-md-9">
+                        <div class="reservation-left-side">
+                            <div class="form-horizontal">
+                                <!-- Form Horizontal -->
+
+                                <div class="form-group">
+                                    <!-- Full Name -->
+
+                                    <label class="col-sm-3 control-label">Pełne imię i nazwisko&nbsp;*</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" placeholder="Tytuł" class="form-control custom-title">
+                                        <input type="text" placeholder="Pełne imię i nazwisko" class="form-control custom-name" id="name">
+                                    </div>
+
+                                </div>
+                                <!-- Full Name end -->
+
+                                <div class="form-group">
+                                    <!-- Email Address -->
+
+                                    <label class="col-sm-3 control-label">Adres Email&nbsp;*</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="email" placeholder="Adres Email" class="form-control">
+                                    </div>
+
+                                </div>
+                                <!-- Email Address end -->
+
+                                <div class="form-group">
+                                    <!-- Telephone/Mobile Number -->
+
+                                    <label class="col-sm-3 control-label">Numer Tel/Kom&nbsp;*</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" placeholder="Numer Tel/Kom" id="tel_no" class="form-control">
+                                    </div>
+
+                                </div>
+                                <!-- Telephone/Mobile Number end -->
+
+                                <div class="form-group">
+                                    <!-- Date and Time -->
+
+                                    <label class="col-sm-3 control-label">Data & Godzina&nbsp;*</label>
+
+                                    <div class="col-sm-9">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <label class="sr-only" for="reachus-date">Data</label>
+                                                    <input type="text" class="form-control" id="reachus-date" placeholder="Data">
+                                                    <span class="input-group-addon flat">
+																<span class="fa fa-calendar"></span>
+															</span>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <select class="form-control custom-time" name="servation-time" id="reservation_time">
+                                                    <option value="">Wybierz godzine</option>
+                                                    <option value="1:30 PM">1:30 PM</option>
+                                                    <option value="1:45 PM">1:45 PM</option>
+                                                    <option value="2:00 PM">2:00 PM</option>
+                                                    <option value="6:00 PM">6:00 PM</option>
+                                                    <option value="6:15 PM">6:15 PM</option>
+                                                    <option value="6:30 PM">6:30 PM</option>
+                                                    <option value="6:45 PM">6:45 PM</option>
+                                                    <option value="7:00 PM">7:00 PM</option>
+                                                    <option value="7:15 PM">7:15 PM</option>
+                                                    <option value="7:30 PM">7:30 PM</option>
+                                                    <option value="7:45 PM">7:45 PM</option>
+                                                    <option value="8:00 PM">8:00 PM</option>
+                                                    <option value="8:15 PM">8:15 PM</option>
+                                                    <option value="8:30 PM">8:30 PM</option>
+                                                    <option value="8:45 PM">8:45 PM</option>
+                                                    <option value="9:00 PM">9:00 PM</option>
+                                                    <option value="9:15 PM">9:15 PM</option>
+                                                    <option value="9:30 PM">9:30 PM</option>
+                                                    <option value="9:45 PM">9:45 PM</option>
+                                                    <option value="10:00 PM">10:00 PM</option>
+                                                    <option value="10:15 PM">10:15 PM</option>
+                                                    <option value="10:30 PM">10:30 PM</option>
+                                                    <option value="10:45 PM">10:45 PM</option>
+                                                </select>
+                                            </div>
+                                        </div>
 
 
-                    <!-- login container -->
 
-                    <div class="login-container">
-                        <!-- Combined Form Content -->
-                        <div class="login-container-content">
-                            <ul class="nav nav-tabs nav-justified">
-                                <li class="active link-one"><a href="#login-block" data-toggle="tab"><i
-                                        class="fa fa-sign-in"></i>Loguj</a></li>
-                                <li class="link-two"><a href="#register-block" data-toggle="tab"><i
-                                        class="fa fa-pencil"></i>Rejestruj</a></li>
-                                <li class="link-three"><a href="#contact-block" data-toggle="tab"><i
-                                        class="fa fa-envelope"></i>Kontakt</a></li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane active fade in" id="login-block">
-                                    <!-- Login Block Form -->
-                                    <div class="login-block-form">
-                                        <!-- Heading -->
-                                        <h4>Zaloguj sie do swojego konta</h4>
-                                        <!-- Border -->
-                                        <div class="bor bg-orange"></div>
-                                        <!-- Form -->
-                                        <form class="form" role="form">
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <!-- Label -->
-                                                <label class="control-label">Użytkownik</label>
-                                                <!-- Input -->
-                                                <input type="text" class="form-control"
-                                                       placeholder="Wpisz nazwe użytkownika">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label">Hasło</label>
-                                                <input type="password" class="form-control" placeholder="Wpisz hasło">
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> Pamiętaj mnie
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <!-- Button -->
-                                                <button type="submit" class="btn btn-primary">Zaloguj się</button>&nbsp;
-                                                <button type="submit" class="btn btn-primary btn-inverse">Resetuj
-                                                </button>
-                                            </div>
-                                            <div class="form-group">
-                                                <a href="account-forgot-password-page.html" class="black">Zapomniałeś
-                                                    hasła ?</a>
-                                            </div>
-                                        </form>
                                     </div>
+
                                 </div>
-                                <div class="tab-pane fade" id="register-block">
-                                    <div class="register-block-form">
-                                        <!-- Heading -->
-                                        <h4>Stwórz konto</h4>
-                                        <!-- Border -->
-                                        <div class="bor bg-orange"></div>
-                                        <!-- Form -->
-                                        <form:form  class="form" role="form" method="POST" action="/loginRegister" modelAttribute="user">
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <!-- Radio -->
-                                                <div class="radio-inline">
-                                                    <form:radiobutton path="role" value="FOODIE" label="Foodie"/>
-                                                </div>
-                                                <form:errors path="role"/>
-                                            </div>
-                                            <div class="form-group">
-                                                <!-- Radio -->
-                                                <div class="radio-inline">
-                                                    <form:radiobutton path="role" value="RESTAURANT" label="Właściciel restauracji"/>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <!-- Label -->
-                                                <form:label path="userName" class="control-label">Nazwa użytkownika</form:label>
-                                                <form:input path="userName" class="form-control" placeholder="Wpisz nazwę użytkownika"/>
-                                                <!-- Input -->
-                                            </div>
-                                            <div class="form-group">
-                                                <form:label path="email" class="control-label">Email</form:label>
-                                                <form:input path="email" class="form-control" placeholder="Wpisz email"/>
-                                            </div>
-                                            <div class="form-group">
-                                                <form:label path="password" class="control-label">Hasło</form:label>
-                                                <form:password path="password" class="form-control" placeholder="Wpisz hasło"/>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label">Potwierdź hasło</label>
-                                                <input type="password" class="form-control" placeholder="Powtórz hasło">
-                                            </div>
-<%--                                            <div class="form-group">--%>
-<%--                                                <label class="control-label">Twój kraj</label>--%>
-<%--                                                <select class="form-control" id="country">--%>
-<%--                                                    <option>Wybierz swój kraj</option>--%>
-<%--                                                    <option>Polska</option>--%>
-<%--                                                    <option>USA</option>--%>
-<%--                                                    <option>London</option>--%>
-<%--                                                    <option>Francja</option>--%>
-<%--                                                </select>--%>
-<%--                                            </div>--%>
-                                            <div class="form-group">
-                                                <!-- Checkbox -->
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> Przez rejestracje, przeczytałem i
-                                                        akceptuje <a href="#">warunki</a>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <!-- Buton -->
-                                                <button type="submit" class="btn btn-primary">Zatwierdź</button>&nbsp;
-                                                <button type="submit" class="btn btn-primary btn-inverse">Resetuj
-                                                </button>
-                                            </div>
-                                        </form:form>
+                                <!-- Date and Time end -->
+
+                                <div class="form-group">
+                                    <!-- No. of Guest -->
+
+                                    <label class="col-sm-3 control-label">Liczba Gości&nbsp;*</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="number" placeholder="Liczba Gości" id="no_of_guest" class="form-control" min="0">
                                     </div>
+
                                 </div>
-                                <div class="tab-pane fade" id="contact-block">
-                                    <!-- Contact Block Form -->
-                                    <div class="contact-block-form">
-                                        <h4>Formularz kontaktowy</h4>
-                                        <!-- Border -->
-                                        <div class="bor bg-orange"></div>
-                                        <!-- Form -->
-                                        <form class="form" role="form" action="/sendContactMessage" method="post">
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="control-label">Użytkownik</label>
-                                                <input type="text" class="form-control" name="username" placeholder="Wpisz nazwę użytkownika">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label">Email</label>
-                                                <input type="text" class="form-control" name="email" placeholder="Wpisz email">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label">Temat</label>
-                                                <input type="text" class="form-control" name="subject" placeholder="Wpisz temat">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="comments" class="control-label">Wiadomość</label>
-                                                <textarea class="form-control" id="comments" name="message" rows="5"
-                                                          placeholder="Wpisz wiadomość"></textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <!-- Button -->
-                                                <button type="submit" class="btn btn-primary">Zatwierdź</button>&nbsp;
-                                                <button type="reset" class="btn btn-primary btn-inverse">Resetuj</button>
-                                            </div>
-                                            <c:if test="${not empty error}">
-                                                <div class="alert alert-danger">
-                                                        ${error}
-                                                </div>
-                                            </c:if>
-                                            <c:if test="${not empty success}">
-                                                <div class="alert alert-success">
-                                                        ${success}
-                                                </div>
-                                            </c:if>
-                                        </form>
+                                <!-- No. of Guest end -->
+
+                                <div class="form-group">
+                                    <!-- Special Guest -->
+
+                                    <label class="col-sm-3 control-label">Życzenia specjalne</label>
+
+                                    <div class="col-sm-9">
+                                        <textarea placeholder="Życzenia specjalne" rows="3" tabindex="4" style="resize: none;" id="special_request" class="form-control"></textarea>
                                     </div>
+
                                 </div>
+                                <!-- Special Guest end -->
+
+                                <div class="form-group">
+                                    <!-- Captcha -->
+
+                                    <label class="col-sm-3 control-label hidden-xs"></label>
+
+                                    <div class="col-sm-9">
+                                        <img src="images/captcha.jpg" alt="captcha">
+                                    </div>
+
+                                </div>
+                                <!-- Captcha end -->
+
+                                <div class="form-group">
+                                    <!-- Enter captcha info -->
+
+                                    <label class="col-sm-3 control-label"></label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" value="" placeholder="Wpisz wartość z rysunku" name="userCaptcha" class="form-control" id="userCaptcha" autocomplete="off">
+                                    </div>
+
+                                </div>
+                                <!-- Enter captcha info end -->
+
+                                <div class="form-group">
+                                    <!-- Book a table -->
+
+                                    <div class="col-sm-12">
+                                        <!--<button class="btn btn-color" type="submit">Book a Table</button>-->
+                                        <!--<button class="btn btn-color pull-right" type="submit">Book a Table</button>-->
+                                        <button type="submit" class="btn btn-primary pull-right">Rezerwuj Stolik</button>
+
+                                    </div>
+
+                                </div>
+                                <!-- Book a table end -->
+
                             </div>
+                            <!-- Form Horizontal end -->
                         </div>
+
+
+
                     </div>
 
+                    <div class="col-md-3 reservation-right-side visible-lg">
+
+                        <img src="images/reservation.jpg" class="img-responsive" alt="reservation">
+
+                    </div>
 
                 </div>
-
+                <!-- Main row end -->
             </div>
+
+            <!-- END Reservation -->
 
         </div>
 
@@ -511,14 +513,10 @@
 
                         <div class="col-sm-4 col-md-4">
                             <ul class="bottom-footer-menu for-social">
-                                <li><a href="#"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top"
-                                                   title="twitter"></i></a></li>
-                                <li><a href="#"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top"
-                                                   title="facebook"></i></a></li>
-                                <li><a href="#"><i class="ri ri-google-plus" data-toggle="tooltip"
-                                                   data-placement="top" title="google plus"></i></a></li>
-                                <li><a href="#"><i class="ri ri-youtube-play" data-toggle="tooltip"
-                                                   data-placement="top" title="youtube"></i></a></li>
+                                <li><a href="#"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
+                                <li><a href="#"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
+                                <li><a href="#"><i class="ri ri-google-plus" data-toggle="tooltip" data-placement="top" title="google plus"></i></a></li>
+                                <li><a href="#"><i class="ri ri-youtube-play" data-toggle="tooltip" data-placement="top" title="youtube"></i></a></li>
                             </ul>
                         </div>
 
@@ -574,6 +572,8 @@
 
 
 </body>
+
+
 
 
 </html>
