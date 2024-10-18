@@ -1,5 +1,113 @@
-if (cuisine == null || cuisine.equals("0")) {
-restaurantPage = restaurantService.searchRestaurants(city, name, page, size);
-} else {
-restaurantPage = restaurantService.searchAndFilterRestaurants(city, name, cuisine, page, size);
+form:
+
+<form action="/perform_login" method="post">
+    <div class="form-group">
+        <label for="userName">Użytkownik</label>
+        <input type="text" class="form-control" id="userName" name="userName" placeholder="Wpisz nazwe użytkownika" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Hasło</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Wpisz hasło" required>
+    </div>
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="remember-me"> Pamiętaj mnie
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Zaloguj się</button>&nbsp;
+        <button type="reset" class="btn btn-primary btn-inverse">Resetuj</button>
+    </div>
+</form>
+<div class="form-group">
+    <a href="account-forgot-password-page.html" class="black">Zapomniałeś hasła?</a>
+</div>
+
+<!-- Obsługa błędów logowania -->
+<c:if test="${param.error != null}">
+    <div class="alert alert-danger">Błędna nazwa użytkownika lub hasło.</div>
+</c:if>
+<c:if test="${param.logout != null}">
+    <div class="alert alert-success">Wylogowano pomyślnie.</div>
+</c:if>
+
+
+Spring SEcurity:
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+@Bean
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+http
+.csrf().disable() // Tymczasowo wyłącz CSRF do debugowania
+.authorizeRequests(authorize -> authorize
+.antMatchers("/", "/home", "/loginRegister", "/aboutUs", "/restaurantDetail/*",
+"/sendContactMessage", "/restaurants", "/sendContactMessagePage",
+"/privacyPolicy",
+"/css/**", "/js/**", "/images/**", "/icons/**", "/bootstrap/**").permitAll() // Publiczne endpointy dostępne dla wszystkich
+
+.antMatchers("/owner/dashboard/*",
+"/owner/dashboard/restaurantEdit/*", "/owner/reservations/list/*",
+"/owner/reservations/edit/*", "/owner/reservations/delete/*",
+"/owner/reservations/details/*", "/owner/passwordchange/*",
+"/owner/profile/*").hasAuthority("RESTAURANT") // Endpointy dostępne tylko dla roli RESTAURANT
+
+.antMatchers("/foodie/profile/*", "/foodie/profile/edit/*",
+"/reservation/*").hasAuthority("FOODIE") // Endpointy dostępne tylko dla roli FOODIE
+
+.anyRequest().authenticated() // Każde inne żądanie wymaga uwierzytelnienia
+)
+.formLogin(form -> form
+.loginPage("/loginRegister")
+.loginProcessingUrl("/perform_login")
+.defaultSuccessUrl("/home", true)
+.failureUrl("/loginRegister?error=true")
+.permitAll()
+)
+.logout(logout -> logout
+.logoutUrl("/perform_logout")
+.deleteCookies("JSESSIONID")
+.logoutSuccessUrl("/loginRegister?logout=true")
+)
+.httpBasic().disable(); // Wyłącz HTTP basic authentication
+return http.build();
+}
+
+@Bean
+public BCryptPasswordEncoder passwordEncoder() {
+return new BCryptPasswordEncoder();
+}
+
+@Bean
+public UserDetailsService userDetailsService(UserRepository userRepository) {
+return new CustomUserDetailsService(userRepository);
+}
+
+}
+
+CustomUserDetailsService:
+
+@Service
+public class CustomUserDetailsService implements UserDetailsService {
+private final UserRepository userRepository;
+
+public CustomUserDetailsService(UserRepository userRepository) {
+this.userRepository = userRepository;
+}
+
+@Override
+public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+User user = userRepository.findByUserName(username);
+if (user == null) {
+throw new UsernameNotFoundException("User not found");
+}
+return new org.springframework.security.core.userdetails.User(
+user.getUserName(),
+user.getPassword(),
+AuthorityUtils.createAuthorityList(user.getRole().toString())
+);
+}
 }

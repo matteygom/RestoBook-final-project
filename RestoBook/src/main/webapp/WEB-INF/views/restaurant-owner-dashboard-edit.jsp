@@ -293,23 +293,17 @@
                                         </div>
 
                                         <div class="clear"></div>
-
                                         <div class="col-sm-6 col-md-4">
                                             <div class="form-group">
-                                                <label>Rok powstania:</label>
-                                                <form:select path="yearOfLaunch" class="selectpicker form-control">
-                                                    <!-- options need to be dynamically generated based on available years -->
-                                                    <!-- Dummy options -->
-                                                    <form:option value="1980" label="1980" />
-                                                    <!-- Add more options here -->
-                                                </form:select>
+                                                <label for="yearOfLaunch">Rok powstania:</label>
+                                                <form:input path="yearOfLaunch" type="number" min="1950" max="2024" class="form-control" id="yearOfLaunch" />
                                             </div>
                                         </div>
 
                                         <div class="col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label>Kuchnia:</label>
-                                                <form:select path="cuisine" class="selectpicker form-control">
+                                                <form:select path="cuisine" class="btn dropdown-toggle btn-default">
                                                     <form:option value="Amerykańska" label="Amerykańska" />
                                                     <form:option value="Indyjska" label="Indyjska" />
                                                     <form:option value="Włoska" label="Włoska" />
@@ -324,7 +318,7 @@
                                         <div class="form-group">
                                             <div class="col-sm-6 col-md-4">
                                                 <label>Ilość miejsc:</label>
-                                                <form:select path="capacity" class="selectpicker show-tick form-control mb-15">
+                                                <form:select path="capacity" class="btn dropdown-toggle btn-default">
                                                     <form:option value="1-10" label="1-10" />
                                                     <form:option value="11-50" label="11-50" />
                                                     <form:option value="51-100" label="51-100" />
@@ -383,7 +377,7 @@
                                         <div class="col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label>Państwo:</label>
-                                                <form:select path="country" class="selectpicker show-tick form-control">
+                                                <form:select path="country" class="btn dropdown-toggle btn-default">
                                                     <form:option value="Polska" label="Polska" />
                                                     <form:option value="Francja" label="Francja" />
                                                     <form:option value="Japonia" label="Japonia" />

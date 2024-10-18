@@ -1,0 +1,86 @@
+<form class="form" role="form" action="/loginRegister" method="post">
+    <div class="form-group">
+        <label class="control-label">Nazwa użytkownika</label>
+        <input type="text" class="form-control" name="username" placeholder="Wpisz nazwę użytkownika" required>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Hasło</label>
+        <input type="password" class="form-control" name="password" placeholder="Wpisz hasło" required>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Email</label>
+        <input type="email" class="form-control" name="email" placeholder="Wpisz email" required>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Rola</label>
+        <select class="form-control" name="role">
+            <option value="FOODIE">Foodie</option>
+            <option value="RESTAURANT">Restaurant</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="remember-me"> Pamiętaj mnie
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Zaloguj się</button>
+        <button type="reset" class="btn btn-secondary">Resetuj</button>
+    </div>
+    <div class="form-group">
+        <a href="account-forgot-password-page.html" class="black">Zapomniałeś hasła?</a>
+    </div>
+</form>
+
+
+Security
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+
+@Bean
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+http
+.csrf().disable() // Tymczasowo wyłącz CSRF na potrzeby debugowania
+.authorizeRequests(authorize -> authorize
+// Ścieżki dostępne dla wszystkich użytkowników
+.antMatchers("/", "/home", "/loginRegister", "/aboutUs", "/restaurantDetail/*",
+"/sendContactMessage", "/restaurants", "/sendContactMessagePage",
+"/contactPage", "/privacyPolicy", "/css/**", "/js/**", "/images/**",
+"/icons/**", "/bootstrap/**").permitAll()
+
+// Ścieżki dostępne tylko dla roli "RESTAURANT"
+.antMatchers("/owner/dashboard/*").hasRole("RESTAURANT")
+.antMatchers("/owner/dashboard/restaurantEdit/*").hasRole("RESTAURANT")
+.antMatchers("/owner/reservations/list/*").hasRole("RESTAURANT")
+.antMatchers("/owner/reservations/edit/*").hasRole("RESTAURANT")
+.antMatchers("/owner/reservations/delete/*").hasRole("RESTAURANT")
+.antMatchers("/owner/reservations/details/*").hasRole("RESTAURANT")
+.antMatchers("/owner/passwordchange/*").hasRole("RESTAURANT")
+.antMatchers("/owner/profile/*").hasRole("RESTAURANT")
+
+// Ścieżki dostępne tylko dla roli "FOODIE"
+.antMatchers("/foodie/profile/*").hasRole("FOODIE")
+.antMatchers("/foodie/profile/edit/*").hasRole("FOODIE")
+.antMatchers("/reservation/*").hasRole("FOODIE")
+
+// Reszta ścieżek wymaga uwierzytelnienia
+.anyRequest().authenticated()
+)
+.formLogin(form -> form
+.loginPage("/loginRegister")
+.defaultSuccessUrl("/home")
+.permitAll()
+)
+.logout(logout -> logout.permitAll());
+return http.build();
+}
+
+@Bean
+public BCryptPasswordEncoder passwordEncoder() {
+return new BCryptPasswordEncoder();
+}
+}

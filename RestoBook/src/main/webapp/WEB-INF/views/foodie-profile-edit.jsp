@@ -319,8 +319,8 @@
                                                 <label>Wykształcenie:</label>
                                             </div>
                                             <div class="col-sm-6 col-md-4">
-                                                <form:select path="education" class="selectpicker show-tick form-control mb-15">
-                                                    <form:option value="Diploma" label="Dyplom" />
+                                                <form:select path="education" class="btn dropdown-toggle btn-default" >
+                                                    <form:option value="Diploma" label="Dyplom"/>
                                                     <form:option value="Bachelor" label="Licencjat" />
                                                     <form:option value="Master" label="Magister" />
                                                     <form:option value="Doctoral" label="Doktorat" />
@@ -366,7 +366,7 @@
                                         <div class="col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label>Państwo:</label>
-                                                <form:select path="country" class="selectpicker show-tick form-control">
+                                                <form:select path="country" class="btn dropdown-toggle btn-default">
                                                     <form:option value="Polska" label="Polska" />
                                                     <form:option value="USA" label="USA" />
                                                     <form:option value="Czechy" label="Czechy" />
@@ -399,7 +399,7 @@
 
                                         <div class="col-sm-12 mt-10">
                                             <button type="submit" class="btn btn-primary">Zapisz</button>
-                                            <a href="#" class="btn btn-warning">Anuluj</a>
+                                            <a href="/foodie/profile/${foodie.id}" class="btn btn-warning">Anuluj</a>
                                         </div>
                                     </div>
 

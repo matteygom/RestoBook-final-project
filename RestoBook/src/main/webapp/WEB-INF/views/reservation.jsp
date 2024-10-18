@@ -76,7 +76,7 @@
 
                 <div class="logo-wrapper">
                     <div class="logo">
-                        <a href="index-02.html"><img src="../../images/RestoBookPng.png" alt="Logo" /></a>
+                        <a href="/home"><img src="../../images/RestoBookPng.png" alt="Logo" /></a>
                     </div>
                 </div>
 
@@ -85,7 +85,7 @@
                     <ul class="nav navbar-nav" id="responsive-menu">
 
                         <li>
-                            <a href="index-02.html">Start</a>
+                            <a href="/home">Start</a>
                             <!--								<ul>-->
                             <!--									<li><a href="index.html">Home - Default</a></li>-->
                             <!--									<li><a href="index-02.html">Home - 02</a></li>-->
@@ -93,7 +93,7 @@
                         </li>
 
                         <li>
-                            <a href="restaurant-list-03.html">Restauracje</a>
+                            <a href="/restaurants">Restauracje</a>
                             <!--								<ul>-->
                             <!--									<li><a href="restaurant.html">Restaurant - Default</a></li>-->
                             <!--									<li><a href="restaurant-grid.html">Restaurant - Grid</a></li>-->
@@ -176,7 +176,7 @@
 
                 <div class="nav-mini-wrapper">
                     <ul class="nav-mini sign-in">
-                        <li><a href="login.html">login</a></li>
+                        <li><a href="/loginRegister">login</a></li>
                         <li><a href="login.html">rejestracja</a></li>
                     </ul>
                 </div>

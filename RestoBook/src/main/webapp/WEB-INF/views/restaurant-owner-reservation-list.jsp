@@ -74,7 +74,7 @@
 
                 <div class="logo-wrapper">
                     <div class="logo">
-                        <a href="index-02.html"><img src="../../../images/RestoBookPng.png" alt="Logo" /></a>
+                        <a href="/home"><img src="../../../images/RestoBookPng.png" alt="Logo" /></a>
                     </div>
                 </div>
 
@@ -83,7 +83,7 @@
                     <ul class="nav navbar-nav" id="responsive-menu">
 
                         <li>
-                            <a href="index-02.html">Start</a>
+                            <a href="/home">Start</a>
                             <!--								<ul>-->
                             <!--									<li><a href="index.html">Home - Default</a></li>-->
                             <!--									<li><a href="index-02.html">Home - 02</a></li>-->
@@ -91,7 +91,7 @@
                         </li>
 
                         <li>
-                            <a href="restaurant-list-03.html">Restauracje</a>
+                            <a href="/restaurants">Restauracje</a>
                             <!--								<ul>-->
                             <!--									<li><a href="restaurant.html">Restaurant - Default</a></li>-->
                             <!--									<li><a href="restaurant-grid.html">Restaurant - Grid</a></li>-->
@@ -157,12 +157,12 @@
                                 <!--										</ul>-->
                                 <!--									</li>-->
 
-                                <li><a href="about-us.html">O nas</a></li>
+                                <li><a href="/aboutUs">O nas</a></li>
                                 <!--									<li><a href="staff.html">Our Staff</a></li>-->
                                 <!--									<li><a href="faq.html">Faq</a></li>-->
-                                <li><a href="contact.html">Kontakt</a></li>
+                                <li><a href="/contactPage">Kontakt</a></li>
                                 <!--									<li><a href="careers.html">Careers</a></li>-->
-                                <li><a href="privacy-policy.html">Polityka Prywatności</a></li>
+                                <li><a href="/privacyPolicy">Polityka Prywatności</a></li>
                                 <!--									<li><a href="pricing.html">Pricing</a></li>-->
                                 <!--									<li><a href="404-error-page.html">404 - Error Page</a></li>-->
                             </ul>
@@ -174,8 +174,8 @@
 
                 <div class="nav-mini-wrapper">
                     <ul class="nav-mini sign-in">
-                        <li><a href="login.html">login</a></li>
-                        <li><a href="login.html">rejestracja</a></li>
+                        <li><a href="/loginRegister">login</a></li>
+                        <li><a href="/loginRegister">rejestracja</a></li>
                     </ul>
                 </div>
 
