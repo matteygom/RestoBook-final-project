@@ -78,6 +78,27 @@ public class UserService {
         restaurantRepository.save(restaurant);
     }
 
+    public boolean changePassword(Long userId, String currentPassword, String newPassword) {
+        Optional<User> userOptional = userRepository.findById(userId);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            if (passwordMatches(currentPassword, user.getPassword())) {
+                user.setPassword(encodePassword(newPassword));
+                userRepository.save(user);
+                return true;
+            } else {
+                // Handle password mismatch
+                return false;
+            }
+        } else {
+            throw new IllegalArgumentException("User not found with id: " + userId);
+        }
+    }
+
+    private boolean passwordMatches(String rawPassword, String encodedPassword) {
+        return new BCryptPasswordEncoder().matches(rawPassword, encodedPassword);
+    }
+
     private String encodePassword(String rawPassword) {
         return new BCryptPasswordEncoder().encode(rawPassword);
     }

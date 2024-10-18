@@ -73,7 +73,7 @@
 
                 <div class="logo-wrapper">
                     <div class="logo">
-                        <a href="index-02.html"><img src="../../images/RestoBookPng.png" alt="Logo"/></a>
+                        <a href="/home"><img src="../../images/RestoBookPng.png" alt="Logo"/></a>
                     </div>
                 </div>
 
@@ -82,7 +82,7 @@
                     <ul class="nav navbar-nav" id="responsive-menu">
 
                         <li>
-                            <a href="index-02.html">Start</a>
+                            <a href="/home">Start</a>
                             <!--								<ul>-->
                             <!--									<li><a href="index.html">Home - Default</a></li>-->
                             <!--									<li><a href="index-02.html">Home - 02</a></li>-->
@@ -90,7 +90,7 @@
                         </li>
 
                         <li>
-                            <a href="restaurant-list-03.html">Restauracje</a>
+                            <a href="/restaurants">Restauracje</a>
                             <!--								<ul>-->
                             <!--									<li><a href="restaurant.html">Restaurant - Default</a></li>-->
                             <!--									<li><a href="restaurant-grid.html">Restaurant - Grid</a></li>-->
@@ -157,7 +157,7 @@
                                 <!--										</ul>-->
                                 <!--									</li>-->
 
-                                <li><a href="about-us.html">O nas</a></li>
+                                <li><a href="/aboutUs">O nas</a></li>
                                 <!--									<li><a href="staff.html">Our Staff</a></li>-->
                                 <!--									<li><a href="faq.html">Faq</a></li>-->
                                 <li><a href="contact.html">Kontakt</a></li>
@@ -174,8 +174,8 @@
 
                 <div class="nav-mini-wrapper">
                     <ul class="nav-mini sign-in">
-                        <li><a href="login.html">login</a></li>
-                        <li><a href="login.html">rejestracja</a></li>
+                        <li><a href="/loginRegister">login</a></li>
+                        <li><a href="/loginRegister">rejestracja</a></li>
                     </ul>
                 </div>
 
@@ -221,7 +221,7 @@
                                 <div class="admin-user-item for-employer">
 
                                     <div class="image">
-                                        <img src="data:image/jpeg;base64,${restaurant.logoBase64}" alt="Logo" />
+                                        <img src="data:image/jpeg;base64,${restaurant.logoBase64}" alt="Logo" style="width: 300px; height: 150px;" />
                                     </div>
 
                                     <h4>${restaurant.restoName}</h4>
@@ -237,16 +237,16 @@
 
                                 <ul class="admin-user-menu clearfix">
                                     <li class="active">
-                                        <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
+                                        <a href="/owner/dashboard/${userId}"><i class="fa fa-tachometer"></i> Dashboard</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-user"></i> Profil</a>
+                                        <a href="/owner/profile/${userId}"><i class="fa fa-user"></i> Profil</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-key"></i> Zmień hasło</a>
+                                        <a href="/owner/passwordchange/${userId}"><i class="fa fa-key"></i> Zmień hasło</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-bookmark"></i> Rezerwacje</a>
+                                        <a href="/owner/reservations/list/${userId}"><i class="fa fa-bookmark"></i> Rezerwacje</a>
                                     </li>
                                     <li>
                                         <a href="#"><i class="fa fa-sign-out"></i> Wyloguj</a>
@@ -275,7 +275,7 @@
                                         <div class="col-sm-6 col-md-4">
 
                                             <div class="image">
-                                                <label>Zdjęcie</label>
+                                                <label style="">Zdjęcie</label>
                                                 <br>
                                                 <img src="data:image/jpeg;base64,${restaurant.logoBase64}" alt="Logo" />
 <%--                                                <input type="file" name="form-register-photo-2" id="form-register-photo-2">--%>

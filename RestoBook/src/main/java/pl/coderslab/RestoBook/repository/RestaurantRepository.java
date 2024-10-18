@@ -1,5 +1,8 @@
 package pl.coderslab.RestoBook.repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import pl.coderslab.RestoBook.domain.Restaurant;
@@ -26,5 +29,8 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
 
     @Query("SELECT COUNT(DISTINCT r.country) FROM Restaurant r")
     long countDistinctCountries();
+
+    Page<Restaurant> findByCityContainingAndRestoNameContaining(String city, String name, Pageable pageable);
+
 
 }

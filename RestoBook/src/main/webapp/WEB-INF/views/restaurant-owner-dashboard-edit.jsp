@@ -239,16 +239,16 @@
 
                                 <ul class="admin-user-menu clearfix">
                                     <li class="active">
-                                        <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
+                                        <a href="/owner/dashboard/${userId}"><i class="fa fa-tachometer"></i> Dashboard</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-user"></i> Profil</a>
+                                        <a href=/owner/profile/${userId}"><i class="fa fa-user"></i> Profil</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-key"></i> Zmień hasło</a>
+                                        <a href="/owner/passwordchange/${userId}"><i class="fa fa-key"></i> Zmień hasło</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-bookmark"></i> Rezerwacje</a>
+                                        <a href="/owner/reservations/list/${userId}"><i class="fa fa-bookmark"></i> Rezerwacje</a>
                                     </li>
                                     <li>
                                         <a href="#"><i class="fa fa-sign-out"></i> Wyloguj</a>
@@ -416,7 +416,7 @@
 
                                         <div class="col-sm-12 mt-10">
                                             <button type="submit" class="btn btn-primary">Zapisz</button>
-                                            <a href="#" class="btn btn-warning">Anuluj</a>
+                                            <a href="/owner/dashboard/${restaurant.id}" class="btn btn-warning">Anuluj</a>
                                         </div>
                                     </div>
 

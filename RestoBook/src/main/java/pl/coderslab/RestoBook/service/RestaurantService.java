@@ -1,6 +1,9 @@
 package pl.coderslab.RestoBook.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import pl.coderslab.RestoBook.domain.Restaurant;
@@ -22,6 +25,11 @@ public class RestaurantService {
 
     public List<Restaurant> findAll() {
         return restaurantRepository.findAll();
+    }
+
+    public Page<Restaurant> findAllPaginated(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return restaurantRepository.findAll(pageable);
     }
 
     public Optional<Restaurant> findById(Long id) {
@@ -56,6 +64,10 @@ public class RestaurantService {
         return restaurantRepository.findTop5ByOrderByRatingDesc();
     }
 
+    public Page<Restaurant> searchRestaurants(String city, String name, int page, int size) {
+        return restaurantRepository.findByCityContainingAndRestoNameContaining(city, name, PageRequest.of(page, size));
+    }
+
     public long countAllRestaurants() {
         return restaurantRepository.countAllRestaurants();
     }
@@ -72,17 +84,6 @@ public class RestaurantService {
         return restaurantRepository.save(restaurant);
     }
 
-    public Restaurant saveRestaurantWithLogo(Restaurant restaurant, MultipartFile file) throws IOException {
-        if (file != null && !file.isEmpty()) {
-            byte[] bytes = file.getBytes();
-            if (bytes.length <= 250 * 1024) {
-                restaurant.setLogo(bytes);
-            } else {
-                throw new IllegalArgumentException("File size exceeds the maximum allowed size (250 KB)");
-            }
-        }
-        return restaurantRepository.save(restaurant);
-    }
 
     public void deleteById(Long id) {
         restaurantRepository.deleteById(id);

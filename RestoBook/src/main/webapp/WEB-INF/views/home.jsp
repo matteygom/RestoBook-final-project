@@ -158,12 +158,12 @@
                                 <!--										</ul>-->
                                 <!--									</li>-->
 
-                                <li><a href="about-us.html">O nas</a></li>
+                                <li><a href="/aboutUs">O nas</a></li>
                                 <!--									<li><a href="staff.html">Our Staff</a></li>-->
                                 <!--									<li><a href="faq.html">Faq</a></li>-->
-                                <li><a href="contact.html">Kontakt</a></li>
+                                <li><a href="/contactPage">Kontakt</a></li>
                                 <!--									<li><a href="careers.html">Careers</a></li>-->
-                                <li><a href="privacy-policy.html">Polityka Prywatności</a></li>
+                                <li><a href="/privacyPolicy">Polityka Prywatności</a></li>
                                 <!--									<li><a href="pricing.html">Pricing</a></li>-->
                                 <!--									<li><a href="404-error-page.html">404 - Error Page</a></li>-->
                             </ul>
@@ -201,27 +201,24 @@
 
                 <div class="main-search-form-wrapper">
 
-                    <form>
-
+                    <form action="/restaurants" method="get">
                         <div class="form-holder">
                             <div class="row gap-0">
 
                                 <div class="col-xss-6 col-xs-6 col-sm-6">
-                                    <input class="form-control" placeholder="np. Warszawa" />
+                                    <input class="form-control" name="city" placeholder="np. Warszawa" />
                                 </div>
 
                                 <div class="col-xss-6 col-xs-6 col-sm-6">
-                                    <input class="form-control" placeholder="Znajdź restauracje" />
+                                    <input class="form-control" name="name" placeholder="Znajdź restauracje" />
                                 </div>
 
                             </div>
-
                         </div>
 
                         <div class="btn-holder">
-                            <button class="btn"><i class="ion-android-search"></i></button>
+                            <button class="btn" type="submit"><i class="ion-android-search"></i></button>
                         </div>
-
                     </form>
 
                 </div>

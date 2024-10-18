@@ -54,18 +54,18 @@ public class LoginRegisterController {
             Foodie foodie = new Foodie();
             foodie.setUser(user);
             userService.saveFoodie(user, foodie);
+            return "redirect:/foodie/profile/" + user.getId();
         } else if ("RESTAURANT".equalsIgnoreCase(user.getRole().toString())) {
             user.setRole(User.Role.RESTAURANT);
             user.setActive(true);
             Restaurant restaurant = new Restaurant();
             restaurant.setUser(user);
             userService.saveRestaurant(user, restaurant);
+            return "redirect:/owner/dashboard/" + user.getId();
         } else {
             model.addAttribute("error", "Invalid role specified");
             return "loginRegister";
         }
-
-        return "redirect:/owner/dashboard/" + user.getId();
     }
 
     @PostMapping("/sendContactMessage")

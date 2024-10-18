@@ -1,16 +1,11 @@
 package pl.coderslab.RestoBook.domain;
 
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import java.sql.Time;
-import java.time.LocalDateTime;
+import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalTime;
 import java.util.Date;
-import java.util.List;
-import java.util.Set;
 
 @Data
 @Entity
@@ -22,6 +17,7 @@ public class Reservation {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "restaurant_id", nullable = false)
     private Restaurant restaurant;
 
     @NotEmpty
@@ -31,7 +27,6 @@ public class Reservation {
     @NotEmpty
     @Column(length = 30)
     private String fullName;
-
 
     @NotBlank
     @Size(min = 6)
@@ -56,12 +51,13 @@ public class Reservation {
     @Column(nullable = true, length = 255)
     private String specialRequest;
 
-//    private String captcha;
-
     @Lob
     private byte[] logo;
 
-    @ManyToMany(mappedBy = "reservations")
-    private List<Restaurant> restaurants;
+    @Override
+    public String toString() {
+        return "Reservation{id=" + id + ", title='" + title + "', fullName='" + fullName + "', date=" + date + ", time=" + time + ", guestsCount=" + guestsCount + "}";
+    }
+
 
 }

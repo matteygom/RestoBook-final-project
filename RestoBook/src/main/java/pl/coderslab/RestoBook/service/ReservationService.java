@@ -27,8 +27,9 @@ public class ReservationService {
         return reservationRepository.findById(id);
     }
 
-    public List<Reservation> findByRestaurantId(Long restaurantId) {
-        return reservationRepository.findByRestaurantId(restaurantId);
+    public Optional<List<Reservation>> findByRestaurantId(Long restaurantId) {
+        List<Reservation> reservations = reservationRepository.findByRestaurantId(restaurantId);
+        return Optional.ofNullable(reservations);
     }
 
     public List<Reservation> findByDate(Date date) {

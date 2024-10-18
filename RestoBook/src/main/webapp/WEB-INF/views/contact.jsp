@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
@@ -17,10 +16,8 @@
 
     <!-- Title Of Site -->
     <title>RestoBook - Rezerwacje Online</title>
-    <meta name="description"
-          content="RestoBook is a booking platform which brings restaurants and food lovers together. Booking tables online is easier than any other platforms.">
-    <meta name="keywords"
-          content="food, booking online, restaurant, reservation, book a table, foodies, cafe, recipes, menu, dishes, chefs and cooking experts ">
+    <meta name="description" content="RestoBook is a booking platform which brings restaurants and food lovers together. Booking tables online is easier than any other platforms.">
+    <meta name="keywords" content="food, booking online, restaurant, reservation, book a table, foodies, cafe, recipes, menu, dishes, chefs and cooking experts ">
     <meta name="author" content="iglyphic">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -75,7 +72,7 @@
 
                 <div class="logo-wrapper">
                     <div class="logo">
-                        <a href="/home"><img src="images/RestoBookPng.png" alt="Logo"/></a>
+                        <a href="/home"><img src="images/RestoBookPng.png" alt="Logo" /></a>
                     </div>
                 </div>
 
@@ -146,8 +143,7 @@
                                 <li>
                                     <a href="#">Restauracja</a>
                                     <ul>
-                                        <li><a href="restaurant-owner-dashboard.html">Dashboard Właściciela
-                                            restauracji</a></li>
+                                        <li><a href="restaurant-owner-dashboard.html">Dashboard Właściciela restauracji</a></li>
                                         <li><a href="restaurant-detail.html">Restauracja Szczegóły</a></li>
                                     </ul>
                                 </li>
@@ -162,9 +158,9 @@
                                 <li><a href="/aboutUs">O nas</a></li>
                                 <!--									<li><a href="staff.html">Our Staff</a></li>-->
                                 <!--									<li><a href="faq.html">Faq</a></li>-->
-                                <li><a href="/contactPage">Kontakt</a></li>
+                                <li><a href="contact.html">Kontakt</a></li>
                                 <!--									<li><a href="careers.html">Careers</a></li>-->
-                                <li><a href="/privacyPolicy">Polityka Prywatności</a></li>
+                                <li><a href="privacy-policy.html">Polityka Prywatności</a></li>
                                 <!--									<li><a href="pricing.html">Pricing</a></li>-->
                                 <!--									<li><a href="404-error-page.html">404 - Error Page</a></li>-->
                             </ul>
@@ -200,7 +196,7 @@
 
                 <ol class="breadcrumb-list">
                     <li><a href="index-02.html">Start</a></li>
-                    <li><span>Logowanie</span></li>
+                    <li><span>Skontaktuj się z nami</span></li>
                 </ol>
 
             </div>
@@ -208,190 +204,131 @@
         </div>
         <!-- end hero-header -->
 
-        <div class="error-page-wrapper">
+        <div class="section sm pb-20">
 
             <div class="container">
 
                 <div class="row">
 
+                    <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 
-                    <!-- login container -->
+                        <div class="section-title">
 
-                    <div class="login-container">
-                        <!-- Combined Form Content -->
-                        <div class="login-container-content">
-                            <ul class="nav nav-tabs nav-justified">
-                                <li class="active link-one"><a href="#login-block" data-toggle="tab"><i
-                                        class="fa fa-sign-in"></i>Loguj</a></li>
-                                <li class="link-two"><a href="#register-block" data-toggle="tab"><i
-                                        class="fa fa-pencil"></i>Rejestruj</a></li>
-                                <li class="link-three"><a href="#contact-block" data-toggle="tab"><i
-                                        class="fa fa-envelope"></i>Kontakt</a></li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane active fade in" id="login-block">
-                                    <!-- Login Block Form -->
-                                    <div class="login-block-form">
-                                        <!-- Heading -->
-                                        <h4>Zaloguj sie do swojego konta</h4>
-                                        <!-- Border -->
-                                        <div class="bor bg-orange"></div>
-                                        <!-- Form -->
-                                        <form class="form" role="form">
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <!-- Label -->
-                                                <label class="control-label">Użytkownik</label>
-                                                <!-- Input -->
-                                                <input type="text" class="form-control"
-                                                       placeholder="Wpisz nazwe użytkownika">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label">Hasło</label>
-                                                <input type="password" class="form-control" placeholder="Wpisz hasło">
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> Pamiętaj mnie
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <!-- Button -->
-                                                <button type="submit" class="btn btn-primary">Zaloguj się</button>&nbsp;
-                                                <button type="submit" class="btn btn-primary btn-inverse">Resetuj
-                                                </button>
-                                            </div>
-                                            <div class="form-group">
-                                                <a href="account-forgot-password-page.html" class="black">Zapomniałeś
-                                                    hasła ?</a>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="register-block">
-                                    <div class="register-block-form">
-                                        <!-- Heading -->
-                                        <h4>Stwórz konto</h4>
-                                        <!-- Border -->
-                                        <div class="bor bg-orange"></div>
-                                        <!-- Form -->
-                                        <form:form  class="form" role="form" method="POST" action="/loginRegister" modelAttribute="user">
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <!-- Radio -->
-                                                <div class="radio-inline">
-                                                    <form:radiobutton path="role" value="FOODIE" label="Foodie"/>
-                                                </div>
-                                                <form:errors path="role"/>
-                                            </div>
-                                            <div class="form-group">
-                                                <!-- Radio -->
-                                                <div class="radio-inline">
-                                                    <form:radiobutton path="role" value="RESTAURANT" label="Właściciel restauracji"/>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <!-- Label -->
-                                                <form:label path="userName" class="control-label">Nazwa użytkownika</form:label>
-                                                <form:input path="userName" class="form-control" placeholder="Wpisz nazwę użytkownika"/>
-                                                <!-- Input -->
-                                            </div>
-                                            <div class="form-group">
-                                                <form:label path="email" class="control-label">Email</form:label>
-                                                <form:input path="email" class="form-control" placeholder="Wpisz email"/>
-                                            </div>
-                                            <div class="form-group">
-                                                <form:label path="password" class="control-label">Hasło</form:label>
-                                                <form:password path="password" class="form-control" placeholder="Wpisz hasło"/>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label">Potwierdź hasło</label>
-                                                <input type="password" class="form-control" placeholder="Powtórz hasło">
-                                            </div>
-<%--                                            <div class="form-group">--%>
-<%--                                                <label class="control-label">Twój kraj</label>--%>
-<%--                                                <select class="form-control" id="country">--%>
-<%--                                                    <option>Wybierz swój kraj</option>--%>
-<%--                                                    <option>Polska</option>--%>
-<%--                                                    <option>USA</option>--%>
-<%--                                                    <option>London</option>--%>
-<%--                                                    <option>Francja</option>--%>
-<%--                                                </select>--%>
-<%--                                            </div>--%>
-                                            <div class="form-group">
-                                                <!-- Checkbox -->
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> Przez rejestracje, przeczytałem i
-                                                        akceptuje <a href="#">warunki</a>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <!-- Buton -->
-                                                <button type="submit" class="btn btn-primary">Zatwierdź</button>&nbsp;
-                                                <button type="submit" class="btn btn-primary btn-inverse">Resetuj
-                                                </button>
-                                            </div>
-                                        </form:form>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="contact-block">
-                                    <!-- Contact Block Form -->
-                                    <div class="contact-block-form">
-                                        <h4>Formularz kontaktowy</h4>
-                                        <!-- Border -->
-                                        <div class="bor bg-orange"></div>
-                                        <!-- Form -->
-                                        <form class="form" role="form" action="/sendContactMessage" method="post">
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="control-label">Użytkownik</label>
-                                                <input type="text" class="form-control" name="username" placeholder="Wpisz nazwę użytkownika">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label">Email</label>
-                                                <input type="text" class="form-control" name="email" placeholder="Wpisz email">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label">Temat</label>
-                                                <input type="text" class="form-control" name="subject" placeholder="Wpisz temat">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="comments" class="control-label">Wiadomość</label>
-                                                <textarea class="form-control" id="comments" name="message" rows="5"
-                                                          placeholder="Wpisz wiadomość"></textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <!-- Button -->
-                                                <button type="submit" class="btn btn-primary">Zatwierdź</button>&nbsp;
-                                                <button type="reset" class="btn btn-primary btn-inverse">Resetuj</button>
-                                            </div>
-                                            <c:if test="${not empty error}">
-                                                <div class="alert alert-danger">
-                                                        ${error}
-                                                </div>
-                                            </c:if>
-                                            <c:if test="${not empty success}">
-                                                <div class="alert alert-success">
-                                                        ${success}
-                                                </div>
-                                            </c:if>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                            <h2>Skontaktuj się z nami i uzyskaj pomoc</h2>
+                            <p>zapewniamy wysoką responsywność o każdej porze </p>
+
                         </div>
+
                     </div>
 
+                </div>
 
+                <div class="row mb-40 contact-info">
+                    <div class="col-sm-4">
+                        <div class="icon icon-default" data-icon="G"></div>
+                        <h4>Biuro Warszawa</h4><address><p>Adres: 00-550, Marszałkowska 125, Polska </p></address></div>
+                    <div class="col-sm-4">
+                        <div class="icon icon-default" data-icon="Q"></div>
+                        <h4>Telefony &amp; Email</h4>
+                        <dl class="dl-horizontal"><dt>Phone:</dt>
+                            <dd>
+                                <p>+48 567 943 231<br>+48 567 943 232</p>
+                            </dd><dt>Fax:</dt>
+                            <dd>
+                                <p>++48 567 943 234</p>
+                            </dd><dt>Email:</dt>
+                            <dd>
+                                <p><a href="mailto:info@thefoody.com">matteygom@gmail.com</a></p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="icon icon-default" data-icon="2"></div>
+                        <h4>Informacje kontaktowe</h4>
+                        <p>Pracujemy od 8:00 do 17:00 (UTC+02:00).</p>
+                    </div>
                 </div>
 
             </div>
 
         </div>
+
+        <div class="contact-map">
+
+            <div id="map" data-lat="51.4435746" data-lon="0.1522334" style="width: 100%; height: 500px;"></div>
+
+            <div class="infobox-wrapper shorter-infobox contact-infobox">
+                <div id="infobox">
+                    <div class="infobox-address">
+                        <h6>We Are Here</h6>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div class="row mt-50 mb-50">
+
+                <div class="col-sm-12 col-md-12 ">
+
+                    <form class="contact-form-wrapper" data-toggle="validator" action="/sendContactMessagePage" method="post">
+
+                        <div class="row">
+
+                            <div class="col-sm-6">
+
+                                <div class="form-group">
+                                    <label for="inputName">Twoje imię <span class="font10 text-danger">(required)</span></label>
+                                    <input id="inputName" type="text" name="name" class="form-control" data-error="Imie jest jest wymagana" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm-6">
+
+                                <div class="form-group">
+                                    <label for="inputEmail">Twój email <span class="font10 text-danger">(required)</span></label>
+                                    <input id="inputEmail" type="email" name="email" class="form-control" data-error="Twój email jest wymagany  oraz musi spełniać format x@x.xx" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm-12">
+
+                                <div class="form-group">
+                                    <label>Temat</label>
+                                    <input type="text" name="subject" class="form-control" />
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm-12">
+
+                                <div class="form-group">
+                                    <label for="inputMessage">Wiadomość <span class="font10 text-danger">(required)</span></label>
+                                    <textarea id="inputMessage" name="message" class="form-control" rows="8" data-minlength="50" data-error="Twoja wiadomość musi zawierać min 50 znaków" required></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm-12 text-right">
+                                <button type="submit" class="btn btn-primary mt-5">Wyślij wiadomość</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
 
         <!-- start footer -->
         <footer class="footer-wrapper-area">
@@ -511,14 +448,10 @@
 
                         <div class="col-sm-4 col-md-4">
                             <ul class="bottom-footer-menu for-social">
-                                <li><a href="#"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top"
-                                                   title="twitter"></i></a></li>
-                                <li><a href="#"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top"
-                                                   title="facebook"></i></a></li>
-                                <li><a href="#"><i class="ri ri-google-plus" data-toggle="tooltip"
-                                                   data-placement="top" title="google plus"></i></a></li>
-                                <li><a href="#"><i class="ri ri-youtube-play" data-toggle="tooltip"
-                                                   data-placement="top" title="youtube"></i></a></li>
+                                <li><a href="#"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
+                                <li><a href="#"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
+                                <li><a href="#"><i class="ri ri-google-plus" data-toggle="tooltip" data-placement="top" title="google plus"></i></a></li>
+                                <li><a href="#"><i class="ri ri-youtube-play" data-toggle="tooltip" data-placement="top" title="youtube"></i></a></li>
                             </ul>
                         </div>
 
@@ -572,6 +505,94 @@
 <script type="text/javascript" src="js/jquery.responsivegrid.js"></script>
 <script type="text/javascript" src="js/customs.js"></script>
 
+<script src="js/validator.min.js"></script>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="js/infobox.js"></script>
+
+<script>
+    function initialize() {
+
+// Create an array of styles.
+        var styles = [{"featureType":"all","elementType":"labels","stylers":[{"lightness":63},{"hue":"#ff0000"}]},{"featureType":"administrative","elementType":"all","stylers":[{"hue":"#000bff"},{"visibility":"on"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"administrative","elementType":"labels","stylers":[{"color":"#4a4a4a"},{"visibility":"on"}]},{"featureType":"administrative","elementType":"labels.text","stylers":[{"weight":"0.01"},{"color":"#727272"},{"visibility":"on"}]},{"featureType":"administrative.country","elementType":"labels","stylers":[{"color":"#ff0000"}]},{"featureType":"administrative.country","elementType":"labels.text","stylers":[{"color":"#ff0000"}]},{"featureType":"administrative.province","elementType":"geometry.fill","stylers":[{"visibility":"on"}]},{"featureType":"administrative.province","elementType":"labels.text","stylers":[{"color":"#545454"}]},{"featureType":"administrative.locality","elementType":"labels.text","stylers":[{"visibility":"on"},{"color":"#737373"}]},{"featureType":"administrative.neighborhood","elementType":"labels.text","stylers":[{"color":"#7c7c7c"},{"weight":"0.01"}]},{"featureType":"administrative.land_parcel","elementType":"labels.text","stylers":[{"color":"#404040"}]},{"featureType":"landscape","elementType":"all","stylers":[{"lightness":16},{"hue":"#ff001a"},{"saturation":-61}]},{"featureType":"poi","elementType":"labels.text","stylers":[{"color":"#828282"},{"weight":"0.01"}]},{"featureType":"poi.government","elementType":"labels.text","stylers":[{"color":"#4c4c4c"}]},{"featureType":"poi.park","elementType":"all","stylers":[{"hue":"#00ff91"}]},{"featureType":"poi.park","elementType":"labels.text","stylers":[{"color":"#7b7b7b"}]},{"featureType":"road","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels.text","stylers":[{"color":"#999999"},{"visibility":"on"},{"weight":"0.01"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"hue":"#ff0011"},{"lightness":53}]},{"featureType":"road.highway","elementType":"labels.text","stylers":[{"color":"#626262"}]},{"featureType":"transit","elementType":"labels.text","stylers":[{"color":"#676767"},{"weight":"0.01"}]},{"featureType":"water","elementType":"all","stylers":[{"hue":"#0055ff"}]}];
+
+        var loc, map, marker, infobox;
+
+        var styledMap = new google.maps.StyledMapType(styles,  {name: "Styled Map"});
+
+        loc = new google.maps.LatLng($("#map").attr("data-lat"), $("#map").attr("data-lon"));
+
+        map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 14,
+            center: loc,
+            scrollwheel: false,
+            //draggable:true,
+            navigationControl: false,
+            scaleControl: false,
+            mapTypeControl:false,
+            streetViewControl: false,
+            mapTypeControlOptions: {
+                mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+            },
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+        });
+
+//Associate the styled map with the MapTypeId and set it to display.
+        map.mapTypes.set('map_style', styledMap);
+        map.setMapTypeId('map_style');
+
+        marker = new google.maps.Marker({
+            map: map,
+            position: loc,
+            //disableDefaultUI:true,
+
+            icon:'images/map-marker/00.png',
+            //pixelOffset: new google.maps.Size(-140, -100),
+            visible: true
+
+            //animation: google.maps.Animation.DROP
+        });
+
+        infobox = new InfoBox({
+            content: document.getElementById("infobox"),
+            disableAutoPan: true,
+            //maxWidth: 150,
+            pixelOffset: new google.maps.Size(0, -50),
+            zIndex: null,
+            alignBottom: true,
+            isHidden: false,
+            //closeBoxMargin: "12px 4px 2px 2px",
+            closeBoxURL: "images/infobox-close.png",
+            closeBoxClass:"infoBox-close",
+            infoBoxClearance: new google.maps.Size(1, 1)
+        });
+
+        openInfoBox(marker);
+
+        google.maps.event.addListener(marker, 'click', function() {
+            openInfoBox(this);
+        });
+
+        function openInfoBox(thisMarker){
+            map.panTo(loc);
+            map.panBy(0,-80);
+            infobox.open(map, thisMarker);
+        }
+
+        var center;
+        function calculateCenter() {
+            center = map.getCenter();
+        }
+        google.maps.event.addDomListener(map, 'idle', function() {
+            calculateCenter();
+        });
+        google.maps.event.addDomListener(window, 'resize', function() {
+            map.setCenter(center);
+        });
+
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 
 </body>
 

@@ -217,20 +217,20 @@
                         <div class="job-detail-sidebar">
 
                             <ul class="meta-list clearfix">
-                                <li>
-                                    <h4 class="heading">Lokalizacja:</h4>
+                                <li style="font-size: larger">
+                                    <h3 class="heading" style="color:#3b5043">Lokalizacja:</h3>
                                     ${restaurant.get().country}, ${restaurant.get().city}
                                 </li>
-                                <li>
-                                    <h4 class="heading">Kuchnia:</h4>
+                                <li style="font-size: larger">
+                                    <h3 class="heading" style="color:#3b5043">Kuchnia:</h3>
                                     ${restaurant.get().cuisine}
                                 </li>
-                                <li>
-                                    <h4 class="heading">Ocena:</h4>
+                                <li style="font-size: larger">
+                                    <h3 class="heading" style="color:#3b5043">Ocena:</h3>
                                     ${restaurant.get().rating}
                                 </li>
-                                <li>
-                                    <h4 class="heading">Średnia cen:</h4>
+                                <li style="font-size: larger">
+                                    <h3 class="heading" style="color:#3b5043">Średnia cen:</h3>
                                     ${restaurant.get().avgPrice}
                                 </li>
 
@@ -238,13 +238,13 @@
 
                             <div class="job-detail-company-overview mt-15 clearfix">
 
-                                <h3>Podsumowanie</h3>
+                                <h3 style="color:#3b5043">Szyld</h3>
                                 <div class="image">
                                     <img src="data:image/jpeg;base64,${restaurant.get().logoBase64}" alt="image" style="width: 300px; height: 150px;"/>
                                 </div>
 
-                                <p><span class="font600">Kogel Mogel</span>
-                                    Tuż przy krakowskich plantach, krok od Małego Rynku i Bazyliki Mariackiej „ukręcił się” Kogel Mogel – restauracja, w której sztuka kulinarna polskiej kuchni ukazana jest w innym wymiarze. Tutaj gdzie we wnętrzach pełno haftowanych krakowskich obwarzanków, gdzie malowane kurki złotopiórki znoszą złote jaja, a imponująca winiarnia połączona z cudownym ogrodem obfituje w wina z najlepszych winnic świata, można kosztować tradycyjnych polskich potraw w nowych, niespotykanych aranżacjach.</p>
+<%--                                <p><span class="font600">Kogel Mogel</span>--%>
+<%--                                    Tuż przy krakowskich plantach, krok od Małego Rynku i Bazyliki Mariackiej „ukręcił się” Kogel Mogel – restauracja, w której sztuka kulinarna polskiej kuchni ukazana jest w innym wymiarze. Tutaj gdzie we wnętrzach pełno haftowanych krakowskich obwarzanków, gdzie malowane kurki złotopiórki znoszą złote jaja, a imponująca winiarnia połączona z cudownym ogrodem obfituje w wina z najlepszych winnic świata, można kosztować tradycyjnych polskich potraw w nowych, niespotykanych aranżacjach.</p>--%>
 
                             </div>
 

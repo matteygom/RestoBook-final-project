@@ -1,13 +1,13 @@
+
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-
 <!doctype html>
 <html lang="en">
-
 
 
 <head>
@@ -62,13 +62,11 @@
 
 <body class="not-transparent-header">
 
-
 <!-- start Container Wrapper -->
 <div class="container-wrapper">
 
     <!-- start Header -->
     <header id="header">
-        <!-- start Navbar (Header) -->
         <!-- start Navbar (Header) -->
         <nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function">
 
@@ -191,154 +189,115 @@
     <!-- end Header -->
 
     <!-- start Main Wrapper -->
-    <div class="main-wrapper scrollspy-container">
+    <div class="main-wrapper">
 
-        <!-- start hero-header -->
+        <!-- start breadcrumb -->
         <div class="breadcrumb-wrapper">
 
             <div class="container">
 
                 <ol class="breadcrumb-list booking-step">
-                    <li><a href="index.html">Start</a></li>
-                    <li><span>Rezerwacja</span></li>
+                    <li><a href="#">Start</a></li>
+                    <li><span>Zmiana hasła</span></li>
                 </ol>
 
             </div>
 
         </div>
-        <!-- end hero-header -->
+        <!-- end breadcrumb -->
 
-        <div class="section sm">
+        <div class="admin-container-wrapper">
 
-            <!-- Reservation page -->
             <div class="container">
-                <div class="row">
-                    <!-- Main row -->
 
-                    <div class="col-md-9">
-                        <div class="reservation-left-side">
-                            <div class="form-horizontal">
-                                <!-- Form Horizontal -->
-                                <form:form method="post" modelAttribute="reservation" class="form-horizontal">
-                                    <div class="form-group">
-                                        <!-- Full Name -->
-                                        <label class="col-sm-3 control-label">Pełne imię i nazwisko&nbsp;*</label>
-                                        <div class="col-sm-9">
-                                            <form:input path="title" placeholder="Tytuł" class="form-control custom-title" />
-                                            <form:input path="fullName" placeholder="Pełne imię i nazwisko" class="form-control custom-name" id="name" />
-                                            <form:errors path="fullName" cssClass="text-danger" />
-                                        </div>
-                                    </div>
-                                    <!-- Full Name end -->
+                <div class="GridLex-gap-15-wrappper">
 
-                                    <div class="form-group">
-                                        <!-- Email Address -->
-                                        <label class="col-sm-3 control-label">Adres Email&nbsp;*</label>
-                                        <div class="col-sm-9">
-                                            <form:input path="email" placeholder="Adres Email" class="form-control" id="email" />
-                                            <form:errors path="email" cssClass="text-danger" />
-                                        </div>
-                                    </div>
-                                    <!-- Email Address end -->
+                    <div class="GridLex-grid-noGutter-equalHeight">
 
-                                    <div class="form-group">
-                                        <!-- Telephone/Mobile Number -->
-                                        <label class="col-sm-3 control-label">Numer Tel/Kom&nbsp;*</label>
-                                        <div class="col-sm-9">
-                                            <form:input path="phoneNumber" placeholder="Numer Tel/Kom" class="form-control" id="phoneNumber" />
-                                            <form:errors path="phoneNumber" cssClass="text-danger" />
-                                        </div>
-                                    </div>
-                                    <!-- Telephone/Mobile Number end -->
+                        <div class="GridLex-col-3_sm-4_xs-12">
 
-                                    <div class="form-group">
-                                        <!-- Date and Time -->
-                                        <label class="col-sm-3 control-label">Data & Godzina&nbsp;*</label>
-                                        <div class="col-sm-9">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="input-group">
-                                                        <label class="sr-only" for="date">Data</label>
-                                                        <form:input path="date" type="date" class="form-control" id="date" placeholder="Data" />
-                                                        <form:errors path="date" cssClass="text-danger" />
-                                                            <span class="input-group-addon flat">
-                                                                <span class="fa fa-calendar"></span>
-                                                            </span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <form:input path="time" type="time" class="form-control" id="time" placeholder="Czas" />
-                                                    <form:errors path="time" cssClass="text-danger" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Date and Time end -->
+                            <div class="admin-sidebar">
 
-                                    <div class="form-group">
-                                        <!-- No. of Guest -->
-                                        <label class="col-sm-3 control-label">Liczba Gości&nbsp;*</label>
-                                        <div class="col-sm-9">
-                                            <form:input path="guestsCount" type="number" placeholder="Liczba Gości" id="guestsCount" class="form-control" min="0" />
-                                            <form:errors path="guestsCount" cssClass="text-danger" />
-                                        </div>
-                                    </div>
-                                    <!-- No. of Guest end -->
+                                <div class="admin-user-item">
 
-                                    <div class="form-group">
-                                        <!-- Special Guest -->
-                                        <label class="col-sm-3 control-label">Życzenia specjalne</label>
-                                        <div class="col-sm-9">
-                                            <form:textarea path="specialRequest" placeholder="Życzenia specjalne" rows="3" id="specialRequest" class="form-control" style="resize: none;" />
-                                            <form:errors path="specialRequest" cssClass="text-danger" />
-                                        </div>
+                                    <div class="image">
+                                        <img src="images/man/01.jpg" alt="image" class="img-circle" />
                                     </div>
-                                    <!-- Special Guest end -->
 
-                                    <div class="form-group">
-                                        <!-- Captcha -->
-                                        <label class="col-sm-3 control-label hidden-xs">CAPTCHA</label>
-                                        <div class="col-sm-9">
-                                            <p><spring:escapeBody>${captcha}</spring:escapeBody></p> <!-- wyswietlamy CAPTCHA -->
-                                        </div>
-                                    </div>
-                                    <!-- Captcha end -->
+                                    <h2>${user.userName}</h2>
+                                    <p class="user-role">${user.role}</p>
 
-                                    <div class="form-group">
-                                        <!-- Enter captcha info -->
-                                        <label class="col-sm-3 control-label"></label>
-                                        <div class="col-sm-9">
-                                            <input type="text" placeholder="Wpisz wartość z rysunku" name="userCaptcha" class="form-control" id="userCaptcha" autocomplete="off" />
-                                        </div>
-                                    </div>
-                                    <!-- Enter captcha info end -->
+                                </div>
 
-                                    <div class="form-group">
-                                        <!-- Book a table -->
-                                        <div class="col-sm-12">
-                                            <button type="submit" class="btn btn-primary pull-right">Rezerwuj Stolik</button>
-                                        </div>
-                                    </div>
-                                    <!-- Book a table end -->
-                                </form:form>
+                                <div class="admin-user-action text-center">
+
+                                    <a href="/owner/dashboard/restaurantEdit/${user.id}" class="btn btn-primary btn-sm">Edytuj</a>
+                                    <a href="#" class="btn btn-primary btn-sm btn-inverse">Deaktywuj</a>
+
+                                </div>
+
+                                <ul class="admin-user-menu clearfix">
+                                    <li>
+                                        <a href="/owner/dashboard/${userId}"><i class="fa fa-tachometer"></i> Dashboard</a>
+                                    </li>
+                                    <li class="active">
+                                        <a href="#"><i class="fa fa-user"></i> Profil</a>
+                                    </li>
+                                    <li>
+                                        <a href="/owner/passwordchange/${userId}"><i class="fa fa-key"></i> Zmień hasło</a>
+                                    </li>
+                                    <li>
+                                        <a href="/owner/reservations/list/${userId}"><i class="fa fa-bookmark"></i> Rezerwacje</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-sign-out"></i> Wyloguj</a>
+                                    </li>
+                                </ul>
 
                             </div>
-                            <!-- Form Horizontal end -->
+
+                        </div>
+
+                        <div class="GridLex-col-9_sm-8_xs-12">
+
+                            <div class="admin-content-wrapper">
+
+                                <div class="admin-section-title">
+
+                                    <h2>Profil właściciela</h2>
+                                    <p>podstawowe info</p>
+
+                                </div>
+
+                                    <div class="row gap-20">
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="form-group">
+                                                <label>Nazwa użytkownika</label>
+                                                ${user.userName}
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                ${user.email}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12 mt-10">
+                                            <button type="submit" class="btn btn-primary">Edytuj</button>
+                                            <a href="#" class="btn btn-primary btn-inverse">Anuluj</a>
+                                        </div>
+                                    </div>
+
+                            </div>
+
                         </div>
 
                     </div>
 
-                    <div class="col-md-3 reservation-right-side visible-lg">
-
-                        <img src="data:image/jpeg;base64,${restaurant.get().logoBase64}" alt="image" style="width: 300px; height: 200px;"/>
-
-                    </div>
-
                 </div>
-                <!-- Main row end -->
-            </div>
 
-            <!-- END Reservation -->
+            </div>
 
         </div>
 
@@ -519,7 +478,6 @@
 
 
 </body>
-
 
 
 

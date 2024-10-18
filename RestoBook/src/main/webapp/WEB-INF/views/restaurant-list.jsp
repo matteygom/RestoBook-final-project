@@ -73,7 +73,7 @@
 
                 <div class="logo-wrapper">
                     <div class="logo">
-                        <a href="index-02.html"><img src="images/RestoBookPng.png" alt="Logo" /></a>
+                        <a href="/home"><img src="images/RestoBookPng.png" alt="Logo" /></a>
                     </div>
                 </div>
 
@@ -82,7 +82,7 @@
                     <ul class="nav navbar-nav" id="responsive-menu">
 
                         <li>
-                            <a href="index-02.html">Start</a>
+                            <a href="/home">Start</a>
                             <!--								<ul>-->
                             <!--									<li><a href="index.html">Home - Default</a></li>-->
                             <!--									<li><a href="index-02.html">Home - 02</a></li>-->
@@ -90,7 +90,7 @@
                         </li>
 
                         <li>
-                            <a href="restaurant-list-03.html">restauracje</a>
+                            <a href="/restaurants">restauracje</a>
                             <!--								<ul>-->
                             <!--									<li><a href="restaurant.html">Restaurant - Default</a></li>-->
                             <!--									<li><a href="restaurant-grid.html">Restaurant - Grid</a></li>-->
@@ -135,8 +135,8 @@
                                 <li>
                                     <a href="#">Konto</a>
                                     <ul>
-                                        <li><a href="login.html">Logowanie</a></li>
-                                        <li><a href="login.html">Rejestracja</a></li>
+                                        <li><a href="/loginRegister">Logowanie</a></li>
+                                        <li><a href="/loginRegister">Rejestracja</a></li>
                                         <li><a href="account-forgot-password-page.html">Zapomniałem hasła</a></li>
                                     </ul>
                                 </li>
@@ -156,12 +156,12 @@
                                 <!--										</ul>-->
                                 <!--									</li>-->
 
-                                <li><a href="about-us.html">O nas</a></li>
+                                <li><a href="/aboutUs">O nas</a></li>
                                 <!--									<li><a href="staff.html">Our Staff</a></li>-->
                                 <!--									<li><a href="faq.html">Faq</a></li>-->
-                                <li><a href="contact.html">Kontakt</a></li>
+                                <li><a href="/contactPage">Kontakt</a></li>
                                 <!--									<li><a href="careers.html">Careers</a></li>-->
-                                <li><a href="privacy-policy.html">Polityka Prywatności</a></li>
+                                <li><a href="/privacyPolicy">Polityka Prywatności</a></li>
                                 <!--									<li><a href="pricing.html">Pricing</a></li>-->
                                 <!--									<li><a href="404-error-page.html">404 - Error Page</a></li>-->
                             </ul>
@@ -173,8 +173,8 @@
 
                 <div class="nav-mini-wrapper">
                     <ul class="nav-mini sign-in">
-                        <li><a href="login.html">login</a></li>
-                        <li><a href="login.html">rejestracja</a></li>
+                        <li><a href="/loginRegister">login</a></li>
+                        <li><a href="/loginRegister">rejestracja</a></li>
                     </ul>
                 </div>
 
@@ -195,31 +195,29 @@
 
             <div class="container">
 
-                <form>
-
+                <form action="/restaurants" method="get">
                     <div class="second-search-result-inner">
                         <span class="labeling">Szukaj restauracji</span>
                         <div class="row">
 
                             <div class="col-xss-12 col-xs-6 col-sm-6 col-md-5">
                                 <div class="form-group form-lg">
-                                    <input type="text" class="form-control" placeholder="np. Warszawa" />
+                                    <input type="text" class="form-control" name="city" placeholder="np. Warszawa" />
                                 </div>
                             </div>
 
                             <div class="col-xss-12 col-xs-6 col-sm-6 col-md-5">
                                 <div class="form-group form-lg">
-                                    <input type="text" class="form-control" placeholder="Znajdź restauracje" />
+                                    <input type="text" class="form-control" name="name" placeholder="Znajdź restauracje" />
                                 </div>
                             </div>
 
                             <div class="col-xss-12 col-xs-6 col-sm-4 col-md-2">
-                                <button class="btn btn-block">Szukaj</button>
+                                <button class="btn btn-block" type="submit">Szukaj</button>
                             </div>
 
                         </div>
                     </div>
-
                 </form>
 
 
@@ -264,19 +262,19 @@
 
                             <ul class="meta-list clearfix">
                                 <li>
-                                    <h4 class="heading">Data powstania:</h4>
+                                    <h4 class="heading" style="color: #A8A8A8">Data powstania:</h4>
                                     1999
                                 </li>
                                 <li>
-                                    <h4 class="heading">Kuchnia:</h4>
+                                    <h4 class="heading" style="color: #A8A8A8">Kuchnia:</h4>
                                     Indyjska
                                 </li>
                                 <li>
-                                    <h4 class="heading">Rating:</h4>
+                                    <h4 class="heading" style="color: #A8A8A8">Rating:</h4>
                                     5
                                 </li>
                                 <li>
-                                    <h4 class="heading">Strona internetowa: </h4>
+                                    <h4 class="heading" style="color: #A8A8A8">Strona internetowa: </h4>
                                     https://www.arabiangrill.com/
                                 </li>
                             </ul>
@@ -318,7 +316,14 @@
                                     <div class="GridLex-col-3_sm-12_xs-12">
 
                                         <div class="sorting-header">
-                                            <h3 class="sorting-title">${restaurants.stream().count()} restauracji</h3>
+                                            <c:choose>
+                                                <c:when test="${not empty param.city or not empty param.name}">
+                                                    <h3 class="sorting-title">${currentRestaurantsCount} restauracji znalezionych</h3>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <h3 class="sorting-title">${totalRestaurantsCount} restauracji łącznie</h3>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </div>
 
                                     </div>
@@ -365,12 +370,13 @@
 
                                                     <div class="GridLex-col-9_sm-6_xs-12">
                                                         <select class="selectpicker form-control" data-show-subtext="true">
-                                                            <option value="0">Amerykańska</option>
-                                                            <option value="1">Włoska</option>
-                                                            <option value="2">Polska</option>
-                                                            <option value="3">Koreańska</option>
-                                                            <option value="4">Indyjska</option>
-                                                            <option value="5">Francuska</option>
+                                                            <option value="Wszystkie">Wszystkie</option>
+                                                            <option value="Amerykańska">Amerykańska</option>
+                                                            <option value="Włoska">Włoska</option>
+                                                            <option value="Polska">Polska</option>
+                                                            <option value="Koreańska">Koreańska</option>
+                                                            <option value="Indyjska">Indyjska</option>
+                                                            <option value="Francuska">Francuska</option>
                                                         </select>
                                                     </div>
 
@@ -699,28 +705,21 @@
                             </div>
 
                         </div>
-                        <div class="pager-wrapper">
-
-                            <ul class="pager-list">
-                                <li class="paging-nav"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-                                <li class="paging-nav"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                                <li class="number">
-                                    <span class="mr-5"><span class="font600">page</span></span>
-                                </li>
-                                <li class="form">
-                                    <form>
-                                        <input type="text" value="1" class="form-control">
-                                    </form>
-                                </li>
-                                <li class="number">
-                                    <span class="mr-5">/</span> <span class="font600">79</span>
-                                </li>
-                                <li class="paging-nav"><a href="#">go</a></li>
-                                <li class="paging-nav"><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                                <li class="paging-nav"><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                            </ul>
-
-                        </div>
+                    <div class="pager-wrapper">
+                        <ul class="pager-list">
+                            <c:if test="${currentPage > 0}">
+                                <li class="paging-nav"><a href="?page=0&size=${pageSize}"><i class="fa fa-angle-double-left"></i></a></li>
+                                <li class="paging-nav"><a href="?page=${currentPage - 1}&size=${pageSize}"><i class="fa fa-angle-left"></i></a></li>
+                            </c:if>
+                            <li class="number">
+                                <span class="mr-5">Strona ${currentPage + 1} z ${totalPages}</span>
+                            </li>
+                            <c:if test="${currentPage + 1 < totalPages}">
+                                <li class="paging-nav"><a href="?page=${currentPage + 1}&size=${pageSize}"><i class="fa fa-angle-right"></i></a></li>
+                                <li class="paging-nav"><a href="?page=${totalPages - 1}&size=${pageSize}"><i class="fa fa-angle-double-right"></i></a></li>
+                            </c:if>
+                        </ul>
+                    </div>
 
                     </div>
 

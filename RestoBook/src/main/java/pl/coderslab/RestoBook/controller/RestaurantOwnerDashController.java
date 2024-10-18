@@ -12,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import pl.coderslab.RestoBook.domain.Restaurant;
 import pl.coderslab.RestoBook.domain.User;
-import pl.coderslab.RestoBook.repository.RestaurantRepository;
 import pl.coderslab.RestoBook.repository.UserRepository;
 import pl.coderslab.RestoBook.service.RestaurantService;
 
@@ -35,7 +34,7 @@ public class RestaurantOwnerDashController {
 
     @InitBinder
     protected void initBinder(WebDataBinder binder) {
-        // Rejestracja edytora property do konwersji MultipartFile na byte[]
+        // Tutaj jest rejestracja edytora property do konwersji MultipartFile na byte[]
         binder.registerCustomEditor(byte[].class, new ByteArrayMultipartFileEditor());
     }
 

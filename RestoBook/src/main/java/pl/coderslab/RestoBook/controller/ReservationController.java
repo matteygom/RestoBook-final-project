@@ -51,12 +51,12 @@ public class ReservationController {
             Model model,
             HttpSession session) {
 
-        // Validate CAPTCHA
+        // walidacja capcza
         if (!captchaService.validateCaptcha(session, userCaptcha)) {
             result.rejectValue("captcha", "error.reservation", "Invalid CAPTCHA");
         }
 
-        // Fetch restaurant
+        // Fetchowanie restauracji
         Optional<Restaurant> restaurantOpt = restaurantService.findById(restaurantId);
         if (!restaurantOpt.isPresent()) {
             result.rejectValue("restaurant", "error.reservation", "Restaurant not found");

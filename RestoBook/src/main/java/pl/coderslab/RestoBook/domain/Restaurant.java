@@ -1,11 +1,8 @@
 package pl.coderslab.RestoBook.domain;
 
 import lombok.Data;
-import lombok.ToString;
-
 import javax.persistence.*;
 import javax.validation.constraints.Max;
-import javax.validation.constraints.NotEmpty;
 import java.util.Base64;
 import java.util.Date;
 import java.util.List;
@@ -13,7 +10,6 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "restaurants")
-@ToString(exclude = "user")
 public class Restaurant {
 
     @Id
@@ -28,23 +24,18 @@ public class Restaurant {
         createdAt = new Date();
     }
 
-//    @NotEmpty
     @Column(length = 35)
     private String restoName;
 
-//    @NotEmpty
     @Column
     private String yearOfLaunch;
 
-//    @NotEmpty
     @Column(length = 20)
     private String cuisine;
 
-//    @NotEmpty
     @Column
-    private Long capacity;
+    private String capacity;
 
-//    @NotEmpty
     @Column
     private Double avgPrice;
 
@@ -60,11 +51,9 @@ public class Restaurant {
     @Column(nullable = true, length = 10)
     private String streetNumber;
 
-//    @NotEmpty
     @Column(length = 15)
     private String city;
 
-//    @NotEmpty
     @Column(length = 20)
     private String country;
 
@@ -74,7 +63,6 @@ public class Restaurant {
     @Column(nullable = true, length = 255)
     private String description;
 
-//    @NotEmpty
     @Column()
     @Max(5)
     private Double rating;
@@ -87,22 +75,18 @@ public class Restaurant {
     @JoinColumn(name = "id")
     private User user;
 
-
     @ManyToMany(mappedBy = "faveRestaurants")
     private List<Foodie> foodies;
 
-    @ManyToMany
-    @JoinTable(
-            name = "restaurant_reservation",
-            joinColumns = @JoinColumn(name = "restaurant_id"),
-            inverseJoinColumns = @JoinColumn(name = "reservation_id")
-    )
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     private List<Reservation> reservations;
-
 
     public String getLogoBase64() {
         return logo != null ? Base64.getEncoder().encodeToString(logo) : "";
     }
 
-
+    @Override
+    public String toString() {
+        return "Restaurant{id=" + id + ", restoName='" + restoName + "', city='" + city + "', country='" + country + "'}";
+    }
 }

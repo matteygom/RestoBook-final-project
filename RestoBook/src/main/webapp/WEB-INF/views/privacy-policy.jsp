@@ -1,9 +1,7 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!doctype html>
 <html lang="en">
@@ -17,10 +15,8 @@
 
     <!-- Title Of Site -->
     <title>RestoBook - Rezerwacje Online</title>
-    <meta name="description"
-          content="RestoBook is a booking platform which brings restaurants and food lovers together. Booking tables online is easier than any other platforms.">
-    <meta name="keywords"
-          content="food, booking online, restaurant, reservation, book a table, foodies, cafe, recipes, menu, dishes, chefs and cooking experts ">
+    <meta name="description" content="RestoBook is a booking platform which brings restaurants and food lovers together. Booking tables online is easier than any other platforms.">
+    <meta name="keywords" content="food, booking online, restaurant, reservation, book a table, foodies, cafe, recipes, menu, dishes, chefs and cooking experts ">
     <meta name="author" content="iglyphic">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -63,6 +59,7 @@
 
 <body class="not-transparent-header">
 
+
 <!-- start Container Wrapper -->
 <div class="container-wrapper">
 
@@ -92,7 +89,7 @@
                         </li>
 
                         <li>
-                            <a href="/restaurants">Restauracje</a>
+                            <a href="/restaurants">restauracje</a>
                             <!--								<ul>-->
                             <!--									<li><a href="restaurant.html">Restaurant - Default</a></li>-->
                             <!--									<li><a href="restaurant-grid.html">Restaurant - Grid</a></li>-->
@@ -137,8 +134,8 @@
                                 <li>
                                     <a href="#">Konto</a>
                                     <ul>
-                                        <li><a href="/loginRegister">Logowanie</a></li>
-                                        <li><a href="/loginRegister">Rejestracja</a></li>
+                                        <li><a href="login.html">Logowanie</a></li>
+                                        <li><a href="login.html">Rejestracja</a></li>
                                         <li><a href="account-forgot-password-page.html">Zapomniałem hasła</a></li>
                                     </ul>
                                 </li>
@@ -191,16 +188,16 @@
     <!-- end Header -->
 
     <!-- start Main Wrapper -->
-    <div class="main-wrapper">
+    <div class="main-wrapper scrollspy-container">
 
         <!-- start hero-header -->
         <div class="breadcrumb-wrapper">
 
             <div class="container">
 
-                <ol class="breadcrumb-list">
+                <ol class="breadcrumb-list booking-step">
                     <li><a href="index-02.html">Start</a></li>
-                    <li><span>Logowanie</span></li>
+                    <li><span>Polityka Prywatności</span></li>
                 </ol>
 
             </div>
@@ -208,184 +205,131 @@
         </div>
         <!-- end hero-header -->
 
-        <div class="error-page-wrapper">
+        <div class="section sm">
 
             <div class="container">
 
                 <div class="row">
 
 
-                    <!-- login container -->
+                    <div class="col-md-12">
 
-                    <div class="login-container">
-                        <!-- Combined Form Content -->
-                        <div class="login-container-content">
-                            <ul class="nav nav-tabs nav-justified">
-                                <li class="active link-one"><a href="#login-block" data-toggle="tab"><i
-                                        class="fa fa-sign-in"></i>Loguj</a></li>
-                                <li class="link-two"><a href="#register-block" data-toggle="tab"><i
-                                        class="fa fa-pencil"></i>Rejestruj</a></li>
-                                <li class="link-three"><a href="#contact-block" data-toggle="tab"><i
-                                        class="fa fa-envelope"></i>Kontakt</a></li>
+                        <div class="static-wrapper">
+
+
+                            <h3>Polityka Prywatności</h3>
+
+                            <h4>Wprowadzenie</h4>
+
+                            <p>Witamy na naszej stronie internetowej! Twoja prywatność jest dla nas niezwykle ważna.
+                                Niniejsza Polityka Prywatności wyjaśnia, jakie dane osobowe zbieramy, w jaki sposób je
+                                wykorzystujemy oraz jakie masz prawa w związku z przetwarzaniem Twoich danych osobowych.
+                                Prosimy o dokładne zapoznanie się z poniższymi informacjami.
+
+                            </p>
+
+                            <h4>Administrator Danych</h4>
+
+                            <p>Administratorem Twoich danych osobowych jest RestoBook, z siedzibą w Warszawie W razie
+                                jakichkolwiek pytań dotyczących ochrony danych osobowych prosimy o kontakt pod adresem
+                                e-mail: matteygom@gmail.com.</p>
+
+                            <h4>Jakie dane zbieramy?</h4>
+
+                            <p>Możemy zbierać następujące dane osobowe:</p>
+
+                            <ul>
+                                <li>Imię i nazwisko</li>
+                                <li>Adres e-mail</li>
+                                <li>Numer telefonu</li>
+                                <li>Adres IP</li>
+                                <li>Informacje o przeglądarce i urządzeniu</li>
+                                <li>Dane dotyczące korzystania z naszej strony internetowej (np. czas wizyty, odwiedzone
+                                    strony)
+                                </li>
                             </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane active fade in" id="login-block">
-                                    <!-- Login Block Form -->
-                                    <div class="login-block-form">
-                                        <!-- Heading -->
-                                        <h4>Zaloguj sie do swojego konta</h4>
-                                        <!-- Border -->
-                                        <div class="bor bg-orange"></div>
-                                        <!-- Form -->
-                                        <form class="form" role="form">
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <!-- Label -->
-                                                <label class="control-label">Użytkownik</label>
-                                                <!-- Input -->
-                                                <input type="text" class="form-control"
-                                                       placeholder="Wpisz nazwe użytkownika">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label">Hasło</label>
-                                                <input type="password" class="form-control" placeholder="Wpisz hasło">
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> Pamiętaj mnie
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <!-- Button -->
-                                                <button type="submit" class="btn btn-primary">Zaloguj się</button>&nbsp;
-                                                <button type="submit" class="btn btn-primary btn-inverse">Resetuj
-                                                </button>
-                                            </div>
-                                            <div class="form-group">
-                                                <a href="account-forgot-password-page.html" class="black">Zapomniałeś
-                                                    hasła ?</a>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="register-block">
-                                    <div class="register-block-form">
-                                        <!-- Heading -->
-                                        <h4>Stwórz konto</h4>
-                                        <!-- Border -->
-                                        <div class="bor bg-orange"></div>
-                                        <!-- Form -->
-                                        <form:form  class="form" role="form" method="POST" action="/loginRegister" modelAttribute="user">
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <!-- Radio -->
-                                                <div class="radio-inline">
-                                                    <form:radiobutton path="role" value="FOODIE" label="Foodie"/>
-                                                </div>
-                                                <form:errors path="role"/>
-                                            </div>
-                                            <div class="form-group">
-                                                <!-- Radio -->
-                                                <div class="radio-inline">
-                                                    <form:radiobutton path="role" value="RESTAURANT" label="Właściciel restauracji"/>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <!-- Label -->
-                                                <form:label path="userName" class="control-label">Nazwa użytkownika</form:label>
-                                                <form:input path="userName" class="form-control" placeholder="Wpisz nazwę użytkownika"/>
-                                                <!-- Input -->
-                                            </div>
-                                            <div class="form-group">
-                                                <form:label path="email" class="control-label">Email</form:label>
-                                                <form:input path="email" class="form-control" placeholder="Wpisz email"/>
-                                            </div>
-                                            <div class="form-group">
-                                                <form:label path="password" class="control-label">Hasło</form:label>
-                                                <form:password path="password" class="form-control" placeholder="Wpisz hasło"/>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label">Potwierdź hasło</label>
-                                                <input type="password" class="form-control" placeholder="Powtórz hasło">
-                                            </div>
-<%--                                            <div class="form-group">--%>
-<%--                                                <label class="control-label">Twój kraj</label>--%>
-<%--                                                <select class="form-control" id="country">--%>
-<%--                                                    <option>Wybierz swój kraj</option>--%>
-<%--                                                    <option>Polska</option>--%>
-<%--                                                    <option>USA</option>--%>
-<%--                                                    <option>London</option>--%>
-<%--                                                    <option>Francja</option>--%>
-<%--                                                </select>--%>
-<%--                                            </div>--%>
-                                            <div class="form-group">
-                                                <!-- Checkbox -->
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> Przez rejestracje, przeczytałem i
-                                                        akceptuje <a href="#">warunki</a>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <!-- Buton -->
-                                                <button type="submit" class="btn btn-primary">Zatwierdź</button>&nbsp;
-                                                <button type="submit" class="btn btn-primary btn-inverse">Resetuj
-                                                </button>
-                                            </div>
-                                        </form:form>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="contact-block">
-                                    <!-- Contact Block Form -->
-                                    <div class="contact-block-form">
-                                        <h4>Formularz kontaktowy</h4>
-                                        <!-- Border -->
-                                        <div class="bor bg-orange"></div>
-                                        <!-- Form -->
-                                        <form class="form" role="form" action="/sendContactMessage" method="post">
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="control-label">Użytkownik</label>
-                                                <input type="text" class="form-control" name="username" placeholder="Wpisz nazwę użytkownika">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label">Email</label>
-                                                <input type="text" class="form-control" name="email" placeholder="Wpisz email">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label">Temat</label>
-                                                <input type="text" class="form-control" name="subject" placeholder="Wpisz temat">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="comments" class="control-label">Wiadomość</label>
-                                                <textarea class="form-control" id="comments" name="message" rows="5"
-                                                          placeholder="Wpisz wiadomość"></textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <!-- Button -->
-                                                <button type="submit" class="btn btn-primary">Zatwierdź</button>&nbsp;
-                                                <button type="reset" class="btn btn-primary btn-inverse">Resetuj</button>
-                                            </div>
-                                            <c:if test="${not empty error}">
-                                                <div class="alert alert-danger">
-                                                        ${error}
-                                                </div>
-                                            </c:if>
-                                            <c:if test="${not empty success}">
-                                                <div class="alert alert-success">
-                                                        ${success}
-                                                </div>
-                                            </c:if>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
+                            <h4>Cel przetwarzania danych</h4>
+
+                            <p>Twoje dane osobowe mogą być przetwarzane w następujących celach:</p>
+
+                            <ul>
+                                <li>Świadczenie usług oferowanych na naszej stronie</li>
+                                <li>Kontaktowanie się z Tobą w odpowiedzi na Twoje zapytania</li>
+                                <li>Przesyłanie newsletterów i informacji marketingowych (jeśli wyraziłeś na to zgodę)
+                                </li>
+                                <li>Analiza statystyk użytkowania strony w celu jej ulepszania</li>
+                                <li>Zapewnienie bezpieczeństwa naszej strony internetowej</li>
+                            </ul>
+
+                            <h4>Podstawy prawne przetwarzania danych</h4>
+
+                            <p>Przetwarzamy Twoje dane osobowe na podstawie:</p>
+
+                            <ul>
+                                <li>Twojej zgody (art. 6 ust. 1 lit. a RODO)</li>
+                                <li>Konieczności wykonania umowy (art. 6 ust. 1 lit. b RODO)</li>
+                                <li>Naszego prawnie uzasadnionego interesu (art. 6 ust. 1 lit. f RODO)</li>
+                            </ul>
+
+                            <h4>Udostępnianie danych</h4>
+
+                            <p>Twoje dane osobowe mogą być udostępniane:</p>
+
+                            <ul>
+                                <li>Podmiotom przetwarzającym dane na nasze zlecenie (np. dostawcom usług IT)</li>
+                                <li>Organom ścigania i innym podmiotom uprawnionym do ich otrzymania na podstawie
+                                    przepisów prawa
+                                </li>
+                            </ul>
+
+                            <h4>Przechowywanie danych</h4>
+
+                            <p>Twoje dane osobowe będą przechowywane przez okres niezbędny do realizacji celów, dla
+                                których zostały zebrane, chyba że obowiązujące przepisy prawa wymagają dłuższego okresu
+                                przechowywania.</p>
+
+                            <h4>Twoje prawa</h4>
+
+                            <p>Masz prawo do:</p>
+
+                            <ul>
+                                <li>Dostępu do swoich danych osobowych</li>
+                                <li>Sprostowania swoich danych</li>
+                                <li>Usunięcia swoich danych</li>
+                                <li>Ograniczenia przetwarzania danych</li>
+                                <li>Przenoszenia danych</li>
+                                <li>Wniesienia sprzeciwu wobec przetwarzania danych</li>
+                                <li>Wycofania zgody na przetwarzanie danych (jeśli przetwarzanie odbywa się na podstawie
+                                    zgody)
+                                </li>
+                            </ul>
+
+                            <p>Aby skorzystać z powyższych praw, prosimy o kontakt pod adresem e-mail:
+                                matteygom@gmail.com</p>
+
+                            <h4>Pliki cookies</h4>
+
+                            <p>Nasza strona internetowa wykorzystuje pliki cookies w celu poprawy jakości świadczonych
+                                usług. Więcej informacji na temat plików cookies znajdziesz w naszej Polityce
+                                Cookies.</p>
+
+                            <h4>Zmiany w Polityce Prywatności</h4>
+
+                            <p>Zastrzegamy sobie prawo do wprowadzania zmian w niniejszej Polityce Prywatności. Wszelkie
+                                zmiany będą publikowane na tej stronie, a w przypadku istotnych zmian poinformujemy Cię
+                                o nich w odpowiedni sposób.</p>
+
+                            <h4>Kontakt</h4>
+
+                            <p>Jeśli masz jakiekolwiek pytania dotyczące naszej Polityki Prywatności, prosimy o kontakt
+                                pod adresem e-mail: [Adres e-mail] lub listownie na adres: matteygom@gmail.com.</p>
+
+                            <p>Dziękujemy za zaufanie i korzystanie z naszych usług!</p>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -511,14 +455,10 @@
 
                         <div class="col-sm-4 col-md-4">
                             <ul class="bottom-footer-menu for-social">
-                                <li><a href="#"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top"
-                                                   title="twitter"></i></a></li>
-                                <li><a href="#"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top"
-                                                   title="facebook"></i></a></li>
-                                <li><a href="#"><i class="ri ri-google-plus" data-toggle="tooltip"
-                                                   data-placement="top" title="google plus"></i></a></li>
-                                <li><a href="#"><i class="ri ri-youtube-play" data-toggle="tooltip"
-                                                   data-placement="top" title="youtube"></i></a></li>
+                                <li><a href="#"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
+                                <li><a href="#"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
+                                <li><a href="#"><i class="ri ri-google-plus" data-toggle="tooltip" data-placement="top" title="google plus"></i></a></li>
+                                <li><a href="#"><i class="ri ri-youtube-play" data-toggle="tooltip" data-placement="top" title="youtube"></i></a></li>
                             </ul>
                         </div>
 
